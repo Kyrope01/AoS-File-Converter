@@ -1,0 +1,3433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voxel converter for Ace of Spades — .vxl, .kv6, .vox, .qb, .kvx, binvox, .schematic, .glb, .obj</title>
+<meta name="description" content="Convert Ace of Spades .vxl maps and .kv6 models to and from MagicaVoxel .vox, Qubicle .qb, .kvx, SLAB6 .vox, binvox and Minecraft schematics. Runs entirely in your browser.">
+<meta name="color-scheme" content="light">
+<style>
+@font-face{font-family:"Silkscreen";font-style:normal;font-weight:400;font-display:block;src:url(data:font/woff2;base64,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) format("woff2")}
+@font-face{font-family:"Silkscreen";font-style:normal;font-weight:700;font-display:block;src:url(data:font/woff2;base64,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) format("woff2")}
+:root {
+  --bg: #fbfbfd;
+  --panel: #ffffff;
+  --panel-2: #f4f4f7;
+  --line: rgba(12, 14, 30, 0.09);
+  --line-2: rgba(12, 14, 30, 0.16);
+  --text: #10111a;
+  --muted: #55565f;
+  --faint: #86878f;
+  --accent: #6b8a00;
+  --accent-bright: #82a600;
+  --accent-dim: rgba(107, 138, 0, 0.10);
+  --accent-ink: #ffffff;
+  --danger: #c0392b;
+  --radius: 3px;
+  /* the two panels share one HUD skin: near-black glass, a thin green frame, corner
+     brackets */
+  --hud-ink: #eef1ea;
+  --hud-muted: #a7adb2;
+  --hud-faint: #868d94;
+  --hud-fill: rgba(255, 255, 255, 0.04);
+  --hud-edge: rgba(255, 255, 255, 0.12);
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  /* blocky, like the game it is for; the fallbacks only appear if the embedded
+     face somehow fails to load */
+  --pixel: "Silkscreen", "Courier New", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  /* Silkscreen is a pixel face: it must not be antialiased or scaled off the pixel
+     grid, and its own metrics want generous leading */
+  font: 13px/1.75 var(--pixel);
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  text-rendering: geometricPrecision;
+  overflow-x: hidden;
+}
+#bg { position: fixed; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+main {
+  position: relative; z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 24px 96px;
+}
+header { display: flex; flex-direction: column; align-items: center; margin-bottom: 26px; }
+header .logo {
+  display: block; width: 150px; height: auto; margin: 0 auto;
+  filter: drop-shadow(0 10px 24px rgba(30, 25, 10, 0.18));
+}
+
+h1 {
+  /* a pixel face has no optical negative tracking, so the title is set a little
+     larger and tracked out rather than in */
+  font-size: clamp(22px, 3.6vw, 32px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+  margin: 0 auto 34px;
+  max-width: 24ch;
+  text-align: center;
+  /* the field runs from pure black to bright ink behind the title, so the type is
+     white with a hard 1px outline: crisp, no blur, and it stays legible over both
+     the black voids and the bright red and green areas.  No glow. */
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 rgba(6, 7, 10, 0.92), 1px -1px 0 rgba(6, 7, 10, 0.92),
+    -1px 1px 0 rgba(6, 7, 10, 0.92), 1px 1px 0 rgba(6, 7, 10, 0.92),
+    -2px 0 0 rgba(6, 7, 10, 0.92), 2px 0 0 rgba(6, 7, 10, 0.92),
+    0 -2px 0 rgba(6, 7, 10, 0.92), 0 2px 0 rgba(6, 7, 10, 0.92);
+}
+h1 em { font-style: normal; color: var(--accent); }
+
+/* ---------------------------------------------------------------- dropzone */
+#drop {
+  position: relative;
+  display: block; width: 100%;
+  padding: 38px 26px;
+  border-radius: 2px;
+  /* plain black fill, and the border is a single 1px line carrying the logo's own
+     gradient: green at the top, red at the bottom.  Two background layers are what
+     let a gradient sit in the border while the fill stays solid. */
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(180deg, #82a600 0%, #f03505 100%) border-box;
+  color: #fff;
+  font: inherit; text-align: center; cursor: pointer;
+  box-shadow: 0 26px 60px -30px rgba(0, 0, 0, 0.95);
+  transition: box-shadow .3s ease, transform .25s cubic-bezier(.2,.7,.3,1);
+}
+#drop:hover {
+  background:
+    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(180deg, #a8d400 0%, #ff5a2e 100%) border-box;
+  box-shadow: 0 0 30px -10px rgba(130, 166, 0, 0.45), 0 26px 60px -30px rgba(0, 0, 0, 0.95);
+  transform: translateY(-2px);
+}
+#drop:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(130, 166, 0, 0.28); }
+#drop.over, body.dragging #drop {
+  background:
+    linear-gradient(#050505, #050505) padding-box,
+    linear-gradient(180deg, #ccf01e 0%, #ff6a3d 100%) border-box;
+  transform: scale(1.012);
+  box-shadow: 0 0 46px -8px rgba(130, 166, 0, 0.6), 0 26px 60px -30px rgba(0, 0, 0, 0.95);
+}
+#drop .arrow {
+  display: block; width: 24px; height: 24px; margin: 0 auto 18px;
+  color: #b6dc14;
+  transition: transform .3s cubic-bezier(.2,.7,.3,1);
+}
+#drop .arrow svg { display: block; width: 100%; height: 100%; }
+#drop:hover .arrow { transform: translateY(-4px); }
+#drop b {
+  display: block; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.13em; font-size: 13px;
+}
+/* ------------------------------------------------------------------- panel */
+#panel {
+  position: relative;
+  margin-top: 22px; padding: 22px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(180deg, #82a600 0%, #f03505 100%) border-box;
+  color: var(--hud-ink);
+  box-shadow: 0 28px 64px -30px rgba(0, 0, 0, 0.95);
+}
+#panel.pop { animation: pop .42s cubic-bezier(.2,.8,.25,1) both; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px) scale(.99); } to { opacity: 1; transform: none; } }
+
+.top { display: flex; gap: 20px; align-items: flex-start; }
+.thumb {
+  flex: none; display: grid; place-items: center; overflow: hidden;
+  min-width: 220px; min-height: 180px;
+}
+.thumb canvas { display: block; }
+.meta { min-width: 0; flex: 1; }
+.filename { display: flex; align-items: center; gap: 8px; font-weight: 520; letter-spacing: -0.01em; }
+.filename span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stats { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 16px; }
+.stat { display: flex; flex-direction: column; gap: 3px; }
+.stat span { font: 10.5px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--hud-faint); }
+.stat b { font: 14px/1.2 var(--mono); font-weight: 500; }
+
+ul.notes { margin: 16px 0 0; padding: 0; list-style: none; }
+ul.notes li {
+  position: relative; padding-left: 16px; color: var(--hud-muted); font-size: 13.2px;
+}
+ul.notes li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 4px; height: 4px; background: var(--accent-bright); }
+
+.rule { height: 1px; background: var(--hud-edge); margin: 22px 0; }
+
+.target { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+label.f { color: var(--hud-faint); font: 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+select {
+  appearance: none; -webkit-appearance: none;
+  background: var(--hud-fill) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4.5L6 8.5L10 4.5' fill='none' stroke='%23a7adb2' stroke-width='1.4' stroke-linecap='round'/></svg>") no-repeat right 12px center;
+  color: var(--hud-ink); border: 1px solid var(--hud-edge); border-radius: 2px;
+  padding: 11px 34px 11px 12px; font: 12px/1.2 var(--pixel); min-width: 250px;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+select option { background: #0c0e12; color: var(--hud-ink); }
+select:hover { border-color: rgba(130, 166, 0, 0.6); }
+select:focus-visible { outline: none; border-color: var(--accent-bright); box-shadow: 0 0 0 3px rgba(130, 166, 0, 0.25); }
+select.mini { min-width: 150px; }
+
+.actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
+button.primary, button.ghost {
+  font: 700 12px/1 var(--pixel); letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: 2px; padding: 13px 20px; cursor: pointer;
+  border: 1px solid var(--hud-edge); background: transparent; color: var(--hud-ink);
+  transition: transform .18s cubic-bezier(.2,.7,.3,1), background .2s ease, border-color .2s ease, opacity .2s ease;
+}
+button.primary { background: var(--accent-bright); color: #0f1500; border-color: transparent; }
+/* button.primary:hover: last rule wins (background #93bb00 + transform) */
+button.primary:hover { transform: translateY(-1px); background: #93bb00; }
+button.primary:active { transform: translateY(0); }
+button.ghost:hover { border-color: var(--accent-bright); color: var(--accent-bright); }
+button:disabled { opacity: .45; cursor: default; transform: none; }
+button.primary.busy { color: transparent; position: relative; }
+button.primary.busy::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 15px; height: 15px;
+  border: 2px solid rgba(255, 255, 255, .45); border-top-color: #ffffff; border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.result { display: flex; gap: 22px; align-items: center; margin-top: 18px; flex-wrap: wrap; }
+
+#status { min-height: 20px; margin-top: 14px; font-size: 13.2px; color: var(--hud-muted); }
+#status.error { color: #ff7a6b; }
+#warn { margin-top: 14px; color: #d8b84a; font-size: 13.2px; }
+
+
+@media (max-width: 640px) {
+  header { margin-bottom: 44px; }
+  .top { flex-direction: column; }
+  .thumb { width: 100%; }
+  select { min-width: 0; width: 100%; }
+  .actions button { flex: 1 1 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<main>
+  <header>
+    <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYoAAAD8CAMAAABerBNKAAAAwFBMVEVtamGemozBu6qAfXLW0b5APjhqYCWAnxGWwAABAAAAAACCpgDxNQWKsQB3lw1rhwJdUyETFgJGSQ5TZwVHWQMuNwQvCwKwJwP58txQEgI4RwJvGQNiWCIAAAAAAAAmKQfLLQQAAAD+/OcAAAAAAAABAQFbdAGWIQNlegkcIwB+oQDaMASGHgNWSyhEPBjv6dRkaBjMx7U+UACsp5gsKic6ODNBDgJZVk9MSkQhHQ+6tqWIhHjb1sPi3MiZlYhhXB37V1tfAAAAQHRSTlP////////////+AP///////////////////////9At//+v/0+Qb///////////////////////////////////xSXoLgAAJVlJREFUeNrtnYl6ozi2gF3dPTOXEONgtsLYgOMFr3FSlUpq7/d/q6sNECAJicV20q175+tKYmOjX2c/EoObf+oIw3CxWKxWy+V8Pp/NVhf/QoN3NsGr5Wq1WIRwVKYdzfsSzvtsplXGPPwXRaejNL/sWeeM5b8olNTKYk7mdjZfrhaVv8tPPGus/kVRNxZ4jhbLykzPV6FIKlTHbPFPQRFCfQ0V9lLplkOwXBerOWf65ovuUFzSZJwPRXFJz1VIzDSxxqfcn/q5dl33xfeDIDgkied5cRzv98E1aKkzoags6bmKTCgoFvxj4ML/d30w7W5p2m+ZI/Yvb757RIE9do7rqGFFNZe47dK7wdyC4bpM94dgu917t/vkVmV47qXFoj8UCzndXHudgjz5By+du7138AuCEWYo3NsGY59dafHeUMzlUITSl3EDr6xe9gktHItWKGLpr/TWUDA0vB8kXlD+pXgJhhkJML1xjWKBfhb+oCYoEnlBfWMoSkIBljS+Y1clqlrQF/A5yp+iS8xK0ARFpu1m7wxFmHmOcO59L7/lgyvtSuUkfDBRsYTFxePQBEUjP/stoJhnyzPQgvIkxrHnSazBTMeByyRCpVNi4TUgcXivcUXqVEKPnb2aX+o18zwDEfuBpHZBI24jFJey2n2hWNbq7KD2zlfpEgfxVyKt6ckKaGwpLma1+0KBb2ovoxBCsaFIYl9qmVM6St2XjV+uIFU+uJBQ3Ho1qjk12WCK3b1SWCDvy0KblRyC4EUl0HljKCRUdixehaHyzOZxgWAJ7NHsBwEjc3Jh/6knFCsJ734vvHeKRKCs7hnvgLP/wpt97SqEoh8UUn6MK/Bmm5DI4fqC/NIVF1UHvQmFL7uI+cnYg0q0FscCs400kusHB8/DxQmYO0+SpCwns5v3hULOuRd4s4SEd6hxYmOg9oHeCUoxmravg5a9370a9dQDioWkUORmdsEjkYjC5r0XZPPoHmDOVj7E20OEDMsxu2j/TdcoQm01k0s+cL1ZEmQnnuAanl+tk9YnPvaxdwAMuGXtm5v3hGIl7YHyvNklsRMeXzsdhK6QX0URc8SA263wHlDM5TNynMVIHKeYS+JQ00Zw68U8ARR0QF26N7B7FAphGdubJYYi4XmxXl1w4IqivysMJ/pCkemnpLAyE2lvNs3Gur5MCpapn5Tl6IL17B5RzJm288Bc4ixvdpXGdYHY1KuhCP6JKLL5cKngLGb7lwxvNkxJJPsGVoIbnvv/QBSLbDr2VA3VZ2twhjc7I+s6jmuK2IKR1Bb5rtCR7R7FvFC7Ib0yHmexxpVpWAkrP75cFslrhOIKWAz60E8emWqPnoi43oUS+sGSJFhvfwu7KzpGsSgYTh8pJd/nOpluyYVaivxgWRIM5PGb2OnSLYp5VSg8gT0tu1CiBJI0CUYuUBLFu9p1RJY/Npy+X57CmOcQLWpz64E0CVfZBaYsyXy5eh+lo7RLMsFLEcx8fBDNUsmFmvGFItHaoGC/G1UsPJgkCa7Dr+0SxZI2m6hzyRW6/MWEYAoybq5hJIJtWD8CBIofch0b8gad6yd0k16ssdRKLChvzwnIZnGBKMILsAgcPI+108XT3HeHgu7idt0DazG7Am+WvCBJWhgKNoq9uJTklUoY7wAFrZ9cje31FFua6IRg2iVSjQs8FRKa2l4jqqLhX9qR6g5FSOsgmPbwalU57c3OybuDfaMArVXrskxj1ltCMS9nLVga3o153iy3xTJQQxE3RRG8m6b+sGwNgnpf0ytvFwqa5cW7QOG9n/0V85ICiiWcTUonLNuk8mqcWbXtFW8eRZoe9z1cp9i7Mso833bNi+8STXU0EomXd+RBzUoujCsVDru1kbKqUDTZh1fq5HnjW10WZCp9sipjOW3u103jQVkoVG1FXO7kuVjhYtClUHhgbv1avZJwvaPktp0jq2wqYkZH1RvfX7FK9Uva5RrIzVZSs6L7FIo4YfYJXu5IqEGnQgH0bn0w4HI91faWQjLC8xJeu+Zbb+qvVhp8ORT7AJ5Kc0g8ttVWd59q9+HBzmX3Oo9J6wRFtiD3ewkUHi++8puX7iQcKNw+fsUtOF2gyGrScTbNL7KTFVN50aC9ftIOxWa2GG+7c4s1o4Pnv9OCamYwXa1+El1+UchrmfNA14iDkmC5Lz48msvzPAAhQK3N+9h/n4eb5juD845At1A6FhS4qeR0BUXQBIUXlHZ+UWhjj7u/YvkeOsmp5HhCVWsyrQNsL9X9nQi6lOL2+knbl1C44Kr7uu0V87bWOgyvAsVcqOcD+I84c4VemJ4l1B5gtKho5/7w4VDmXEN03rjJI1wtwnC1RAffrq4ARZhWtPfFwjFuRUuQwveyBb5XCIWTRiiCRMncrJpCuFnMOnaDB50JhVtSMJ7mw+O4AnxiiqteYmvgysIsGPkMfGpRbbjeRCIWs178r0E3QgFnPuBu84IRhxt4B2FW4hA0MhVJUEyqpCgCVwqnOoqQe/Rwy6ObB50IRQJvmr+064UhhifDNpGKoLjwgWmKaRRuBygWS3RAK+kcXPXWjd4SRZocv90z55sUkGpO+yA7sA8NfFm/lLw93KY9Jah5ut7yh3VGoSADs2VRJL4+a9rz18GPD186OEqqJYpZKhReINrC6O/5TUguz889yJgGbIuCPDRJQ0iEQmC10TJfiEkshAe0moOnvz6D8eHzr59dnEsx6EYoak/08+pryp66BxWjyfbzj4rj9Mu4LluwZBDUGAXt+ffP45cPp/v70/2vz9+fTvdPimeEME/HH3QgFF7tYVn8ko7XJu/hIQa0Jtp7GQq/mAqTR1Cq1jNI3N/ff/wI//cR/geMJzVrsWI+naEVipVQKPZJkgZvLvdFMb/qU6voD3jZx5RhuU0KKFp4mhQJ8z/H4xcz+/HLHxgCAfHx9Ovjq1J0sWCfntAKhXy1xvPqz/xTRRHckvgxv46b2yycKW6c/c5OpHoefD/BhX96GjyjX3y+v89B/Pzw+jr4/JdSoBdyjrIYtBaKho1HVZc1Vitsk1Uf0P4WJXvw7y3OtiZ24vU7Wvhk/X8Fv/n2MSNx+vxj8AFYilw/SSGfcbLBg9ZCEbdDEfBRuHXlOp9aCAHGE5Df7OF/A62pZ0NW7u8/TrkyOt0PoHrKf/HxF8Dy/c+vz6ZKmDLnpeZboFh2IRTUylVCQfwjt+iKweSjT7Qb5Vepx15YnZuvT9TEA8kA4cPX+0w7nT68HkvumeyssdLzgwsLBaXPY4UkFAzkvEJ6EaFI9hqFYi+rwsuP0YOP9CF2IXOS4L9+A/Ns/jhhEj8HZoOCLAnWzUkVxqClUAQtSVDzFcv3kEMSpeMqAlw4Sr+RB1B4XL0RhvBxheiJM/SaTvPlqQ75fQ+n/R7YhA+fTyCIQI7SAOP5bDZJo6R+ma2PJuVUYmMUoXrWu8aFkkcBSexLvhu6TBz4booioN6ffufFApYXRI+wmi0XWZqJTPqfaNJfAYofA6ChnqHWoiy1Sg4qdZ4mG8OowGiMYl4rFAf0zCd4vCsefo3d9mQLFijN5BbfkJBg+zYIyM8B9USKcEEqPArjy+s9stUf8I9HgOLDZ2QbvoN//smgGMo6T44FUEAYDg1j0E4oRKnW/ByDwOfGgnH2KumdX2nKNak6vunOWIyiSUE2D6kHP1FI/TnN/EFRwL7S0z12ppDSf+bYI/QIQKgDFxXnKXq0RgYeGwrGoJVQHLi9qAE6RihOAvScqIR0vYhMhSwKn0UiZ+0fiKz5SRsS2gCa7PvTj/TnI0DxC88+cHAhCvP59cP37z+KzlO4XJYsUG5AiPNkWlaGAsCIWkqFWCji8vOhfOL0C49C8aS2awck954wVBmw1DkKibwuUqABHqVGkNffkMTP5xwN+Pn0BSqoZ2hAfv/44xf0q37+Ls74km/Mw5yEZVBjvcVS1RDFTHo3KOw5E+0ddQXJW05roVe+mJfX8G5fkhpHGG3hTrzq0wpjqoXz+TdST1/yt0E0p9/AcJjwXx/v0yD8Z1FBsVDMCn6sDUhsaBQ6Nt9hMxQLqf7UwrG8vFxVoQ0qronxUN0jKV9rT9Y40EnurctDgY7BjmO5fWAfgGnOLDYaEM3pNECaKh+nXIPxURAWWKePH8soDCwVDT0omVN940NpOti1bRqFp4lRJOnZBHH1ZQcsRHvXK10WHiWReJKRKJGvr0+/7p9OH79R9bqnJyAG98fUxcVh3q/PT18lUGAvF08aVE+UqQBjRF4y6EcoWHtIAlecg4Io9oJwG+3ohoVBnwUsTqfRz36pwiBVUfga34GT9EdBKD6//rh/Qnb7QyFF/tdzMdLGSz9yJrZtrTejkZnHcOgfW0jCLrBYk1cM+hAKdncw298qSkXMjfHQY8TQKfsB6wKo+8eNvRSFGoOSGL4+/QX1E5Vg+vbz+dfpx/1v7D9lSajPX8vGGaPY6Iau4yVvFrdDO1A/jSfjHIZuE5JNUKy4jX4ktFPYhhLTfy6fB5+hcA8ZCNdjkfDxPw63zR7aWfLEPgDlVAyoP//+en/6Cc14dCJ5qY9pAaMQ0c+wk5QZA32Uqig8a2NIAo0MhkNIDhrnATlCkbhK23gPtCUoHwjvoacIk0enxgErvPfpdgMtiZue8UF/G7zw739QkffHpxPJdjxjkShxyNwkgiKb55FhExTz1H+yMQogGfglJnn7oKlQsNMY8Yuo1hMHolaEAxCRg9j2VA4ACVIS2FDEXrtMMZaK40fI4v4/+Vf7/oSq2TDEPv6CUD7zmgNnWegA5tyGsz4hf07/QkigsaasdhMUguS4sDMAhr+ibkzY0xQIMuk+73iivHRa8cEaofj663sWWuPw7oTYnExkR34yU1BhCQVY9Xg4xFaQnAdNYjyx18Rqr5qgEFSMans0vOTAR+GS3gB2bTzmel+HrPXNB3PZQe3ky18w4feBUk/YTCONNQAoPmYpqEofQ+YmZdNNUIQkETgujontpP7XoGHKIxaWHniBblCxqrSTtCdHP6rVYj16B0HstSCRriTzCSb8MlNh/sQ+0wlli34gFF946XG89qsoFsRqV4aTGf1BM6EIbpseFyR4j3cbq2h6P4u/XaWdwrUe+DekjjIH6jtpeMK/+H06VaVieVOLAs+bwyExa4BCVDGSyL8VUMCm74PU7lIuiUNByTWoY8UxemrhoZANRJN//0oXVcH4kv94/5XTKhBmwYMTOQUFRZK1ZhHGhArVB91VjOq7+ZLis5rhRHoKe64rJHACxG30flH93PyFrDSc7+e00SAlg36mor9ZcRdflnzdonmfjO2ofHEahtm8oCpKjgcSKIqmJSjxSxWMRGzwkooEddpRkzo7kgnPS4rbNAY4+frn6++06ylTSb+KUrEoVIvSvvNoY2uRgyc+qpKelEjMm7QZiCpGyqc+5PFAqbHWr1P6e9gBhUQidjXRlkuFUZisE50Ip0l8Kf44yyAsC+WiiaNt9JHlmOyJ2GIY28JFBp3lAT1JFHsvD+/KokSsduzWOp0kF55o/H3ILVDgQtGvPO2XmenX+7QhioQTIadqvoXxtm6sJ1vmVEQARlRsghh0VjHyJVF4Sa7R9qV3ZWLh13idAUsnNo8nvEP54I/B/f3pj59pLvw/dLgHHKg/6u/VTpNQxsaOmDCcUsF10JVQyGztjYt77hKAwtWYYiH2S0n0UHoYWJM+Rf7BH1+f7tPxvaBmTt9LDhR7HwxdHdIdwSsXjRo1Z1LVuBoUSZCfe1OJCjOxqNc2+4BR9VYShZrTV77++P709PT9R7EZ88vHJ5FQmFSnUz5ylhXrsWrUM7sSWEep/e74uPIDddJDzHGy4lrPNGA2IMjqI79xY84rEJMvTAjRxF6PSKFaK9RMR9lrxsbI4W0xHigLBVss5CPt+EClZQO25NxmJ9/xuqw4vSCN9ZH0iL5+rZJwUF0OVot0i+SaqnU68F4bArI4/YQDVUuhlQ8WlxcKF51+QqHweQ1nyB8LuigS0sXSlhAEY6PnfU2kLEGbCpsoLdyKpo8iZr9zE6mAWiQuPjTWl0IB1Xt2ph1PlPzsiqxD973Di2AXUvf6SG7YJWVkFro6iNLabrLf2W1R3FBKpLi7TuHkJq9WqwXZJYOClU5XdeAlAq+gCCEJXrQzjMn/iq0020cbxA3WhmipKC3gpVpL35jV/RgNnFlSvkyUz4CoGP1EtLx9rbDfO8Yt0KjInfD3SZ5FH1UNSKnBLCtLAEOeOlDbQvuTWd2PMWiQIT8g06BqsxlqJBG9JmG6CLEnOoURPkb3DPqo6j2VDMMkq9VNxkAYsFA8Vro8Zi22RaYPmTgUplTpYDlfRq/5XpL46T+rLZ/XNyh/Cdptu1A2RfoJ6KyxvREIhSKKVD+90LWBvdKXVjcxLnxQ1/lXutJYl1AUihJYKNDvLL5QqKFIH4KzLwiF4hztFV3gNzEs6M2ONqifA+gru1KoI7+a2KO8T23RAsU86+KjvBXV1eq9RxTOxoLLfoKLENsCCjzv2/RHiyMUTZzZBJqKg8KhKFwXav9uUJhZrw2qQkROuXq9ddKCERAMplAooUjDbZSI80leT/kE0kCp2nSBWY0mtjWy6l+3dT5ZZoaiZKVRMTUTCsfeACeX8JmYTKFQQrGkugU07cWFwZanbE2JC+W97G9v3WtjAMIAXR8O9eFaqI4mMHqDL8xSGJNKEwe8oDO2J5o5QduMgFpCguEwAm1lFPNO7ti9zfYt9ozCbMAAj50ukopt+sKdHuH301019qQQ/Jma9YjDbGginLSczTj4QAVF2M0M7fM0eE9xAlAOcG53pjKDdAxFKMxd9rpIi8Z306kJ/kNEwolKnzrJ8lEFvi3Pg1p0MlFe3mTg96hjwKIVorCYDNIhUlCmTqOY3t1Nv0G77URbxgduqV1GFItV21PSll3MVwI7ZhJ4cHuH+slkrG8hCpMHAY+NEopIkLSlk7QZi1WbA+vChfJ5AHwXCgQmB19CzVhrYy2ZG2XMrBiF3iEKfu0a7TKqbIGcNTzGEXZazTrUIn6dB1xwZUaCF23s/JaHu0ugcDCKMTHe1ZfCXRZjq1xECpVRVDqtmo6tU3ChYq6rDl36oivDQLFNX0QZ166lYp1HDyKzDVEcj3fHsf339I56hRlFjvOgaWMUd0+sYpF7qXK4aWcQTAfPGz0rPitcgi/bwektzQkDhTUsuJzgth/Gj7oqCkMsFegrwQNq9OpVDBrF4wbEGP8bWg8pCsBgDP4PjMzHTVnkHfxSKMJVN0bBBMGolDPjwAr9kOfLMFDY+i53OR+ALzmd3m06RqHnX0mEYjQysq+CM7DaN+jSPjxgFEUWa54fW0FRZ5nBCnck3fqKpyiYFVvoy4wEb4AoxkBX390dmShSiZtYW2UU+ai8N6qaJfhVoFIagygD2A4zIlKRx35WVqWYS5y+vKyfXKvWrwdCzXLXBSg+6bueUExwTwww/k4nKODtrUfMN8KvguXzDqLQEAsMLs0CCm22BIrC5O50Wx1CPYqhoitTQPHAR6HnCQqGNKui2BJXgf0itCruyAAhH2KhFVhMRDZbiAItAWRJqQ+0eRB2/MC1Tm2LUayzT5moo6DMa+k7O7auiCISfk2YP8QCekdCPmf8oOUssm0WsxsVFNCnXI9Yk8tAMdLFEIgR1BpLBcxFI9QGB8Xx7u7vv0eSKKLMVVNFsa31fnMU37CViLIPNQW5Jz6KicCfqaIw5W7HaCwVuVIYsVCY9mYEp1aXQ7HlqxjuMJVQHEGYMXWwc65PKjc7l3towrzgtUuikFO5RhpEGyNlFBUDnrtchqzCz1HsdNUhIxW74Qah+BtFGalRGVZR3HSGYtIQxS41J4xEht0chfTIUaiPqO6tSM7WzqdReWWUp2smfO5bQxSmo+gTDvmJjMmbRmEYG8t2tqbDUHwlFDVnMyujSL1WU9U9Z8YJsEA80t8uCisrUbDykSV9vpJGQQ7iFqHQjcxhMpXMdnVCTeLK6EP9ClDAezKM9UiAwhQrbEfCtK7qURTS4Gu5G22LAsznsKE8dY3CGK2tiQPXN1NXilDkcx3JeDkrMYqwlHZaD3fnQbHT+0DB9lVFKKil3TcKobkYVArWUEGB+9mNNn1LRbcokI4ZbWxbGYXTE4odI2W3UEGx1oFPMIF9C7pEJkMRxa4vFPA7Ix3D/kaOJqXwmSicRiiQdDLyRKEAxapYY1hPTJlA2jAbuCTw60mhGCqj2FBdSqooHDkUOyGKbSE5YIyQh8tKLoS1KEganPpiWxkUkSyF9OvVKHx8H0xXRohi1BuK9M8st72AgjBY25NIVLOa1aFwiEND8smwx/DvDqXCsMt7x1k+8w65MiZnTnpDwVNQZG4jAYrcGJi1DOpYZCiy5Az81mNYBHlsi4JyZoxKAyUDRU3XgCQKk2WhpFHsKAZgbqkFVINCYczFKPJ7h98apXpboIAeGEwI7EoogLA9jO/uzo0i10EyUsHRMd2h4JiLQZoab4iCZSuMtUVuxaBRRGN7isb5UAzRmgA2ypRDEdkOV8dcAEWEUGQKCt0NvxaUKbYh69YKKJy0snI2FNBPKE6tKZVuviIU5nQ6Hkdj7PV8ckzGtGUohggWeN2IUb28MIqtoBFtqIpC6w7FQojiU0EqTBRifEqNli1AsUtdVHtYg+Lh7CjSgqb5LXIc8sfUJFtGByj0dQ8oqInEbcN0kUeAglUB6gKFvqsklBqhwH4CULfj3OXEK2x0/SiyGrwiCquKwizMlDM9HoHim94d61HYwzRhardCYaatSXdjRn8E+dhP14qCcXc1KGA8OD4ybEURxfgRln3XEfagbCGK6FMalzvtUGStSSUU5jdD0MbSAgVQ7FHnKDaCyHi4o66MAkIxCsMiTXXDtWaO66VCY5RkmklFBYWJ2ymnXaNAeh3e5f/ZTVFwy6hrNgqS7aKujIyAGEXusKz5iY8KCtiFanWBYkqhiP6LdZYyCk5eDPXkbvIe4d2wexSUVJDggaQDnJKTKIMiu29pFGi/4XS66QDF8YGyFRERlE5QGIxdlf2iwKHDmpP3xa5R1yiccgdmo7gCXOLvx41lT+16FEAIVVHoUrU7TaquKoXCHtmTLT/pOO5FKjpAAfwv3Js0nERTPgoLH2Bg7Li7zS6NQtpRe5jCpjjj+lBkJgqEDg8lFEeDStym7ZvdoLDaoVg3DepNuPJ2rGLwNaBgLFSI4u/Hx41R26T1xlA4jB6ablDA/YZHaRQbSRRbxxK0O3eBQrAJpV8UE0YPTUdSAVbuiN7iIysVwhq0obrbrKlUYBf3zFLBR7FthiLbt90sHSisQRt6jyhIeWRtERe3EAhLoJhxPme4lpMKRRSWoLa9zvfOt8jMXggFKlui8sgk69Xm7PBZqqKwWqMwBSjWadhYrew36YM6A4q1WCIm5bSyzt73Npsvw7Oh2GabWgUoRtDeQ2m2O+kk7waF0QJFXhqwK417aX/BahGKugNlUaDt/VIo7An/gJ/sqnZWy7eGbwkFp8CMUHyD1RGbcvpKKGY1neT1KLAZhWWMndw+FYGWYcjaW0GxGaY95za7c+0b7qLgoxCzEKCw0z3jaS2JZYYmiq2v1ezrt80ZFNSnDlA4WQbOYaMgaWB647KpybPgo9BH68qmWqPxRjoWClTsnE7fiq0Qe/BwQ1YVxVZph+pMIX5pjaLQ5z5GhYPjOVBYch5pJyjuRCgELAY3MquF7+ypoRjqRRR3d2dCYZ8RxfFRhILP4lwoUMFjYxUaIN8Tip0OUNwd0ckKQqngH/JxJhQGq+BBDmJ4DyiAizsxHbJ9nhXtSrBohsLcbpVQsMNFiOJ4vCqpkDslOG+7J1tbYcrDYl0wUspBqaHAR7EYWYJKEsWaV3J63IyM60Gxk0WRbf1Lt53B8Ggni4Lt0g5CFRS71L0VZvWkUGwntsQxKedDgW5rJKmgdJqBaCb6Q5H7pHZbFCPlE2h6QlFZ3jKlS8bvrKEwMdUXCr09irW+uzAKamuRNAPB6AqFeXYUG13vB4UmiWIkuXVOdtgsD7cJil1tueBNo6hG27KNaG1QNJMKPW06s/pAoV8vCnwkqdktimxfpdkARVY9kDuzLEt1rjuWivb7thVQ4D5mOLpFUd14VhpCs60YPmdSUYsC9XgathQKvG97WzfbnaFI917cdYEiLxfUx+xsFAtlFKitYVKPIm20ZVvHjaiqcCYUd9nuCzYK3CSu/NiGNGY34f4Bpz8UxsiiN5avh1wtY1VazutQTK4FRdpEi047FCxykwpFchQgZjdhZRUpv3FzFEI7PCofD8FCsSvCumIUKB8JtVSGYpvuV8l8SXYHDT7Hf2QwzwcBKJz/Et3XJQq6qk5bX9IBvx6qdbCIuooug+IYjaf4jF7UPFh1540KA+rxDhwU0ZSz8QyPUNQdSKHY0TZhY022TvGO0h1Ud5yOlLeD4gjzkbZt5VJhMHIAKQoze4IJ8ys7Cih4ZwcuK1KR2luiCbeFO3qYkl2fY15N/BIoDFUU+npikc0XIzOTipGgiDEZCr+yQ5vthiiK56RZOgVBY6Ign9IrCtV92+oo8ouPtEgGhcOQGCYK3UxPbjiqKaj8WFPigVXz2edHYWVH0FidoFiLkuQjcV9sJhW6Lo0iQofWP24e7xRR1DzwLmKimPaJYpKFq7laaIEi337RAoVTgyL/rbO1R/hk8tFRGYXwQZBFsz0+BwpW5NQGxbp/FMyTsUb0c8EkUVSOm+WiQA+MePz7LCiAx9yJguodBWzWZqJgb3qtey7eTAoFfGAEkL3NkYNi1xWKCOfqNteNwkoffzSUb6/gbNzOpWJRjwIY0vQ+N2ypgF7JphsUatsiL4RCFz/ThrddiIei9sGcrO/w+ICf3jOiOv/K+akLoRiJUKw5KEgmQ1dHoVinESiolVyvSXk4lfu2HaVM8xWhMDgPquwPBVsqlrycoyNEEZXv26jriGiEYqqOwjRUUdQ8MiDNeZ8fRfYcPrMBCpMkqMxuUBwVpAJ88ifeAwRrUOhSKCL1tw43DVFAjyx/wp0hJRXF40vvcH2yIxR2sXdQfFK/SMV0g0LtiTB447CljmJrV7bPNUCRnZkpgcIQx0sTq9I72OZRIpvzokBn2wp6e9go5ry7MxgBb78oqOS/pZqZle0WUUcx1JVR2HW3vxKhqGYdL4uCkQU9O4q0hVNTRDGsff7ySqCgupIKZCiuTip2DVDk3SeaMoqJ1kIqLFUU2/KMouNLj05kmuPpdaEoPBhxrSxHDBTDi6FgdamZLBT40ZzraHo9KMoGtB0KqLLgFQ25JrFOUaTPPOehyOMpA/n0cAVuNHPcPYpdAxTrao9eCxQmeS5kbZdp/RnCqihs/vEQrIdFZs0qonTgKrwJG6EAbroyCpaiWNem8GRS/aPzKijx9xU8t1OAAvXtKqLIjsQ2+SjYX5W1Ojd4p6w92X7qD0VDBTVT6EK+BIpRNVKiUKS7EicTydUZZftanGFPKCROrFueB4XoSC91FKziC3WUfbZty1RenU5/UmG1QWF1iMLqAYUZRQ/j8fShhEL28MauUWzEMaFzNqmAia4Uxe4MKPIsYxnFKCuBj7tFUVMWLk0X9cQwua2VIhSye4CG5BGZgsc49YAiy6cwUHzDJfDHLlEUgkImCn1HpV+ln4iXjXl7FOtyvfTyKMgfH5XNp8PNbMOgUFyS3OCOuU3d7qL+UAwrnSTXjKLGfDoMDSO7edtW2uXdCwrnjaDAU2tMalHkYtDpxuFmKGS8M8ZcnQnFTg3FMD/9pHZqHRUxOCuKnUzOcSuDwu4ExU5GKjbZH8c6sZ/yU3sBBFIo0Kmv4FZsIYqInziWRiGbg8qVTBVFyimXCuEDNq5uiFCsN0RbmpdDQR/DYEElk+pvMNt4d/XUyaQCgdrlIjN90LT3gUKyVNWvVPAymtF0PB470bd02ds6ZWhTTv8dvyEUMxkUF5GK1JXcymn1wm4cgGI8foDVw/cmFaaa2d6qBVYlFMoJAxamb2+IwWw2Xy5Czrnk0iiQA27KSIUlieL87vw1yoKKrchWLmvWouILUenAlEKx/QcxECUBK9E2b24FT8OjQ1a9sLlYvC7Ctz2fQMXMe0JR2hG5pSBIbJZwhrtCpvbdo0C+z7wnFMUdkRGM9EqnJIuMpqOcHH4HKBqyqEdxE1JXNnuNWq8EBfBixNujayOCeU8obpp+r2Y+xOVRLJrfcxqczftCIdy23TWKcHZpFKvm6y+Pk8OeUDQ2RY0869k1SEVDFjfNWcwlUZxFSc3Pyb0Wxc1yOWuBQpnFTBbF6owozmacxCiaKMubZixm8/lqIYviHEt1flbwEijUWdwosgAhofBpeEwUZ5ie+c1VsKCXpyKLkpIJu2DAQNG/b0MbrsV1oJC+aaBilovK3IbtETBR9K7D5zctrF7XzqwsC/Hchu0ZsFH0rDfmN2cVQvbMzual+eJ8D8mpDWezJb8I0QJFv/NT9qzPyoI/tcV7Bq9jaKL+x6D6q+X5UJwlwJjVL2/Moq2G6R5FjwZ13hV3MmurjvxIcM/h5RgIUBRStT2jUDROQC+v6FlbccXg8lPbCYrerPe88UfxVviiEz/ymlHcLHqxqMzc5KKVllnIWYM3jELZos7mTVGwAwwwvSspLRO+dQT1KOSVFFLNEq+fzRciB+ZdaJl+UEiEGLPCrC0EEGpmd/5etExPKASuJmfa5o39yX8wAjkUjIUuXuBLeUH4d6ihoEIMuQW++Mfrmd5QwIWOJvffqep7/D/fgpr0BUMeqAAAAABJRU5ErkJggg==" alt="Ace of Spades" width="150" height="96">
+  </header>
+
+  <h1>Voxel file converter for Ace of Spades</h1>
+  <button id="drop" type="button">
+    <span class="arrow" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 2.5v8"/><path d="M4.8 7.3 8 10.5l3.2-3.2"/><path d="M2.5 13.5h11"/>
+      </svg>
+    </span>
+    <b>Drop a voxel file here</b>
+  </button>
+  <input id="file" type="file" hidden
+    accept=".vxl,.kv6,.kvx,.vox,.qb,.qbt,.qef,.qbcl,.gox,.binvox,.glb,.obj,.stl,.ply,.schematic,.json">
+
+  <section id="panel" hidden aria-live="polite">
+    <div class="top">
+      <div class="thumb"><canvas id="canvas" width="320" height="250"></canvas></div>
+      <div class="meta">
+        <div class="filename"><span id="name">—</span></div>
+        <div class="stats" id="stats"></div>
+        <ul class="notes" id="notes" hidden></ul>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <div class="target">
+      <label class="f" for="target">convert to</label>
+      <select id="target"></select>
+      <label class="f" for="mapScale" id="mapScaleLabel" hidden>scale</label>
+      <select id="mapScale" class="mini" hidden aria-label="how big the model should sit on the map">
+        <option value="fit">fit to the map</option>
+        <option value="1">actual size</option>
+        <option value="2">twice the size</option>
+        <option value="4">four times</option>
+        <option value="8">eight times</option>
+      </select>
+      <button class="primary" id="convert" type="button">Convert</button>
+      <button class="ghost" id="download" type="button" hidden>Download</button>
+    </div>
+    <div id="warn" hidden></div>
+    <div id="status" role="status"></div>
+    <div class="result" id="result" hidden></div>
+    <ul class="notes" id="onotes" hidden></ul>
+  </section>
+
+</main>
+<script>
+/* ============================================================================
+   AOS Voxel Converter — engine (part 1: model, palettes, Voxlap family)
+   Canonical volume: 0 = air, else 0xFFrrggbb ; index = x + w*(y + h*z)
+   Axes follow Ace of Spades / Voxlap: x east, y south, z DOWN (z=0 is the sky).
+   ========================================================================== */
+'use strict';
+const AOSC = (function () {
+
+  /* ------------------------------------------------------------------ Vox */
+  class Vox {
+    constructor(w, h, d) {
+      this.w = w | 0; this.h = h | 0; this.d = d | 0;
+      if (w <= 0 || h <= 0 || d <= 0) throw new Error('bad dimensions');
+      const n = w * h * d;
+      if (n > 96e6) throw new Error('volume too large (' + w + '\u00d7' + h + '\u00d7' + d + ')');
+      this.cells = new Uint32Array(n);
+    }
+    idx(x, y, z) { return x + this.w * (y + this.h * z); }
+    get(x, y, z) {
+      if (x < 0 || y < 0 || z < 0 || x >= this.w || y >= this.h || z >= this.d) return 0;
+      return this.cells[x + this.w * (y + this.h * z)];
+    }
+    set(x, y, z, c) {
+      if (x < 0 || y < 0 || z < 0 || x >= this.w || y >= this.h || z >= this.d) return;
+      this.cells[x + this.w * (y + this.h * z)] = c >>> 0;
+    }
+    solid(x, y, z) {
+      if (x < 0 || y < 0 || z < 0 || x >= this.w || y >= this.h || z >= this.d) return false;
+      return this.cells[x + this.w * (y + this.h * z)] !== 0;
+    }
+    countSolid() { let n = 0; const c = this.cells; for (let i = 0; i < c.length; i++) if (c[i]) n++; return n; }
+    bbox() {
+      let x0 = this.w, y0 = this.h, z0 = this.d, x1 = -1, y1 = -1, z1 = -1;
+      const { w, h, d } = this;
+      for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) {
+        let row = (y + h * z) * w, any = false;
+        for (let x = 0; x < w; x++) if (this.cells[row + x]) { any = true; if (x < x0) x0 = x; if (x > x1) x1 = x; }
+        if (any) { if (y < y0) y0 = y; if (y > y1) y1 = y; if (z < z0) z0 = z; if (z > z1) z1 = z; }
+      }
+      if (x1 < 0) return null;
+      return { x0, y0, z0, x1, y1, z1, w: x1 - x0 + 1, h: y1 - y0 + 1, d: z1 - z0 + 1 };
+    }
+    /** nearest-neighbour resample to nw×nh×nd, preserving orientation */
+    resample(nw, nh, nd) {
+      const out = new Vox(nw, nh, nd);
+      const sx = this.w / nw, sy = this.h / nh, sz = this.d / nd;
+      // pick the colour of the majority-ish sample: use the centre sample, falling back to a
+      // neighbourhood vote when the centre is empty (keeps thin structures alive)
+      for (let z = 0; z < nd; z++) for (let y = 0; y < nh; y++) for (let x = 0; x < nw; x++) {
+        const xa = Math.floor(x * sx), xb = Math.max(xa + 1, Math.floor((x + 1) * sx));
+        const ya = Math.floor(y * sy), yb = Math.max(ya + 1, Math.floor((y + 1) * sy));
+        const za = Math.floor(z * sz), zb = Math.max(za + 1, Math.floor((z + 1) * sz));
+        let best = 0, bestScore = 0, cx = (xa + xb - 1) >> 1, cy = (ya + yb - 1) >> 1, cz = (za + zb - 1) >> 1;
+        const centre = this.get(cx, cy, cz);
+        if (centre) { best = centre; bestScore = 1; }
+        if (!best || xb - xa > 1 || yb - ya > 1 || zb - za > 1) {
+          const votes = new Map();
+          for (let zz = za; zz < zb && zz < this.d; zz++)
+            for (let yy = ya; yy < yb && yy < this.h; yy++)
+              for (let xx = xa; xx < xb && xx < this.w; xx++) {
+                const c = this.cells[xx + this.w * (yy + this.h * zz)];
+                if (!c) continue;
+                const v = (votes.get(c) || 0) + (c === centre ? 1e6 : 1);
+                votes.set(c, v);
+                if (v > bestScore) { bestScore = v; best = c; }
+              }
+        }
+        if (best) out.cells[x + nw * (y + nh * z)] = best;
+      }
+      return out;
+    }
+    /** integer nearest-neighbour upscale by k */
+    upscale(k) { return this.resample(this.w * k, this.h * k, this.d * k); }
+    crop(b) {
+      const out = new Vox(b.w, b.h, b.d);
+      for (let z = 0; z < b.d; z++) for (let y = 0; y < b.h; y++)
+        for (let x = 0; x < b.w; x++) out.cells[x + b.w * (y + b.h * z)] = this.get(b.x0 + x, b.y0 + y, b.z0 + z);
+      return out;
+    }
+    /** distinct opaque colours, deterministic order (sorted) */
+    colors() {
+      const s = new Set();
+      const c = this.cells;
+      for (let i = 0; i < c.length; i++) if (c[i]) s.add(c[i]);
+      return Array.from(s).sort((a, b) => (a >>> 0) - (b >>> 0));
+    }
+    /** scale colour channels (used for preview shading only) */
+    toString() { return 'Vox(' + this.w + '\u00d7' + this.h + '\u00d7' + this.d + ')'; }
+  }
+
+  /* --------------------------------------------------------------- binary */
+  class BW { // byte writer
+    constructor(cap) { this.b = new Uint8Array(cap || 1 << 16); this.n = 0; }
+    need(k) {
+      if (this.n + k <= this.b.length) return;
+      let cap = this.b.length * 2;
+      while (cap < this.n + k) cap *= 2;
+      const nb = new Uint8Array(cap); nb.set(this.b.subarray(0, this.n)); this.b = nb;
+    }
+    u8(v) { this.need(1); this.b[this.n++] = v & 255; }
+    u16(v) { this.need(2); this.b[this.n++] = v & 255; this.b[this.n++] = (v >> 8) & 255; }
+    u32(v) { this.need(4); this.b[this.n++] = v & 255; this.b[this.n++] = (v >>> 8) & 255; this.b[this.n++] = (v >>> 16) & 255; this.b[this.n++] = (v >>> 24) & 255; }
+    i32(v) { this.u32(v >>> 0); }
+    raw(arr) { this.need(arr.length); this.b.set(arr, this.n); this.n += arr.length; }
+    out() { return this.b.slice(0, this.n); }
+    patch32(off, v) {
+      this.b[off] = v & 255; this.b[off + 1] = (v >>> 8) & 255; this.b[off + 2] = (v >>> 16) & 255; this.b[off + 3] = (v >>> 24) & 255;
+    }
+  }
+  function f32(w, v) { const d = new DataView(new ArrayBuffer(4)); d.setFloat32(0, v, true); w.u32(d.getUint32(0, true)); }
+  const rd = (a, o) => a[o] | (a[o + 1] << 8) | (a[o + 2] << 16) | (a[o + 3] << 24);
+  const rdU = (a, o) => (a[o] | (a[o + 1] << 8) | (a[o + 2] << 16) | (a[o + 3] << 24)) >>> 0;
+  const rd16 = (a, o) => a[o] | (a[o + 1] << 8);
+  const rdf = (a, o) => { const d = new DataView(a.buffer, a.byteOffset + o, 4); return d.getFloat32(0, true); };
+  const rgb = (r, g, b) => (0xff000000 | (r << 16) | (g << 8) | b) >>> 0;
+
+  /* ------------------------------------------------------------ palettes */
+  /** median-cut quantiser → {pal:Uint32Array, index:Map<colour,idx>} (idx 0 reserved = unused) */
+  function quantise(vox, maxN) {
+    const cols = vox.colors();
+    if (cols.length <= maxN) {
+      const index = new Map(); cols.forEach((c, i) => index.set(c, i));
+      return { pal: Uint32Array.from(cols), index, exact: true };
+    }
+    const hist = new Map();
+    const c = vox.cells;
+    for (let i = 0; i < c.length; i++) if (c[i]) hist.set(c[i], (hist.get(c[i]) || 0) + 1);
+    let boxes = [Array.from(hist.entries()).map(([col, n]) => ({ c: col, n }))];
+    const chans = [16, 8, 0];
+    while (boxes.length < maxN) {
+      let bi = -1, bestRange = -1;
+      for (let i = 0; i < boxes.length; i++) {
+        const b = boxes[i];
+        if (b.length < 2) continue;
+        for (const sh of chans) {
+          let lo = 255, hi = 0;
+          for (const e of b) { const v = (e.c >>> sh) & 255; if (v < lo) lo = v; if (v > hi) hi = v; }
+          const r = hi - lo;
+          if (r > bestRange) { bestRange = r; bi = i; }
+        }
+      }
+      if (bi < 0) break;
+      const b = boxes[bi];
+      let sh = 0, bestRange2 = -1;
+      for (const s of chans) {
+        let lo = 255, hi = 0;
+        for (const e of b) { const v = (e.c >>> s) & 255; if (v < lo) lo = v; if (v > hi) hi = v; }
+        if (hi - lo > bestRange2) { bestRange2 = hi - lo; sh = s; }
+      }
+      b.sort((p, q) => ((p.c >>> sh) & 255) - ((q.c >>> sh) & 255));
+      let total = 0; for (const e of b) total += e.n;
+      let acc = 0, cut = 1;
+      for (let i = 0; i < b.length - 1; i++) { acc += b[i].n; if (acc >= total / 2) { cut = i + 1; break; } }
+      boxes.splice(bi, 1, b.slice(0, cut), b.slice(cut));
+    }
+    const pal = new Uint32Array(boxes.length);
+    const index = new Map();
+    boxes.forEach((b, i) => {
+      let r = 0, g = 0, bl = 0, n = 0;
+      for (const e of b) { r += ((e.c >>> 16) & 255) * e.n; g += ((e.c >>> 8) & 255) * e.n; bl += (e.c & 255) * e.n; n += e.n; }
+      const col = rgb(Math.round(r / n), Math.round(g / n), Math.round(bl / n));
+      pal[i] = col;
+      for (const e of b) index.set(e.c, i);
+    });
+    return { pal, index, exact: false };
+  }
+  /** map a colour to the nearest palette entry (0-based index, as stored in files), cached */
+  function nearestIndex(pal, colour, cache) {
+    if (cache.has(colour)) return cache.get(colour);
+    const r = (colour >>> 16) & 255, g = (colour >>> 8) & 255, b = colour & 255;
+    let best = 0, bd = 1e9;
+    for (let i = 0; i < pal.length; i++) {
+      const pr = (pal[i] >>> 16) & 255, pg = (pal[i] >>> 8) & 255, pb = pal[i] & 255;
+      const dr = r - pr, dg = g - pg, db = b - pb;
+      const dd = dr * dr * 2 + dg * dg * 4 + db * db * 3;
+      if (dd < bd) { bd = dd; best = i; if (!dd) break; }
+    }
+    cache.set(colour, best);
+    return best;
+  }
+  /** 6-bit palette bytes (0-63) from colours */
+  function pal768(pal) {
+    const out = new Uint8Array(768);
+    for (let i = 0; i < 256; i++) {
+      const c = i < pal.length ? pal[i] : 0;
+      out[i * 3] = ((c >>> 16) & 255) >> 2; out[i * 3 + 1] = ((c >>> 8) & 255) >> 2; out[i * 3 + 2] = (c & 255) >> 2;
+    }
+    return out;
+  }
+  function readPal768(bytes, off) {
+    const pal = new Uint32Array(256);
+    for (let i = 0; i < 256; i++) {
+      const r = bytes[off + i * 3], g = bytes[off + i * 3 + 1], b = bytes[off + i * 3 + 2];
+      // files store 0..63 normally, but some tools store 0..255
+      const hi = (r | g | b) > 63;
+      pal[i] = hi ? rgb(r, g, b) : rgb((r << 2) | (r >> 4), (g << 2) | (g >> 4), (b << 2) | (b >> 4));
+    }
+    return pal;
+  }
+
+  /* -------------------------------------------------------------- equivec */
+  /* Ken Silverman's 256-entry golden-spiral direction table (equivecinit(255) +
+     equiind2vec) — used for the .kv6 `dir` byte. Nearest-entry search by dot product. */
+  const GOLDRAT = 0.3819660112501052;
+  const EQUIVEC = (function () {
+    const n = 255, p = new Float32Array(3 * 256);
+    for (let i = 0; i < n; i++) {
+      const z = i * (2 / n) + (1 / n - 1);
+      const r = Math.sqrt(Math.max(0, 1 - z * z));
+      const a = i * (GOLDRAT * Math.PI * 2);
+      p[i * 3] = Math.cos(a) * r; p[i * 3 + 1] = Math.sin(a) * r; p[i * 3 + 2] = z;
+    }
+    p[255 * 3] = p[255 * 3 + 1] = p[255 * 3 + 2] = 0; // n odd → <0,0,0> hack entry
+    return p;
+  })();
+  function equivecIndex(nx, ny, nz) {
+    const l = Math.hypot(nx, ny, nz);
+    if (!l) return 255;
+    nx /= l; ny /= l; nz /= l;
+    let best = 255, bd = -2;
+    for (let i = 0; i < 255; i++) {
+      const d = EQUIVEC[i * 3] * nx + EQUIVEC[i * 3 + 1] * ny + EQUIVEC[i * 3 + 2] * nz;
+      if (d > bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+
+  /* ------------------------------------------------------------------ VXL */
+  /* Ace of Spades map v1 (512x512x64, headerless span stream) */
+  const VXL_W = 512, VXL_H = 512, VXL_D = 64;
+  const vxl = {
+    id: 'vxl', name: 'Ace of Spades map', ext: 'vxl',
+    blurb: 'Native AoS/Voxlap landscape (512\u00d7512\u00d764)',
+    sniff(u8) {
+      if (u8.length < 4096) return 0;
+      if (rdU(u8, 0) === 0x09072000) return 0.9; // Voxlap VXL with header
+      /* walk the span stream exactly like the reader does, which is the only
+         reliable test — .vxl has no magic number at all */
+      let p = 0, cols = 0;
+      const want = VXL_H * VXL_W;
+      while (cols < want) {
+        if (p + 4 > u8.length) return 0;
+        const N = u8[p], S = u8[p + 1], E = u8[p + 2];
+        if (E > 63 || S > 64) return 0;
+        const K = E - S + 1;
+        if (K < 0) { if (E !== S - 1) return 0; }             // span without a coloured top run
+        if (N === 0) { p += 4 * (1 + Math.max(0, K)); cols++; }
+        else {
+          p += N * 4;
+          if (p + 4 > u8.length || u8[p + 3] > 64) return 0;
+        }
+        if (p > u8.length) return 0;
+      }
+      return p === u8.length ? 1.0 : 0.6;
+    },
+    read(u8, ctx) {
+      let w = VXL_W, h = VXL_H, off = 0, hdr = false;
+      if (rdU(u8, 0) === 0x09072000) {           // Voxlap VXL variant (1024x1024x256 + camera)
+        w = rdU(u8, 4); h = rdU(u8, 8); off = 4 + 8 + 96; hdr = true;
+        ctx.note('Voxlap VXL header detected (' + w + '\u00d7' + h + ', camera block skipped).');
+      }
+      const depth = hdr ? 256 : VXL_D;
+      if (w * h * depth > 96e6) throw new Error('VXL too large');
+      const vox = new Vox(w, h, depth);
+      const cells = vox.cells, plane = w * h;
+      /* Span semantics (piqueserver spec): a span describes z = airStart .. bottomEnd-1.
+         S..E is the coloured top surface, then uncoloured interior, then the (usually
+         coloured) bottom surface; air below is the next span's airStart. We mark the whole
+         solid range in `solid` and only paint the voxels the file actually colours. */
+      const solid = new Uint8Array(w * h * depth);
+      let p = off;
+      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const base = x + w * y;
+        for (;;) {
+          if (p + 4 > u8.length) throw new Error('VXL truncated at column ' + (x + y * w));
+          const N = u8[p], S = u8[p + 1], E = u8[p + 2];
+          const K = E - S + 1;
+          let q = p + 4, bottomEnd, bottomLen;
+          if (N === 0) { bottomEnd = depth; bottomLen = 0; p += 4 * (1 + K); }
+          else {
+            bottomLen = N - 1 - K; if (bottomLen < 0) bottomLen = 0;
+            p += 4 * N;
+            if (p + 4 > u8.length) throw new Error('VXL truncated');
+            bottomEnd = u8[p + 3];       // next span's air start = last solid row + 1
+          }
+          for (let t = S; t <= E; t++) {                     // coloured top surface run
+            if (t >= 0 && t < depth) cells[base + plane * t] = rgb(u8[q + 2], u8[q + 1], u8[q]);
+            q += 4;
+          }
+          for (let t = 0; t < bottomLen; t++) {              // coloured bottom surface run
+            const z = bottomEnd - bottomLen + t;
+            if (z >= 0 && z < depth) cells[base + plane * z] = rgb(u8[q + 2], u8[q + 1], u8[q]);
+            q += 4;
+          }
+          const zHi = Math.min(depth, bottomEnd);
+          for (let t = Math.max(0, S); t < zHi; t++) solid[base + plane * t] = 1;
+          if (N === 0) break;
+        }
+      }
+      if (p !== u8.length) ctx.note('trailing ' + (u8.length - p) + ' byte(s) after last column (ignored).');
+      fillSolidFromColors(vox, solid, 0x5b4040); // AoS displays uncoloured rock as dirt-brown
+      return vox;
+    },
+
+    write(vox, ctx) {
+      // vox must already be a valid 512x512x64 map volume (see toMap)
+      if (vox.w !== VXL_W || vox.h !== VXL_H || vox.d !== VXL_D) throw new Error('internal: map volume mismatch');
+      const surf = surfaceMap(vox);
+      const w = vox.w, h = vox.h, d = vox.d, cells = vox.cells;
+      const out = new BW(1 << 22);
+      const col = (x, y, z) => cells[x + w * (y + h * z)];
+      const isS = (x, y, z) => surf[x + w * (y + h * z)];
+      for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        let k = 0;
+        while (k < d) {
+          const airStart = k;
+          while (k < d && cells[x + w * (y + h * k)] === 0) k++;
+          const topStart = k;
+          while (k < d && isS(x, y, k)) k++;
+          const topEnd = k;
+          while (k < d && cells[x + w * (y + h * k)] && !isS(x, y, k)) k++;
+          const botStart = k;
+          let z = k;
+          while (z < d && isS(x, y, z)) z++;
+          if (z !== d) { while (k < d && isS(x, y, k)) k++; }
+          const botEnd = k;
+          const tlen = topEnd - topStart, blen = botEnd - botStart;
+          if (k === d) out.u8(0); else out.u8(tlen + blen + 1);
+          out.u8(topStart); out.u8(topEnd - 1); out.u8(airStart);
+          for (let t = topStart; t < topEnd; t++) { const c = col(x, y, t); out.u8(c & 255); out.u8((c >>> 8) & 255); out.u8((c >>> 16) & 255); out.u8(255); }
+          for (let t = botStart; t < botEnd; t++) { const c = col(x, y, t); out.u8(c & 255); out.u8((c >>> 8) & 255); out.u8((c >>> 16) & 255); out.u8(255); }
+        }
+      }
+      return out.out();
+    }
+  };
+  /** OpenSpades GameMap::IsSurface — x/y outside counts as solid, z-1 outside is air */
+  function surfaceMap(vox) {
+    const { w, h, d, cells } = vox;
+    const out = new Uint8Array(w * h * d);
+    for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) {
+      const row = (y + h * z) * w;
+      for (let x = 0; x < w; x++) {
+        if (!cells[row + x]) continue;
+        let s = (z === 0);
+        if (!s && x > 0 && !cells[row - 1 + x]) s = true;
+        if (!s && x < w - 1 && !cells[row + 1 + x]) s = true;
+        if (!s && y > 0 && !cells[row - w + x]) s = true;
+        if (!s && y < h - 1 && !cells[row + w + x]) s = true;
+        if (!s && (z - 1 < 0 || !cells[row - w * h + x])) s = true;      // air above (or sky)
+        if (!s && z + 1 < d && !cells[row + w * h + x]) s = true;
+        if (s) out[row + x] = 1;
+      }
+    }
+    return out;
+  }
+  /** give every solid voxel a colour: nearest coloured voxel above, else below, else fallback */
+  function fillSolidFromColors(vox, solid, fallback) {
+    const { w, h, d, cells } = vox, plane = w * h;
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      const base = x + w * y;
+      let last = 0;
+      for (let z = 0; z < d; z++) {                 // pass 1: colour from above (gravity of paint)
+        const i = base + plane * z;
+        if (!solid[i]) continue;
+        if (cells[i]) last = cells[i];
+        else if (last) cells[i] = last;
+      }
+      last = 0;
+      for (let z = d - 1; z >= 0; z--) {            // pass 2: leftovers take the colour below
+        const i = base + plane * z;
+        if (!solid[i]) continue;
+        if (cells[i]) last = cells[i];
+        else if (last) cells[i] = last;
+      }
+      for (let z = 0; z < d; z++) {                 // pass 3: fully uncoloured column
+        const i = base + plane * z;
+        if (solid[i] && !cells[i]) cells[i] = fallback;
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------ KV6 */
+  const KV6 = {
+    id: 'kv6', name: 'AoS / Voxlap model', ext: 'kv6',
+    blurb: 'Native AoS/Voxlap voxel sprite model',
+    limit: '256 voxels per axis. Hidden interior voxels are left out, exactly like SLAB6 does.',
+    sniff(u8) {
+      if (u8.length < 32) return 0;
+      if (u8[0] === 0x4b && u8[1] === 0x76 && u8[2] === 0x78 && u8[3] === 0x6c) {
+        const w = rdU(u8, 4), h = rdU(u8, 8), d = rdU(u8, 12), n = rdU(u8, 28);
+        if (w > 0 && h > 0 && d > 0 && w < 4096 && h < 4096 && d < 4096 && n * 8 + 32 <= u8.length) return 1.0;
+        return 0.7;
+      }
+      return 0;
+    },
+    read(u8, ctx) {
+      const w = rdU(u8, 4), h = rdU(u8, 8), d = rdU(u8, 12);
+      const xp = rdf(u8, 16), yp = rdf(u8, 20), zp = rdf(u8, 24);
+      const n = rdU(u8, 28);
+      if (!w || !h || !d || w > 4096 || h > 4096 || d > 4096) throw new Error('KV6: bad dimensions');
+      if (32 + n * 8 > u8.length) throw new Error('KV6: truncated voxel data');
+      const vox = new Vox(w, h, d);
+      const cells = vox.cells;
+      const vis = new Uint8Array(n), zpos = new Uint16Array(n), cols = new Uint32Array(n);
+      let p = 32;
+      for (let i = 0; i < n; i++) {
+        const b = p + i * 8;
+        cols[i] = rgb(u8[b + 2], u8[b + 1], u8[b]);
+        zpos[i] = rd16(u8, b + 4);
+        vis[i] = u8[b + 6];
+        if (zpos[i] >= d) throw new Error('KV6: voxel z out of range');
+      }
+      p += n * 8;
+      const xlen = new Uint32Array(w), ylen = new Uint16Array(w * h);
+      for (let x = 0; x < w; x++) { xlen[x] = rdU(u8, p); p += 4; }
+      let sum = 0;
+      for (let i = 0; i < w * h; i++) {
+        if (p + 2 > u8.length) throw new Error('KV6: truncated offset table');
+        ylen[i] = rd16(u8, p); p += 2; sum += ylen[i];
+      }
+      // optional SPal palette follows (ignored: per-voxel colours are authoritative)
+      let k = 0, anyVis = false;
+      for (let x = 0; x < w; x++) for (let y = 0; y < h; y++) {
+        const cnt = ylen[x * h + y];                        // xyoffset[x * ysiz + y]
+        let prevZ = -1;
+        for (let i = 0; i < cnt; i++, k++) {
+          if (zpos[k] <= prevZ) throw new Error('KV6: column not z-sorted');
+          prevZ = zpos[k];
+          cells[x + w * (y + h * zpos[k])] = cols[k] || 0xff111111;
+          if (vis[k]) anyVis = true;
+        }
+      }
+      if (sum !== n) throw new Error('KV6: offset table does not match voxel count');
+      if (anyVis) fillKV6(vox, { vis, zpos, ylen });
+      else { ctx.note('KV6 has no visibility bits — hidden voxels reconstructed from geometry.'); fillInterior(vox, ctx); }
+      // KV6 z runs downwards exactly like a map column (z=0 is the top of the model), so the
+      // voxel grid needs no flipping: see getvis() in SLAB6, which marks bit 16 on the side of
+      // smaller z and bit 32 on the side of larger z.
+      ctx.model = { pivot: [xp, yp, zp] };
+      return vox;
+    },
+    write(vox, ctx) {
+      const { w, h, d, cells } = vox;
+      if (w > 65535 || h > 65535 || d > 65535) throw new Error('KV6: model too large');
+      const plane = w * h;
+      const f = cells;                                    // KV6 z runs downwards, like canonical z
+      // 1. visibility bits from the six neighbours: 1/2 = air at -x/+x, 4/8 = air at -y/+y,
+      //    16 = air at z-1, 32 = air at z+1. Outside the grid counts as air (SLAB6 getvis).
+      const vis = new Uint8Array(cells.length);
+      for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const i = x + w * (y + h * z);
+        if (!f[i]) continue;
+        let v = 0;
+        if (x === 0 || !f[i - 1]) v |= 1;
+        if (x === w - 1 || !f[i + 1]) v |= 2;
+        if (y === 0 || !f[i - w]) v |= 4;
+        if (y === h - 1 || !f[i + w]) v |= 8;
+        if (z === 0 || !f[i - plane]) v |= 16;
+        if (z === d - 1 || !f[i + plane]) v |= 32;
+        vis[i] = v;
+      }
+      // 2. an invisible voxel is needed only when the reader would not put it back with the same
+      //    colour: KV6 readers refill a run from its open top down to its open bottom with the
+      //    colour of that top voxel, so any hidden voxel matching that colour can be left out.
+      const keep = new Uint8Array(cells.length);
+      for (let x = 0; x < w; x++) for (let y = 0; y < h; y++) {
+        const col = x + w * y;
+        let runCol = 0, inRun = false;
+        for (let z = 0; z < d; z++) {
+          const i = col + plane * z, c = f[i];
+          if (!c) { inRun = false; continue; }
+          if (!inRun || (vis[i] & 16)) { runCol = c; inRun = true; }
+          if (vis[i] !== 0 || c !== runCol) keep[i] = 1;
+        }
+      }
+      // voxels the reader can rebuild are skipped; everything else is written, visible or not
+      const bw = new BW(1 << 20);
+      bw.raw([0x4b, 0x76, 0x78, 0x6c]);
+      bw.u32(w); bw.u32(h); bw.u32(d);
+      f32(bw, (w - 1) / 2); f32(bw, (h - 1) / 2); f32(bw, (d - 1) / 2);
+      const countOff = bw.n; bw.u32(0);
+      const xlen = new Uint32Array(w), ylen = new Uint16Array(w * h);
+      let n = 0;
+      for (let x = 0; x < w; x++) for (let y = 0; y < h; y++) {
+        for (let z = 0; z < d; z++) {
+          const i = x + w * (y + h * z);
+          const c = f[i];
+          if (!c || !keep[i]) continue;                       // solid, or a hidden voxel we must store
+          let nx = 0, ny = 0, nz = 0;
+          const v = vis[i];
+          if (v & 1) nx -= 1; if (v & 2) nx += 1;
+          if (v & 4) ny -= 1; if (v & 8) ny += 1;
+          if (v & 16) nz -= 1; if (v & 32) nz += 1;
+          bw.u8(c & 255); bw.u8((c >>> 8) & 255); bw.u8((c >>> 16) & 255); bw.u8(128);
+          bw.u8(z & 255); bw.u8((z >>> 8) & 255);
+          bw.u8(v); bw.u8(v ? equivecIndex(nx, ny, nz) : 0);
+          xlen[x]++; ylen[x * h + y]++; n++;
+        }
+      }
+      bw.patch32(countOff, n);
+      for (let x = 0; x < w; x++) bw.u32(xlen[x]);
+      for (let i2 = 0; i2 < w * h; i2++) bw.u16(ylen[i2]);
+      const cols = vox.colors();
+      if (cols.length > 0 && cols.length <= 254) {            // suggested palette, optional
+        bw.raw([0x53, 0x50, 0x61, 0x6c]);
+        const pal = new Uint32Array(256);
+        cols.forEach((c, i3) => pal[i3] = c);
+        bw.raw(pal768(pal));
+      }
+      void ctx;
+      return bw.out();
+    }
+  };
+  /** KV6 interiors are hollow. Bit 16 marks a voxel with air on its smaller-z side (the top
+      of a solid run) and bit 32 one with air on the larger-z side (the bottom of a run).
+      SLAB6's loadkv6 fills every run from that top voxel down to that bottom voxel, so a
+      reader that does the same restores the model the file was cut from. */
+  function fillKV6(vox, meta) {
+    const { w, h, d, cells } = vox, plane = w * h;
+    const { vis, zpos, ylen } = meta;
+    let k = 0;
+    for (let x = 0; x < w; x++) for (let y = 0; y < h; y++) {
+      const cnt = ylen[x * h + y], base = x + w * y;
+      let run = -1, runCol = 0;
+      for (let i = 0; i < cnt; i++, k++) {
+        const z = zpos[k], v = vis[k];
+        if (v & 16) { run = z; runCol = cells[base + plane * z] || 0xff111111; }
+        if ((v & 32) && run >= 0) {
+          for (let t = run; t <= z; t++) {
+            const j = base + plane * t;
+            if (!cells[j]) cells[j] = runCol;
+          }
+          run = -1;
+        }
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------ KVX */
+  const KVX = {
+    id: 'kvx', name: 'KVX sprite', ext: 'kvx',
+    blurb: 'Ken Silverman KVX voxel sprite (Build engine, SLAB6)',
+    limit: '255 voxels per axis and a 255-colour palette (colours are matched to it).',
+    sniff(u8) {
+      if (u8.length < 40) return 0;
+      const nb = rdU(u8, 0), x = rdU(u8, 4), y = rdU(u8, 8), z = rdU(u8, 12);
+      if (x < 1 || y < 1 || z < 1 || x > 1024 || y > 1024 || z > 1024) return 0;
+      const tables = (x + 1) * 4 + x * (y + 1) * 2;
+      if (nb !== u8.length - 4 && nb !== u8.length - 4 - 768) return 0;
+      if (nb < 24 + tables) return 0;
+      const xoff0 = rdU(u8, 28);
+      return xoff0 === tables ? 1.0 : 0.8;
+    },
+    read(u8, ctx) {
+      const nb = rdU(u8, 0), w = rdU(u8, 4), h = rdU(u8, 8), d = rdU(u8, 12);
+      if (w > 1024 || h > 1024 || d > 1024 || w < 1 || h < 1 || d < 1) throw new Error('KVX: bad dimensions');
+      const palOff = u8.length - 768;
+      if (palOff < 28) throw new Error('KVX: too small');
+      const pal = readPal768(u8, palOff);
+      const xoff = new Uint32Array(w + 1);
+      for (let i = 0; i <= w; i++) xoff[i] = rdU(u8, 28 + i * 4);
+      const xyOff = new Uint32Array(w * (h + 1));
+      const xyBase = 28 + (w + 1) * 4;
+      for (let i = 0; i < w * (h + 1); i++) xyOff[i] = rd16(u8, xyBase + i * 2);
+      const vox = new Vox(w, h, d);
+      const cells = vox.cells;
+      for (let x = 0; x < w; x++) for (let y = 0; y < h; y++) {
+        let p = 28 + xoff[x] + xyOff[x * (h + 1) + y];
+        const end = 28 + xoff[x] + xyOff[x * (h + 1) + y + 1];
+        while (p < end) {
+          if (p + 3 > u8.length) throw new Error('KVX: truncated slab data');
+          const z0 = u8[p], cnt = u8[p + 1];
+          p += 3;
+          for (let i = 0; i < cnt; i++) {
+            const z = z0 + i;
+            if (z < d) cells[x + w * (y + h * z)] = pal[u8[p + i]] || 0xff000001;
+          }
+          p += cnt;
+        }
+      }
+      fillInterior(vox, ctx);
+      return vox;
+    },
+    write(vox, ctx) {
+      const { w, h, d, cells } = vox;
+      if (w > 255 || h > 255 || d > 255) throw new Error('KVX supports at most 255 per axis');
+      const q = quantise(vox, 255);
+      const col2idx = new Map();
+      const idx = (c) => {
+        let v = q.index.get(c);
+        if (v === undefined) v = nearestIndex(q.pal, c, col2idx);
+        return v & 255;
+      };
+      // a hidden voxel is only left out when a reader can put it back: the KVX reader marks any
+      // voxel with six solid neighbours as solid, so a voxel whose neighbourhood is already
+      // complete can be skipped (and the others are written even though they are invisible)
+      const hidden = new Uint8Array(cells.length), rebuild = new Uint8Array(cells.length);
+      const plane = w * h;
+      const queue = [];
+      for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const i = x + w * (y + h * z);
+        if (!cells[i]) continue;
+        const nb = (
+          (x > 0 ? cells[i - 1] : 0) && (x < w - 1 ? cells[i + 1] : 0) &&
+          (y > 0 ? cells[i - w] : 0) && (y < h - 1 ? cells[i + w] : 0) &&
+          (z > 0 ? cells[i - plane] : 0) && (z < d - 1 ? cells[i + plane] : 0));
+        if (nb) hidden[i] = 1;
+      }
+      for (let i = 0; i < cells.length; i++) if (hidden[i]) {
+        let missing = 0;
+        for (let k = 0; k < 6; k++) { const j = neighbour(i, k, vox); if (j >= 0 && hidden[j] && !rebuild[j]) missing++; }
+        if (!missing) { rebuild[i] = 1; queue.push(i); }
+      }
+      for (let qi = 0; qi < queue.length; qi++) {
+        const i = queue[qi];
+        for (let k = 0; k < 6; k++) {
+          const j = neighbour(i, k, vox);
+          if (j < 0 || !hidden[j] || rebuild[j]) continue;
+          let missing = 0;
+          for (let k2 = 0; k2 < 6; k2++) { const m = neighbour(j, k2, vox); if (m >= 0 && hidden[m] && !rebuild[m]) missing++; }
+          if (!missing) { rebuild[j] = 1; queue.push(j); }
+        }
+      }
+      const bw = new BW(1 << 18);
+      const numbytesOff = bw.n; bw.u32(0);
+      bw.u32(w); bw.u32(h); bw.u32(d);
+      bw.i32(Math.round(((w) / 2) * 256)); bw.i32(Math.round(((h) / 2) * 256)); bw.i32(Math.round(((d) / 2) * 256));
+      const tableOff = bw.n;
+      const tables = (w + 1) * 4 + w * (h + 1) * 2;
+      const xstart = new Uint32Array(w + 1), xyoffs = new Uint16Array(w * (h + 1));
+      for (let i = 0; i < tables; i++) bw.u8(0); // reserve
+      let cursor = tables;
+      const runs = [];
+      for (let x = 0; x < w; x++) {
+        xstart[x] = cursor;
+        for (let y = 0; y < h; y++) {
+          xyoffs[x * (h + 1) + y] = cursor - xstart[x];
+          runs.length = 0;
+          let run = null;
+          for (let z = 0; z < d; z++) {
+            const c = cells[x + w * (y + h * z)];
+            if (!c) { run = null; continue; }
+            const ii = x + w * (y + h * z);
+            if (hidden[ii] && rebuild[ii]) { run = null; continue; }
+            let v = 0;
+            if (x === 0 || !cells[x - 1 + w * (y + h * z)]) v |= 1;
+            if (x === w - 1 || !cells[x + 1 + w * (y + h * z)]) v |= 2;
+            if (y === 0 || !cells[x + w * (y - 1 + h * z)]) v |= 4;
+            if (y === h - 1 || !cells[x + w * (y + 1 + h * z)]) v |= 8;
+            if (z === 0 || !cells[x + w * (y + h * (z - 1))]) v |= 16;
+            if (z === d - 1 || !cells[x + w * (y + h * (z + 1))]) v |= 32;
+            if (!run || z > run.z0 + run.colors.length) { run = { z0: z, vis: 0, colors: [] }; runs.push(run); }
+            run.vis |= v; run.colors.push(idx(c));
+          }
+          for (const r of runs) {
+            bw.u8(r.z0 & 255); bw.u8(r.colors.length & 255); bw.u8(r.vis & 255);
+            for (const c of r.colors) bw.u8(c & 255);
+            cursor += 3 + r.colors.length;
+          }
+        }
+        xstart[x + 1] = cursor;
+      }
+      xyoffs[w * (h + 1) - 1] = cursor - xstart[w - 1];
+      for (let x = 0; x < w; x++) {
+        // final entry of each column block = offset to the next column
+        xyoffs[x * (h + 1) + h] = (x === w - 1 ? cursor : xstart[x + 1]) - xstart[x];
+      }
+      // numbytes counts everything from the size field to the end of the run data (header 24 + tables + runs)
+      bw.patch32(numbytesOff, cursor + 24);
+      // write the offset tables
+      for (let i = 0; i <= w; i++) writeU32At(bw, tableOff + i * 4, xstart[i]);
+      for (let i = 0; i < w * (h + 1); i++) {
+        const off = tableOff + (w + 1) * 4 + i * 2;
+        bw.b[off] = xyoffs[i] & 255; bw.b[off + 1] = (xyoffs[i] >> 8) & 255;
+      }
+      bw.raw(pal768(q.pal));
+      if (!q.exact) ctx.note('colours quantised to 255 (palette-based format).');
+      ctx.note('single mip-map level written (SLAB6/Build load the first level).');
+      return bw.out();
+    }
+  };
+  /** index of neighbour k (-x,+x,-y,+y,-z,+z) or -1 when outside the volume */
+  function neighbour(i, k, vox) {
+    const { w, h, d } = vox, plane = w * h;
+    const x = i % w, y = ((i / w) | 0) % h, z = (i / plane) | 0;
+    if (k === 0) return x > 0 ? i - 1 : -1;
+    if (k === 1) return x < w - 1 ? i + 1 : -1;
+    if (k === 2) return y > 0 ? i - w : -1;
+    if (k === 3) return y < h - 1 ? i + w : -1;
+    if (k === 4) return z > 0 ? i - plane : -1;
+    return z < d - 1 ? i + plane : -1;
+  }
+  function writeU32At(bw, off, v) {
+    bw.b[off] = v & 255; bw.b[off + 1] = (v >>> 8) & 255; bw.b[off + 2] = (v >>> 16) & 255; bw.b[off + 3] = (v >>> 24) & 255;
+  }
+  /** hollow formats store only what a viewer can see; a voxel with all six neighbours solid
+      can safely be reconstructed as solid, and this never touches air that the model
+      intends to keep (rooms, windows, gaps between limbs) */
+  function fillInterior(vox, ctx) {
+    const { w, h, d, cells } = vox, plane = w * h;
+    const added = new Uint8Array(cells.length);
+    const solid = (i) => cells[i] !== 0 || added[i] === 1;
+    const enclosed = (x, y, z) => {
+      const i = x + w * (y + h * z);
+      return (x > 0 && solid(i - 1)) && (x < w - 1 && solid(i + 1)) &&
+             (y > 0 && solid(i - w)) && (y < h - 1 && solid(i + w)) &&
+             (z > 0 && solid(i - plane)) && (z < d - 1 && solid(i + plane));
+    };
+    // iterate: a voxel can only be rebuilt once its own neighbours are there
+    let total = 0;
+    for (let pass = 0; pass < 64; pass++) {
+      const add = [];
+      for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const i = x + w * (y + h * z);
+        if (cells[i] || added[i]) continue;
+        if (enclosed(x, y, z)) add.push(i);
+      }
+      if (!add.length) break;
+      for (const i of add) added[i] = 1;
+      total += add.length;
+      if (pass === 0) { /* keep going: each pass can unlock more */ }
+    }
+    if (!total) return;
+    const mask = new Uint8Array(cells.length);
+    for (let i = 0; i < cells.length; i++) if (added[i]) mask[i] = 1;
+    fillSolidFromColors(vox, mask, 0x808080);
+    ctx.note(total.toLocaleString() + ' hidden voxel(s) filled in (KVX/KV6 files store visible voxels only).');
+  }
+  function xyz(vox, x, y, z) { return x + vox.w * (y + vox.h * z); }
+
+  return { Vox, BW, vxl, KV6, KVX, quantise, pal768, readPal768, rgb, rd, rdU, rd16, rdf, f32,
+           surfaceMap, fillSolidFromColors, fillInterior, xyz, equivecIndex, neighbour };
+})();
+
+/* ============================================================================
+   AOS Voxel Converter — engine (part 2: contemporary formats, detection, fitting)
+   ========================================================================== */
+'use strict';
+(function () {
+
+  const A = AOSC;
+  const { Vox, BW, rgb, rd, rdU, rd16, rdf, f32, quantise, pal768, readPal768 } = A;
+
+  /* ------------------------------------------------------- (de)compression */
+  async function inflate(u8) {
+    if (typeof DecompressionStream === 'undefined') throw new Error('this browser cannot inflate compressed data');
+    const ds = new DecompressionStream('deflate');
+    const out = new Response(new Response(u8).body.pipeThrough(ds)).arrayBuffer();
+    return new Uint8Array(await out);
+  }
+  async function gunzip(u8) {
+    if (typeof DecompressionStream === 'undefined') throw new Error('this browser cannot gunzip data');
+    const ds = new DecompressionStream('gzip');
+    return new Uint8Array(await new Response(new Response(u8).body.pipeThrough(ds)).arrayBuffer());
+  }
+
+  /* ------------------------------------------------- MagicaVoxel .vox (VOX) */
+  const CHUNK = (id) => id.charCodeAt(0) | (id.charCodeAt(1) << 8) | (id.charCodeAt(2) << 16) | (id.charCodeAt(3) << 24);
+  const VOXMV = {
+    id: 'voxmv', name: 'MagicaVoxel', ext: 'vox',
+    blurb: 'MagicaVoxel .vox scene',
+    limit: '256 voxels per axis and a 255-colour palette (colours are matched to it).',
+    sniff(u8) {
+      if (u8.length < 8) return 0;
+      if (u8[0] === 0x56 && u8[1] === 0x4f && u8[2] === 0x58 && u8[3] === 0x20) {
+        const v = rdU(u8, 4);
+        return v >= 100 && v <= 400 ? 1.0 : 0.6;
+      }
+      return 0;
+    },
+    read(u8, ctx) {
+      const ver = rdU(u8, 4);
+      const root = parseChunks(u8, 8, u8.length);
+      const models = [], palette = new Uint32Array(256);
+      let havePal = false;
+      (function walk(list) {
+        for (const c of list) {
+          const id = c.id;
+          if (id === CHUNK('SIZE')) {
+            models.push({ size: [rdU(c.data, 0), rdU(c.data, 4), rdU(c.data, 8)], vox: null });
+          } else if (id === CHUNK('XYZI')) {
+            const n = rdU(c.data, 0);
+            const arr = new Uint32Array(n * 4);
+            for (let i = 0; i < n; i++) {
+              arr[i * 4] = c.data[4 + i * 4]; arr[i * 4 + 1] = c.data[5 + i * 4];
+              arr[i * 4 + 2] = c.data[6 + i * 4]; arr[i * 4 + 3] = c.data[7 + i * 4];
+            }
+            if (!models.length) models.push({ size: null, vox: arr });
+            else models[models.length - 1].vox = arr;
+          } else if (id === CHUNK('RGBA')) {
+            for (let i = 0; i < 256; i++) {
+              pair(palette, i + 1, c.data[i * 4], c.data[i * 4 + 1], c.data[i * 4 + 2], c.data[i * 4 + 3]);
+            }
+            havePal = true;
+          }
+          if (c.children) walk(c.children);
+        }
+      })(root);
+      if (!models.length) throw new Error('MagicaVoxel: no model found');
+      // MagicaVoxel axes: x right, y depth, z up. Canonical axes: x east, y south, z down.
+      const m = models[0];
+      const s = m.size || guessSize(m.vox);
+      const vox = new Vox(Math.max(1, s[0]), Math.max(1, s[1]), Math.max(1, s[2]));
+      for (let i = 0; i < (m.vox ? m.vox.length / 4 : 0); i++) {
+        const px = m.vox[i * 4], py = m.vox[i * 4 + 1], pz = m.vox[i * 4 + 2], ci = m.vox[i * 4 + 3];
+        const z = (vox.d - 1) - pz;
+        if (px >= vox.w || py >= vox.h || z < 0 || z >= vox.d) continue;
+        let c = havePal ? palette[ci] : 0;
+        if (!c) c = ci ? defPalette(ci) : 0;
+        vox.cells[px + vox.w * (py + vox.h * z)] = c;
+      }
+      if (models.length > 1) ctx.note('file holds ' + models.length + ' models (version ' + ver + ') — the first was used.');
+      if (!havePal) ctx.note('no RGBA chunk — colours approximated.');
+      return vox;
+    },
+    write(vox, ctx) {
+      const { w, h, d, cells } = vox;
+      if (w > 256 || h > 256 || d > 256) throw new Error('MagicaVoxel .vox supports at most 256 voxels per axis');
+      const cols = vox.colors();
+      if (cols.length > 255) ctx.note('more than 255 colours — the closest palette colours were used.');
+      const pal = new Uint32Array(256);
+      const q = quantise(vox, 255);
+      for (let i = 0; i < 256; i++) pal[i] = i < q.pal.length ? q.pal[i] : 0;
+      let n = 0;
+      for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (cells[x + w * (y + h * z)]) n++;
+      const nz = (v) => { const i = q.index.get(v); if (i === undefined) throw new Error('VOXMV: colour 0x' + v.toString(16) + ' has no palette index (quantise bug)'); return i + 1; };
+      const body = new BW(1 << 20);
+      body.raw([0x53, 0x49, 0x5a, 0x45]); body.u32(12); body.u32(0);
+      body.u32(w); body.u32(h); body.u32(d);
+      body.raw([0x58, 0x59, 0x5a, 0x49]); body.u32(4 + n * 4); body.u32(0);
+      body.u32(n);
+      for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+        const c = cells[x + w * (y + h * z)];
+        if (!c) continue;
+        body.u8(x); body.u8(y); body.u8((d - 1) - z); body.u8(nz(c));
+      }
+      body.raw([0x52, 0x47, 0x42, 0x41]); body.u32(1024); body.u32(0);
+      for (let i = 0; i < 256; i++) {
+        const c = pal[i];
+        body.u8((c >>> 16) & 255); body.u8((c >>> 8) & 255); body.u8(c & 255); body.u8(255);
+      }
+      const main = new BW(body.n + 12);
+      main.raw([0x4d, 0x41, 0x49, 0x4e]); main.u32(0); main.u32(body.n);
+      main.raw(body.out());
+      const head = new BW(8);
+      head.raw([0x56, 0x4f, 0x58, 0x20]); head.u32(150);
+      return concat([head.out(), main.out()]);
+    }
+  };
+  function pair(pal, i, r, g, b, al) { pal[i] = (al === 0 ? 0 : 0xff000000 | (r << 16) | (g << 8) | b) >>> 0; }
+  function defPalette(i) {                                  // fallback when a file has no RGBA chunk
+    const h = (i * 47) % 360, s = 0.45, l = 0.28 + ((i * 13) % 60) / 100;
+    const c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = l - c / 2;
+    const seg = [[c, x, 0], [x, c, 0], [0, c, x], [0, x, c], [x, 0, c], [c, 0, x]][Math.floor(h / 60) % 6];
+    return rgb(Math.round((seg[0] + m) * 255), Math.round((seg[1] + m) * 255), Math.round((seg[2] + m) * 255));
+  }
+  function guessSize(v) {
+    let x = 1, y = 1, z = 1;
+    for (let i = 0; i < (v ? v.length / 4 : 0); i++) {
+      x = Math.max(x, v[i * 4] + 1); y = Math.max(y, v[i * 4 + 1] + 1); z = Math.max(z, v[i * 4 + 2] + 1);
+    }
+    return [x, y, z];
+  }
+  function parseChunks(u8, from, to) {
+    const out = [];
+    let p = from;
+    while (p + 12 <= to) {
+      const id = rdU(u8, p), len = rdU(u8, p + 4), clen = rdU(u8, p + 8);
+      const data = u8.subarray(p + 12, p + 12 + len);
+      const children = clen ? parseChunks(u8, p + 12 + len, p + 12 + len + clen) : null;
+      out.push({ id, data, children });
+      p += 12 + len + clen;
+    }
+    return out;
+  }
+  function readDICT(u8, p) {                               // {key:value} inside nTRN/nSHP chunks
+    const d = {};
+    if (p + 4 > u8.length) return d;
+    const n = rdU(u8, p); p += 4;
+    for (let i = 0; i < n; i++) {
+      if (p + 4 > u8.length) break;
+      const kl = rdU(u8, p); p += 4;
+      const k = String.fromCharCode.apply(null, u8.subarray(p, p + kl)); p += kl;
+      const vl = rdU(u8, p); p += 4;
+      const v = String.fromCharCode.apply(null, u8.subarray(p, p + vl)); p += vl;
+      d[k] = v;
+    }
+    return d;
+  }
+  function concat(parts) {
+    let n = 0; for (const p of parts) n += p.length;
+    const out = new Uint8Array(n); let o = 0;
+    for (const p of parts) { out.set(p, o); o += p.length; }
+    return out;
+  }
+
+  /* -------------------------------------------------------------- Qubicle */
+  const QB = {
+    id: 'qb', name: 'Qubicle', ext: 'qb',
+    blurb: 'Qubicle .qb matrix',
+    limit: '256 voxels per axis, written as a single uncompressed matrix.',
+    sniff(u8) {
+      if (u8.length < 32) return 0;
+      const ver = rdU(u8, 0), cf = rdU(u8, 4), zo = rdU(u8, 8), cp = rdU(u8, 12), vm = rdU(u8, 16), nm = rdU(u8, 20);
+      if (cf > 1 || zo > 1 || cp > 1 || vm > 1) return 0;
+      /* 257 is the version in the published spec. Qubicle's own newer files put a
+         packed build number there instead (0x00020103 for "2.1.3"), with everything
+         else byte for byte the same, so accept any small version and lean on the
+         rest of the header — five constrained fields and a printable matrix name. */
+      if (ver === 0 || ver >= 0x01000000) return 0;
+      if (nm < 1 || nm > 4096) return 0;
+      const nl = u8[24];
+      if (24 + 1 + nl + 12 > u8.length) return 0;
+      for (let i = 0; i < nl; i++) { const ch = u8[25 + i]; if (ch < 32 || ch > 126) return 0; }
+      return ver === 257 ? 1.0 : 0.9;
+    },
+    read(u8, ctx) {
+      const ver = rdU(u8, 0), cf = rdU(u8, 4), zo = rdU(u8, 8), cp = rdU(u8, 12), nm = rdU(u8, 20);
+      if (cf > 1 || cp > 1) throw new Error('Qubicle: unsupported format options');
+      if (nm < 1 || nm > 4096) throw new Error('Qubicle: implausible matrix count');
+      if (ver !== 257) ctx.note('Qubicle version 0x' + ver.toString(16) + ' (the published one is 257); read as 257.');
+      /* Every voxel is four bytes: three colour channels and a fourth byte that is
+         the alpha, or the face-visibility mask when the file encodes one — zero
+         means "no voxel here" either way. RGBA unless the file says BGRA. */
+      const flipped = zo === 1;                       // right-handed: the axes swap
+      let p = 24;
+      const parts = [];
+      for (let m = 0; m < nm; m++) {
+        if (p + 1 > u8.length) throw new Error('Qubicle: truncated');
+        const nl = u8[p++];
+        const name = String.fromCharCode.apply(null, u8.subarray(p, p + nl)); p += nl;
+        const sx = rdU(u8, p), sy = rdU(u8, p + 4), sz = rdU(u8, p + 8); p += 12;
+        /* right-handed files store the position with x and z swapped as well */
+        const pa = rd(u8, p), pb = rd(u8, p + 4), pc = rd(u8, p + 8); p += 12;
+        const px = flipped ? pc : pa, py = pb, pz = flipped ? pa : pc;
+        if (sx < 1 || sy < 1 || sz < 1 || sx > 4096 || sy > 4096 || sz > 4096) throw new Error('Qubicle: bad matrix size');
+        /* Qubicle has y up and z as depth, our z points down. Right-handed files
+           swap the x and z axes, so the matrix has to be built the other way up. */
+        const vox = flipped ? new Vox(sz, sx, sy) : new Vox(sx, sz, sy);
+        /* Qubicle runs its x axis the other way round from ours: a model saved
+           from Qubicle and read back through another tool comes out mirrored
+           unless the x coordinate is counted from the far side. Real files from
+           three different tools confirmed this; see work/PLAN-formats.md. */
+        const at = (fx, fy, fz) => flipped ? ((sz - 1 - fz) + sz * (fx + sx * ((sy - 1) - fy)))
+                                           : ((sx - 1 - fx) + sx * (fz + sz * ((sy - 1) - fy)));
+        const colour = (b) => {
+          const r = cf === 0 ? b[0] : b[2], g = b[1], bl = cf === 0 ? b[2] : b[0];
+          return rgb(r, g, bl);
+        };
+        const quad = (v) => (v >>> 24) === 0 ? null : colour([v & 255, (v >>> 8) & 255, (v >>> 16) & 255]);
+        if (!cp) {
+          for (let fz = 0; fz < sz; fz++) for (let fy = 0; fy < sy; fy++) for (let fx = 0; fx < sx; fx++) {
+            const c = quad(rdU(u8, p)); p += 4;
+            if (c) vox.cells[at(fx, fy, fz)] = c;
+          }
+        } else {
+          for (let fz = 0; fz < sz; fz++) {
+            let idx = 0;
+            for (;;) {
+              if (p + 4 > u8.length) throw new Error('Qubicle: truncated slice');
+              const v = rdU(u8, p); p += 4;
+              if (v === 6) break;                       // next slice
+              let c, run = 1;
+              if (v === 2) {                            // run of one repeated voxel
+                run = rdU(u8, p); p += 4;
+                if (run > sx * sy * sz) throw new Error('Qubicle: implausible run length');
+                c = quad(rdU(u8, p)); p += 4;
+              } else {
+                c = quad(v);
+              }
+              if (c) for (let k = 0; k < run; k++) {
+                const i = idx + k;
+                if (i >= sx * sy) break;
+                vox.cells[at(i % sx, Math.floor(i / sx), fz)] = c;
+              }
+              idx += run;
+            }
+          }
+        }
+        parts.push({ vox, px, py, pz });
+      }
+      if (!parts.length) throw new Error('Qubicle: no matrix found');
+      ctx.model = { name: 'Qubicle site', version: ver, orientation: zo };
+      if (parts.length > 1) ctx.note(parts.length + ' matrices placed at their own offsets and merged into one volume.');
+      return A.assemble ? A.assemble(parts) : parts[0].vox;
+    },
+    write(vox, ctx) {
+      const { w, h, d, cells } = vox;
+      const bw = new BW(1 << 18);
+      bw.u32(0x00000101);            // version 257
+      bw.u32(0);                     // colour format: RGBA
+      bw.u32(0);                     // z-axis orientation: left handed
+      bw.u32(0);                     // compression: none
+      bw.u32(0);                     // visibility mask: not baked
+      bw.u32(1);                     // one matrix
+      const name = 'aos';
+      bw.u8(name.length); bw.raw(Array.from(name, (c) => c.charCodeAt(0)));
+      bw.u32(w); bw.u32(d); bw.u32(h);   // sx, sy (up) = canonical depth, sz (depth) = canonical y
+      bw.i32(0); bw.i32(0); bw.i32(0);
+      // Qubicle stores x fastest, then its own y (up), then z (depth).  Canonical z points
+      // down, so the middle index of the file is the mirror of the canonical depth.
+      for (let yq = 0; yq < h; yq++) for (let uy = 0; uy < d; uy++) for (let x = 0; x < w; x++) {
+        const c = cells[(w - 1 - x) + w * (yq + h * ((d - 1) - uy))];
+        /* four bytes per voxel, in the order they sit in the file:
+           red, green, blue, then 255 to mark the voxel as present */
+        bw.u8(c ? (c >>> 16) & 255 : 0);
+        bw.u8(c ? (c >>> 8) & 255 : 0);
+        bw.u8(c ? c & 255 : 0);
+        bw.u8(c ? 255 : 0);
+      }
+      void ctx;
+      return bw.out();
+    }
+  };
+
+  /* --------------------------------------------------------------- binvox */
+  const BINVOX = {
+    id: 'binvox', name: 'binvox', ext: 'binvox',
+    blurb: 'binvox shape',
+    limit: 'binvox stores geometry only — colours are dropped and the exported shape is a cube of its largest side.',
+    sniff(u8) {
+      if (u8.length < 16) return 0;
+      const s = latin(u8, 0, Math.min(u8.length, 64));
+      /* versions 1 and 2 share one layout; both are written by real tools */
+      return /^#binvox\s+[12]\b/.test(s) ? 1.0 : /^#binvox\s+\d/.test(s) ? 0.8 : 0;
+    },
+    read(u8, ctx) {
+      let p = 0;
+      const line = () => {
+        let s = '';
+        while (p < u8.length && u8[p] !== 10) s += String.fromCharCode(u8[p++]);
+        p++;
+        return s.trim();
+      };
+      const head = line();
+      const ver = /^#binvox\s+(\d+)/.exec(head);
+      if (!ver) throw new Error('not a binvox file');
+      if (ver[1] !== '1' && ver[1] !== '2') ctx.note('binvox version ' + ver[1] + ' is not official; read as version 1/2.');
+      let dims = null, trans = [0, 0, 0], scale = 1;
+      for (;;) {
+        const l = line();
+        if (l === 'data') break;
+        const parts = l.split(/\s+/);
+        if (parts[0] === 'dim') dims = parts.slice(1).map(Number);
+        else if (parts[0] === 'translate') trans = parts.slice(1).map(Number);
+        else if (parts[0] === 'scale') scale = Number(parts[1]);
+        if (p >= u8.length) break;
+      }
+      if (!dims || dims.length < 3) throw new Error('binvox: missing dim line');
+      const D = dims[0];
+      const nx = dims[0], ny = dims[1], nz = dims[2];
+      const vox = new Vox(nx, ny, nz);
+      let count = 0, v = 0;
+      let i = 0;
+      const total = nx * ny * nz;
+      while (i < total) {
+        if (p + 2 > u8.length) throw new Error('binvox: truncated');
+        v = u8[p++]; count = u8[p++];
+        for (let k = 0; k < count && i < total; k++, i++) {
+          if (!v) continue;
+          const x = Math.floor(i / (D * D)), rest = i - x * D * D;
+          const z = Math.floor(rest / D), y = rest - z * D;      // binvox index: x*D^2 + z*D + y
+          if (x < vox.w && y < vox.h && z < vox.d) vox.cells[x + vox.w * (y + vox.h * ((vox.d - 1) - z))] = 0xffd8d4c8;
+        }
+      }
+      ctx.note('shape loaded from binvox; colours are not stored in this format.');
+      void trans; void scale;
+      /* the grid is a cube with the model somewhere inside it; every other
+         reader hands back the model, so trim to it */
+      const box = vox.bbox();
+      return box ? vox.crop(box) : vox;
+    },
+    write(vox, ctx) {
+      // binvox is a cube of dim^3 with x*D^2 + z*D + y ordering, z = height measured from the ground
+      const D = Math.max(vox.w, vox.h, vox.d);
+      if (D > 256) throw new Error('binvox: model larger than 256');
+      const bw = new BW(1 << 18);
+      const text = '#binvox 1\ndim ' + D + ' ' + D + ' ' + D + '\ntranslate 0 0 0\nscale 1\ndata\n';
+      for (let i = 0; i < text.length; i++) bw.u8(text.charCodeAt(i));
+      const probe = new Uint8Array(D * D * D);
+      for (let z = 0; z < vox.d; z++) for (let y = 0; y < vox.h; y++) for (let x = 0; x < vox.w; x++) {
+        if (!vox.cells[x + vox.w * (y + vox.h * z)]) continue;
+        const bz = (D - 1) - z;          /* the file stores height above the ground
+                                            inside the whole cube, not the model */
+        probe[x * D * D + bz * D + y] = 1;
+      }
+      let i = 0;
+      while (i < probe.length) {
+        const v = probe[i];
+        let run = 1;
+        while (i + run < probe.length && probe[i + run] === v && run < 255) run++;
+        bw.u8(v); bw.u8(run);
+        i += run;
+      }
+      ctx.note('colours are not stored in binvox — the result is a solid shape.');
+      return bw.out();
+    }
+  };
+  function latin(u8, from, to) {
+    let s = '';
+    for (let i = from; i < to && i < u8.length; i++) s += String.fromCharCode(u8[i]);
+    return s;
+  }
+
+  /* ---------------------------------------------------------------- fitting */
+  /** crop to the solid bounding box, then shrink (nearest neighbour) until it fits */
+  function fitVolume(vox, maxAxis) {
+    let v = vox;
+    const b = v.bbox();
+    if (b && (b.w !== v.w || b.h !== v.h || b.d !== v.d)) v = v.crop(b);
+    if (Array.isArray(maxAxis)) {
+      const [mx, my, mz] = maxAxis;
+      const k = Math.min(mx / v.w, my / v.h, mz / v.d);
+      if (k < 1) {
+        v = v.resample(Math.max(1, Math.round(v.w * k)), Math.max(1, Math.round(v.h * k)), Math.max(1, Math.round(v.d * k)));
+      }
+    } else {
+      const m = Math.max(v.w, v.h, v.d);
+      if (m > maxAxis) {
+        const k = maxAxis / m;
+        v = v.resample(Math.max(1, Math.round(v.w * k)), Math.max(1, Math.round(v.h * k)), Math.max(1, Math.round(v.d * k)));
+      }
+    }
+    return v;
+  }
+  /** place a volume on a 512x512x64 AoS map: centred, standing on the ground (z = 62) */
+  function toMap(vox, opts) {
+    const b = vox.bbox();
+    let v = b ? vox.crop(b) : vox;
+    const note = [];
+    let k;
+    const pick = opts && opts.scale !== undefined ? opts.scale : 'fit';
+    if (pick === 'fit') {
+      const shrink = Math.min(512 / v.w, 512 / v.h, 61 / v.d);
+      if (shrink < 1) {
+        k = shrink;
+        note.push('model scaled down by ' + shrink.toFixed(2) + '\u00d7 to fit the map.');
+      } else {
+        k = Math.max(1, Math.min(Math.floor(512 / v.w), Math.floor(512 / v.h), Math.floor(61 / v.d)));
+        if (k > 1) note.push('model scaled up by ' + k.toFixed(1) + '\u00d7 to fill the map.');
+      }
+    } else k = pick;
+    if (k !== 1) v = v.resample(Math.max(1, Math.round(v.w * k)), Math.max(1, Math.round(v.h * k)), Math.max(1, Math.round(v.d * k)));
+    if (v.w > 512 || v.h > 512 || v.d > 61) throw new Error('model does not fit on an Ace of Spades map');
+    const out = new Vox(512, 512, 64);
+    const x0 = Math.floor((512 - v.w) / 2), y0 = Math.floor((512 - v.h) / 2), z0 = 62 + 1 - v.d;
+    for (let z = 0; z < v.d; z++) for (let y = 0; y < v.h; y++) for (let x = 0; x < v.w; x++) {
+      const c = v.cells[x + v.w * (y + v.h * z)];
+      if (c) out.cells[(x0 + x) + 512 * ((y0 + y) + 512 * (z0 + z))] = c;
+    }
+    return { vox: out, notes: note, scale: k };
+  }
+  /** strip a map volume down to just its standing model (used when reading .vxl) */
+  function fromMap(vox) {
+    const b = vox.bbox();
+    return b ? { vox: vox.crop(b), bounds: b } : { vox, bounds: null };
+  }
+
+  /* --------------------------------------------------------------- registry */
+  const FORMATS = [A.vxl, A.KV6, A.KVX, VOXMV, QB, BINVOX];
+  const byId = {};
+  for (const f of FORMATS) byId[f.id] = f;
+  /** engine parts that load later register their formats through this, so the
+      lookup table below can never fall behind the list `detect` walks */
+  A.register = function (f) { FORMATS.push(f); byId[f.id] = f; };
+  /** find the compressed payload if a file is wrapped in gzip/deflate (some servers do this) */
+  async function unwrap(u8) {
+    if (u8.length > 2 && u8[0] === 0x1f && u8[1] === 0x8b) return { data: await gunzip(u8), note: 'gzip wrapper removed.' };
+    if (u8.length > 2 && (u8[0] === 0x78 && (u8[1] === 0x01 || u8[1] === 0x9c || u8[1] === 0xda))) {
+      try { return { data: await inflate(u8), note: 'deflate wrapper removed.' }; } catch (e) { /* raw file that happens to start with 0x78 */ }
+    }
+    return { data: u8, note: null };
+  }
+  async function detect(u8) {
+    const { data, note } = await unwrap(u8);
+    let best = null, bestScore = 0;
+    for (const f of FORMATS) {
+      let s = 0;
+      try { s = f.sniff(data) || 0; } catch (e) { s = 0; }
+      if (s > bestScore) { bestScore = s; best = f; }
+    }
+    if (!best || bestScore < 0.5) {
+      const head = latin(data, 0, 32);
+      /* Westwood/C&C .vxl shares our extension and is a different format entirely */
+      if (/^Voxel Animation/.test(head)) {
+        throw new Error('this is a Command & Conquer voxel animation (.vxl), not an Ace of Spades map');
+      }
+      if (/^#?\s*binvox/i.test(head)) throw new Error('this binvox file needs a version 1 or 2 header');
+      /* SLAB6/Voxlap raw .vox: a size triple with no magic. Same extension as
+         MagicaVoxel, different format, and not one we support. */
+      if (data.length > 12 && rdU(data, 0) > 0 && rdU(data, 0) < data.length) {
+        const xs = rdU(data, 4), ys = rdU(data, 8);
+        if (xs > 0 && xs <= 256 && ys > 0 && ys <= 256) {
+          throw new Error('this looks like a SLAB6/Voxlap raw .vox — MagicaVoxel .vox is the supported one');
+        }
+      }
+      throw new Error('unrecognised voxel file');
+    }
+    return { format: best, data, note, confidence: bestScore };
+  }
+  async function readBytes(u8) {
+    const det = await detect(u8);
+    const wasMap = det.format.id === 'vxl';
+    const ctx = {
+      notes: [], note(s) { this.notes.push(s); }, model: null,
+      source: det.format
+    };
+    const vox = await det.format.read(det.data, ctx);
+    let volume = vox, mapBounds = null;
+    if (wasMap && vox.countSolid() > 0) {
+      // a map is mostly landscape; present the model on its own so it can be converted sensibly
+      const trimmed = fromMap(vox);
+      mapBounds = trimmed.bounds;
+      if (trimmed.vox !== vox) {
+        volume = trimmed.vox;
+        ctx.note('map cropped to the built area (' + volume.w + '\u00d7' + volume.h + '\u00d7' + volume.d + ').');
+      }
+    }
+    if (det.note) ctx.notes.push(det.note);
+    return { format: det.format, vox: volume, full: vox, notes: ctx.notes, model: ctx.model, mapBounds };
+  }
+  async function writeBytes(vox, formatId, opts) {
+    const f = byId[formatId];
+    if (!f) throw new Error('unknown output format');
+    const ctx = { notes: [], note(s) { this.notes.push(s); } };
+    if (formatId === 'vxl') {
+      const r = toMap(vox, opts || { scale: 'fit' });
+      for (const n of r.notes) ctx.notes.push(n);
+      const bytes = await f.write(r.vox, ctx);
+      return { bytes, notes: ctx.notes, ext: 'vxl', format: f };
+    }
+    let v = vox;
+    const cap = formatId === 'kvx' ? 255 : 256;
+    if (formatId === 'kv6' || formatId === 'kvx' || formatId === 'voxmv' || formatId === 'qb' || formatId === 'binvox' ||
+        formatId === 'qbt' || formatId === 'qbcl' || formatId === 'qef' || formatId === 'gox') {
+      // compare against the volume's own bounding box, not the size the file declared:
+      // trimming empty margins is not a scale-down and must not be reported as one
+      const b = vox.bbox();
+      const before = b ? Math.max(b.w, b.h, b.d) : Math.max(vox.w, vox.h, vox.d);
+      v = fitVolume(vox, cap);
+      const after = Math.max(v.w, v.h, v.d);
+      if (after < before) ctx.notes.push('model scaled down by ' + (after / before).toFixed(2) + '\u00d7 to fit ' + cap + ' voxels per axis.');
+    } else if (formatId === 'vox_slab') {
+      const b = vox.bbox();
+      const bw_ = b ? b.w : vox.w, bh_ = b ? b.h : vox.h, bd_ = b ? b.d : vox.d;
+      const caps = [1024, 1024, 256];
+      const k = Math.min(caps[0]/bw_, caps[1]/bh_, caps[2]/bd_);
+      v = fitVolume(vox, caps);
+      if (k < 1) ctx.notes.push("model scaled down by " + k.toFixed(2) + "× to fit vox_slab's per-axis limits.");
+    }
+    const bytes = await f.write(v, ctx);
+    return { bytes, notes: ctx.notes, ext: f.ext, format: f };
+  }
+
+  A.FORMATS = FORMATS; A.detect = detect; A.readBytes = readBytes; A.writeBytes = writeBytes;
+  A.fitVolume = fitVolume; A.toMap = toMap; A.fromMap = fromMap;
+  A.gunzip = gunzip; A.inflate = inflate; A.concat = concat;
+})();
+
+/* ============================================================================
+   AOS Voxel Converter — engine (part 3: the Qubicle family, Goxel)
+
+   Adds .qbt, .qef, .qbcl and .gox, all three of the Qubicle family being Y-up so
+   they share the mapping the .qb reader already uses:
+
+       file x = cx        file y (up) = d-1 - cz        file z (depth) = cy
+
+   and Goxel being Z-up:
+
+       file x = cx        file y = cy                   file z (up) = d-1 - cz
+
+   Also carries the compressor the newer formats need (deflate + zlib + PNG),
+   since the engine only had an inflate before.
+   ========================================================================== */
+'use strict';
+(function () {
+
+  const A = AOSC;
+  const { Vox, BW, rd, rdU, rd16, rdf, f32, rgb, quantise, concat } = A;
+  const inflate = A.inflate;
+
+  /* ------------------------------------------------------------- checksums */
+  const CRC_T = (() => {
+    const t = new Uint32Array(256);
+    for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; }
+    return t;
+  })();
+  function crc32(u8) {
+    let c = 0xffffffff;
+    for (let i = 0; i < u8.length; i++) c = CRC_T[(c ^ u8[i]) & 255] ^ (c >>> 8);
+    return (c ^ 0xffffffff) >>> 0;
+  }
+  function adler32(u8) {
+    let a = 1, b = 0;
+    for (let i = 0; i < u8.length; i++) {
+      a += u8[i]; b += a;
+      if ((i & 8191) === 8191) { a %= 65521; b %= 65521; }
+    }
+    a %= 65521; b %= 65521;
+    return ((b << 16) | a) >>> 0;
+  }
+
+  /* ------------------------------------------------------------- deflate */
+  /* One block, fixed Huffman codes, greedy matching with a 32 KiB window — enough
+     to make the files these formats write worth compressing, and simple enough to
+     verify: work/test.js checks every stream against Node's own zlib. */
+  const LEN_BASE = [3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163, 195, 227, 258];
+  const LEN_EXTRA = [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0];
+  const DIST_BASE = [1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33, 49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073, 4097, 6145, 8193, 12289, 16385, 24577];
+  const DIST_EXTRA = [0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13];
+
+  function deflateRaw(u8) {
+    const n = u8.length;
+    let buf = new Uint8Array(Math.max(64, n + (n >> 2) + 64));
+    let len = 0, bitBuf = 0, bitCnt = 0;
+    const putByte = (b) => {
+      if (len === buf.length) { const nb = new Uint8Array(buf.length * 2); nb.set(buf); buf = nb; }
+      buf[len++] = b & 255;
+    };
+    const writeBits = (v, k) => {
+      bitBuf |= (v << bitCnt); bitCnt += k;
+      while (bitCnt >= 8) { putByte(bitBuf); bitBuf >>>= 8; bitCnt -= 8; }
+    };
+    const rev = (v, k) => { let r = 0; for (let i = 0; i < k; i++) r = (r << 1) | ((v >>> i) & 1); return r; };
+    const writeCode = (code, k) => writeBits(rev(code, k), k);
+    const lit = (s) => {
+      if (s < 144) writeCode(0x30 + s, 8);
+      else if (s < 256) writeCode(0x190 + s - 144, 9);
+      else if (s < 280) writeCode(s - 256, 7);
+      else writeCode(0xc0 + s - 280, 8);
+    };
+
+    writeBits(1, 1);                       // BFINAL
+    writeBits(1, 2);                       // BTYPE = fixed Huffman
+
+    const head = new Int32Array(1 << 15).fill(-1);
+    const prev = new Int32Array(32768).fill(-1);
+    const hash = (i) => ((u8[i] << 10) ^ (u8[i + 1] << 5) ^ u8[i + 2]) & 0x7fff;
+
+    let i = 0;
+    while (i < n) {
+      let bestLen = 0, bestDist = 0;
+      const maxLen = Math.min(258, n - i);
+      if (maxLen >= 3) {
+        const h = hash(i);
+        let cand = head[h], chain = 0;
+        while (cand >= 0 && chain++ < 24 && i - cand <= 32768) {
+          if (bestLen === 0 || (cand + bestLen < n && u8[cand + bestLen] === u8[i + bestLen])) {
+            let l = 0;
+            while (l < maxLen && u8[cand + l] === u8[i + l]) l++;
+            if (l > bestLen) { bestLen = l; bestDist = i - cand; if (l >= maxLen) break; }
+          }
+          cand = prev[cand & 32767];
+        }
+        prev[i & 32767] = head[h]; head[h] = i;
+      }
+      if (bestLen >= 3) {
+        let li = 0; while (li < 28 && LEN_BASE[li + 1] <= bestLen) li++;
+        lit(257 + li);
+        writeBits(bestLen - LEN_BASE[li], LEN_EXTRA[li]);
+        let di = 0; while (di < 29 && DIST_BASE[di + 1] <= bestDist) di++;
+        writeCode(di, 5);
+        writeBits(bestDist - DIST_BASE[di], DIST_EXTRA[di]);
+        for (let k = 1; k < bestLen; k++) {
+          const j = i + k;
+          if (j + 2 < n) { const hj = hash(j); prev[j & 32767] = head[hj]; head[hj] = j; }
+        }
+        i += bestLen;
+      } else {
+        lit(u8[i]); i++;
+      }
+    }
+    lit(256);                              // end of block
+    if (bitCnt > 0) putByte(bitBuf);
+    return buf.subarray(0, len);
+  }
+
+  /** zlib wrapper: 0x78 0x01, the deflate stream, then Adler-32 of the input */
+  function zlibCompress(u8) {
+    const raw = deflateRaw(u8);
+    const out = new Uint8Array(raw.length + 6);
+    out[0] = 0x78; out[1] = 0x01;
+    out.set(raw, 2);
+    new DataView(out.buffer).setUint32(raw.length + 2, adler32(u8), false);
+    return out;
+  }
+
+  /* ----------------------------------------------------------------- PNG */
+  /* PNG is a big-endian format throughout: chunk lengths, the IHDR fields and the
+     CRCs are all most-significant byte first. */
+  const u32be = (w, v) => { w.u8((v >>> 24) & 255); w.u8((v >>> 16) & 255); w.u8((v >>> 8) & 255); w.u8(v & 255); };
+  const rdUbe = (a, o) => ((a[o] << 24) | (a[o + 1] << 16) | (a[o + 2] << 8) | a[o + 3]) >>> 0;
+
+  function pngChunk(w, type, fill) {
+    const body = new BW(64);
+    fill(body);
+    const payload = body.out();
+    u32be(w, payload.length);
+    const start = w.n;
+    for (let i = 0; i < 4; i++) w.u8(type.charCodeAt(i));
+    w.raw(payload);
+    u32be(w, crc32(w.b.subarray(start, w.n)));
+  }
+
+  /** 8-bit RGBA, non-interlaced, filter 0 — what Goxel wants for a BL16 block */
+  function pngEncode(rgba, w0, h0) {
+    const stride = w0 * 4;
+    const raw = new Uint8Array(h0 * (stride + 1));
+    for (let y = 0; y < h0; y++) {
+      raw[y * (stride + 1)] = 0;
+      raw.set(rgba.subarray(y * stride, (y + 1) * stride), y * (stride + 1) + 1);
+    }
+    const z = zlibCompress(raw);
+    const w = new BW(1024 + z.length);
+    w.raw(new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]));
+    pngChunk(w, 'IHDR', (b) => { u32be(b, w0); u32be(b, h0); b.u8(8); b.u8(6); b.u8(0); b.u8(0); b.u8(0); });
+    pngChunk(w, 'IDAT', (b) => b.raw(z));
+    pngChunk(w, 'IEND', () => {});
+    return w.out();
+  }
+
+  async function pngDecode(u8) {
+    if (u8.length < 8 || u8[0] !== 137 || u8[1] !== 80 || u8[2] !== 78 || u8[3] !== 71) throw new Error('not a PNG');
+    let p = 8, w = 0, h = 0, depth = 0, ctype = 0, interlace = 0;
+    const idat = [];
+    while (p + 8 <= u8.length) {
+      const length = rdUbe(u8, p);
+      const type = String.fromCharCode(u8[p + 4], u8[p + 5], u8[p + 6], u8[p + 7]);
+      const d = p + 8;
+      if (type === 'IHDR') { w = rdUbe(u8, d); h = rdUbe(u8, d + 4); depth = u8[d + 8]; ctype = u8[d + 9]; interlace = u8[d + 12]; }
+      else if (type === 'IDAT') idat.push(u8.subarray(d, d + length));
+      else if (type === 'IEND') break;
+      p = d + length + 4;
+    }
+    if (w <= 0 || h <= 0) throw new Error('PNG has no header');
+    if (depth !== 8 || (ctype !== 6 && ctype !== 2)) throw new Error('unsupported PNG (depth ' + depth + ', colour type ' + ctype + ')');
+    if (interlace !== 0) throw new Error('interlaced PNG is not supported');
+    const bpp = ctype === 6 ? 4 : 3;
+    const raw = await inflate(idat.length === 1 ? idat[0] : concat(idat));
+    const stride = w * bpp;
+    const out = new Uint8Array(w * h * 4);
+    const line = new Uint8Array(stride);
+    const up = new Uint8Array(stride);
+    let src = 0;
+    for (let y = 0; y < h; y++) {
+      const filter = raw[src++];
+      for (let i = 0; i < stride; i++) {
+        const x = raw[src + i];
+        const a = i >= bpp ? line[i - bpp] : 0;
+        const b = up[i];
+        const c = i >= bpp ? up[i - bpp] : 0;
+        let v;
+        if (filter === 0) v = x;
+        else if (filter === 1) v = x + a;
+        else if (filter === 2) v = x + b;
+        else if (filter === 3) v = x + ((a + b) >> 1);
+        else if (filter === 4) {
+          const pa = Math.abs(b - c), pb = Math.abs(a - c), pc = Math.abs(a + b - 2 * c);
+          v = x + (pa <= pb && pa <= pc ? a : pb <= pc ? b : c);
+        } else throw new Error('bad PNG filter ' + filter);
+        line[i] = v & 255;
+      }
+      src += stride;
+      for (let x = 0; x < w; x++) {
+        const o = (y * w + x) * 4;
+        if (bpp === 4) { out[o] = line[x * 4]; out[o + 1] = line[x * 4 + 1]; out[o + 2] = line[x * 4 + 2]; out[o + 3] = line[x * 4 + 3]; }
+        else { out[o] = line[x * 3]; out[o + 1] = line[x * 3 + 1]; out[o + 2] = line[x * 3 + 2]; out[o + 3] = 255; }
+      }
+      up.set(line);
+    }
+    return { w, h, rgba: out };
+  }
+
+  /* ----------------------------------------------------------- assembling */
+  /**
+   * Put the parts of a scene where the file says they go, then crop. Each part
+   * is already in canonical orientation and carries its own file-space position
+   * (x, y-up, z-depth) the way the Qubicle formats store it. Parts may sit at
+   * negative coordinates, so everything is shifted to the scene's own corner.
+   */
+  function assemble(parts) {
+    if (!parts.length) return new Vox(1, 1, 1);
+    let minX = Infinity, minY = Infinity, minZ = Infinity, maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
+    for (const p of parts) {
+      /* file axes: x = p.px + vox.w, up = p.py + vox.d, depth = p.pz + vox.h */
+      minX = Math.min(minX, p.px); maxX = Math.max(maxX, p.px + p.vox.w);
+      minY = Math.min(minY, p.py); maxY = Math.max(maxY, p.py + p.vox.d);
+      minZ = Math.min(minZ, p.pz); maxZ = Math.max(maxZ, p.pz + p.vox.h);
+    }
+    const W = Math.max(1, maxX - minX), H = Math.max(1, maxZ - minZ), D = Math.max(1, maxY - minY);
+    const out = new Vox(W, H, D);
+    for (const p of parts) {
+      const v = p.vox;
+      const dx = p.px - minX;
+      const dy = p.pz - minZ;                      // depth becomes our y
+      const dz = D - (p.py - minY) - v.d;          // up becomes our z, flipped
+      for (let z = 0; z < v.d; z++) for (let y = 0; y < v.h; y++) for (let x = 0; x < v.w; x++) {
+        const c = v.get(x, y, z);
+        if (c) out.set(dx + x, dy + y, dz + z, c);
+      }
+    }
+    const bb = out.bbox();
+    return bb ? out.crop(bb) : out;
+  }
+
+  /* ======================================================= Qubicle family */
+
+  /* ------------------------------------------------- Qubicle Binary Tree */
+  const QBT_MAGIC = 0x32204251;
+
+  function qbtMatrix(u8, p, pal) {
+    const nameLen = rdU(u8, p);
+    if (p + 4 + nameLen > u8.length) throw new Error('QBT: truncated');
+    p += 4 + nameLen;
+    const px = rd(u8, p), py = rd(u8, p + 4), pz = rd(u8, p + 8); p += 12;   // position
+    p += 12;                                   // local scale
+    p += 12;                                   // pivot
+    const sx = rdU(u8, p), sy = rdU(u8, p + 4), sz = rdU(u8, p + 8); p += 12;
+    const size = rdU(u8, p); p += 4;
+    if (p + size > u8.length) throw new Error('QBT: truncated');
+    const data = u8.subarray(p, p + size); p += size;
+    return { p, m: { sx, sy, sz, px, py, pz, data, pal } };
+  }
+
+  function qbtNode(u8, p, sink, pal, depth) {
+    depth = depth || 0;
+    if (depth > 64) throw new Error('tree too deep');
+    const type = rdU(u8, p), size = rdU(u8, p + 4); p += 8;
+    if (type === 0) { const r = qbtMatrix(u8, p, pal); sink.push(r.m); return r.p; }
+    if (type === 2) {
+      const r = qbtMatrix(u8, p, pal); sink.push(r.m); p = r.p;
+      const count = rdU(u8, p); p += 4;
+      for (let i = 0; i < count; i++) p = qbtNode(u8, p, sink, pal, depth + 1);
+      return p;
+    }
+    if (type === 1) {
+      const count = rdU(u8, p); p += 4;
+      for (let i = 0; i < count; i++) p = qbtNode(u8, p, sink, pal, depth + 1);
+      return p;
+    }
+    return p + size;                           // unknown node: skip it whole
+  }
+
+  /** decode the per-matrix voxel block (x outer, z middle, y inner, 4 bytes each) */
+  function qbtVoxels(m, data) {
+    const out = new Vox(Math.max(1, m.sx), Math.max(1, m.sz), Math.max(1, m.sy));
+    const pal = m.pal;
+    let p = 0;
+    for (let x = 0; x < m.sx; x++) {
+      for (let z = 0; z < m.sz; z++) {
+        for (let y = 0; y < m.sy; y++) {
+          const r = data[p], g = data[p + 1], b = data[p + 2], mk = data[p + 3];
+          p += 4;
+          if (mk === 0) continue;
+          const col = pal ? pal[r] : rgb(r, g, b);
+          out.set(m.sx - 1 - x, z, m.sy - 1 - y, col);
+        }
+      }
+    }
+    return out;
+  }
+
+  async function readQBT(u8, ctx) {
+    if (rdU(u8, 0) !== QBT_MAGIC) throw new Error('not a Qubicle Binary Tree file');
+    let p = 4;
+    p += 2;                                    // version major, minor
+    p += 12;                                   // global scale
+    let pal = null;
+    const mats = [];
+    let tree = false;
+    let treePos = -1;
+    // Order-independent: first scan for COLORMAP anywhere to get palette, then DATATREE
+    let scan = p;
+    while (scan + 8 <= u8.length) {
+      const tag = String.fromCharCode(u8[scan], u8[scan + 1], u8[scan + 2], u8[scan + 3], u8[scan + 4], u8[scan + 5], u8[scan + 6], u8[scan + 7]);
+      const afterTag = scan + 8;
+      if (tag === 'COLORMAP') {
+        if (afterTag + 4 <= u8.length) {
+          const count = rdU(u8, afterTag);
+          if (pal === null && count > 0 && afterTag + 4 + count * 4 <= u8.length) {
+            pal = [];
+            let q = afterTag + 4;
+            for (let i = 0; i < count; i++) { pal.push(rgb(u8[q], u8[q + 1], u8[q + 2])); q += 4; }
+          }
+          scan = afterTag + 4 + (rdU(u8, afterTag) * 4);
+          continue;
+        }
+      } else if (tag === 'DATATREE') {
+        tree = true;
+        treePos = afterTag;
+        break;
+      } else {
+        break;
+      }
+    }
+    if (pal === null) {
+      for (let q = p; q + 8 <= u8.length; q++) {
+        if (u8[q] === 67 && u8[q+1] === 79 && u8[q+2] === 76 && u8[q+3] === 79 && u8[q+4] === 82 && u8[q+5] === 77 && u8[q+6] === 65 && u8[q+7] === 80) {
+          const after = q + 8;
+          if (after + 4 <= u8.length) {
+            const count = rdU(u8, after);
+            if (count > 0 && count <= 1024 && after + 4 + count * 4 <= u8.length) {
+              pal = [];
+              let r = after + 4;
+              for (let i = 0; i < count; i++) { pal.push(rgb(u8[r], u8[r + 1], u8[r + 2])); r += 4; }
+              break;
+            }
+          }
+        }
+      }
+    }
+    if (treePos !== -1) {
+      qbtNode(u8, treePos, mats, pal);
+    } else {
+      for (let q = p; q + 8 <= u8.length; q++) {
+        if (u8[q] === 68 && u8[q+1] === 65 && u8[q+2] === 84 && u8[q+3] === 65 && u8[q+4] === 84 && u8[q+5] === 82 && u8[q+6] === 69 && u8[q+7] === 69) {
+          tree = true;
+          treePos = q + 8;
+          qbtNode(u8, treePos, mats, pal);
+          break;
+        }
+      }
+    }
+    if (!tree || !mats.length) {
+      if ((treePos !== -1 && treePos >= u8.length) || p >= u8.length || p + 8 > u8.length) throw new Error('QBT: truncated');
+      throw new Error('QBT file has no data tree');
+    }
+    for (const m of mats) {
+      try { m.vox = await inflate(m.data); }
+      catch (e) { throw new Error('QBT: truncated'); }
+    }
+    const out = assemble(mats.map((m) => ({ vox: qbtVoxels(m, m.vox), px: m.px, py: m.py, pz: m.pz })));
+    if (mats.length > 1) ctx.note(mats.length + ' matrices placed at their own offsets and merged into one volume.');
+    if (!pal) ctx.note('no colour map in the file, so voxels carry true RGB colours.');
+    return out;
+  }
+
+  function writeQBT(vox, ctx) {
+    const q = quantise(vox, 255);
+    const b = vox.bbox();
+    const v = b ? vox.crop(b) : vox;
+    const idx = (c) => { const i = q.index.get(c); return i === undefined ? 0 : i; };
+    if (!q.exact) ctx && ctx.note && ctx.note('colours were reduced to ' + q.pal.length + ' for the Qubicle colour map.');
+
+    /* voxel block: file x = cx, file z = cy, file y (up) = d-1 - cz */
+    const raw = new Uint8Array(v.w * v.h * v.d * 4);
+    let p = 0;
+    for (let x = 0; x < v.w; x++) {
+      for (let z = 0; z < v.h; z++) {
+        for (let y = 0; y < v.d; y++) {
+          const c = v.get(v.w - 1 - x, z, v.d - 1 - y);
+          if (c) { raw[p] = idx(c); raw[p + 3] = 255; }
+          p += 4;
+        }
+      }
+    }
+    const bits = zlibCompress(raw);
+
+    const body = new BW(bits.length + 128);
+    const name = 'matrix';
+    body.u32(name.length);
+    for (let i = 0; i < name.length; i++) body.u8(name.charCodeAt(i));
+    body.i32(0); body.i32(0); body.i32(0);        // position
+    body.u32(1); body.u32(1); body.u32(1);        // local scale
+    f32(body, 0); f32(body, 0); f32(body, 0);     // pivot
+    body.u32(v.w); body.u32(v.d); body.u32(v.h);  // size, in file order
+    body.u32(bits.length);
+    body.raw(bits);
+    const mBody = body.out();
+
+    const out = new BW(mBody.length + q.pal.length * 4 + 256);
+    out.u32(QBT_MAGIC); out.u8(1); out.u8(0);
+    f32(out, 1); f32(out, 1); f32(out, 1);
+    for (let i = 0; i < 8; i++) out.u8('COLORMAP'.charCodeAt(i));
+    out.u32(q.pal.length);
+    for (const c of q.pal) { out.u8((c >>> 16) & 255); out.u8((c >>> 8) & 255); out.u8(c & 255); out.u8(255); }
+    for (let i = 0; i < 8; i++) out.u8('DATATREE'.charCodeAt(i));
+    /* model node containing one matrix node */
+    out.u32(1);                                   // type: model
+    out.u32(4 + 8 + mBody.length);                // data size
+    out.u32(1);                                   // child count
+    out.u32(0);                                   // type: matrix
+    out.u32(mBody.length);
+    out.raw(mBody);
+    return out.out();
+  }
+
+  /* ----------------------------------------------- Qubicle Exchange Format */
+  function readQEF(u8, ctx) {
+    const text = new TextDecoder().decode(u8);
+    const lines = text.split(/\r?\n/);
+    let i = 0;
+    const skipBlanks = () => { while (i < lines.length && lines[i].trim() === '') i++; };
+    skipBlanks();
+    if (lines[i++].trim() !== 'Qubicle Exchange Format') throw new Error('not a QEF file');
+    skipBlanks();
+    if (!/^Version/.test(lines[i++].trim())) throw new Error('unexpected QEF version line');
+    skipBlanks();
+    i++;                                          // the www.minddesk.com line
+    skipBlanks();
+    const dims = lines[i++].trim().split(/\s+/).map(Number);
+    const w = Math.round(dims[0]), h = Math.round(dims[1]), d = Math.round(dims[2]);
+    if (!(w > 0 && h > 0 && d > 0)) throw new Error('bad QEF dimensions');
+    skipBlanks();
+    const count = parseInt(lines[i++].trim(), 10);
+    const pal = [];
+    for (let k = 0; k < count; k++) {
+      skipBlanks();
+      const c = lines[i++].trim().split(/\s+/).map(Number);
+      pal.push(rgb(Math.round(c[0] * 255), Math.round(c[1] * 255), Math.round(c[2] * 255)));
+    }
+    const out = new Vox(w, h, d);
+    for (; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+      const t = line.split(/\s+/).map(Number);
+      if (t.length < 5) continue;
+      /* tokens are x, z (depth), y (up) — not x, y, z */
+      const x = t[0], z = t[1], y = t[2], ci = t[3];
+      if (x < 0 || y < 0 || z < 0 || x >= w || z >= h || y >= d) continue;
+      out.set(w - 1 - x, z, d - 1 - y, pal[ci] || 0xff808080);
+    }
+    const bb = out.bbox();
+    ctx.note('only the voxels listed in the file were stored; hidden ones were rebuilt.');
+    return bb ? out.crop(bb) : out;
+  }
+
+  function writeQEF(vox, ctx) {
+    const q = quantise(vox, 255);
+    const b = vox.bbox();
+    const v = b ? vox.crop(b) : vox;
+    const idx = (c) => { const i = q.index.get(c); return i === undefined ? 0 : i; };
+    const parts = ['Qubicle Exchange Format\n', 'Version 0.2\n', 'www.minddesk.com\n'];
+    /* width, depth, height */
+    parts.push(v.w + ' ' + v.h + ' ' + v.d + '\n');
+    parts.push(q.pal.length + '\n');
+    for (const c of q.pal) {
+      const r = ((c >>> 16) & 255) / 255, g = ((c >>> 8) & 255) / 255, bl = (c & 255) / 255;
+      parts.push(r.toFixed(6) + ' ' + g.toFixed(6) + ' ' + bl.toFixed(6) + '\n');
+    }
+    let n = 0;
+    for (let x = 0; x < v.w; x++) for (let z = 0; z < v.h; z++) for (let y = 0; y < v.d; y++) {
+      const c = v.get(x, z, v.d - 1 - y);
+      if (!c) continue;
+      parts.push((v.w - 1 - x) + ' ' + z + ' ' + y + ' ' + idx(c) + ' ' + 0x7e + '\n');
+      n++;
+    }
+    return new TextEncoder().encode(parts.join(''));
+  }
+
+  /* ---------------------------------------- Qubicle Project (QBCL / .qbcl) */
+  const QBCL_RLE_FLAG = 2;
+
+  function qbclMatrix(u8, p) {
+    const sx = rdU(u8, p), sy = rdU(u8, p + 4), sz = rdU(u8, p + 8); p += 12;
+    const px = rd(u8, p), py = rd(u8, p + 4), pz = rd(u8, p + 8); p += 12;   // position
+    p += 12;                                   // pivot
+    const size = rdU(u8, p); p += 4;
+    if (p + size > u8.length) throw new Error('QBCL: truncated');
+    const data = u8.subarray(p, p + size); p += size;
+    return { p, m: { sx, sy, sz, px, py, pz, data } };
+  }
+
+  function qbclNode(u8, p, sink, depth) {
+    depth = depth || 0;
+    if (depth > 64) throw new Error('tree too deep');
+    const type = rdU(u8, p); p += 4;
+    p += 4;                                    // unknown (always 1)
+    const nameLen = rdU(u8, p);
+    if (p + 4 + nameLen > u8.length) throw new Error('QBCL: truncated');
+    p += 4 + nameLen;
+    p += 3;                                    // visible, unknown, locked
+    if (type === 0) { const r = qbclMatrix(u8, p); sink.push(r.m); return r.p; }
+    if (type === 1) {
+      p += 36;                                 // 3x3 rotation
+      const count = rdU(u8, p); p += 4;
+      for (let i = 0; i < count; i++) p = qbclNode(u8, p, sink, depth + 1);
+      return p;
+    }
+    if (type === 2) {
+      const r = qbclMatrix(u8, p); sink.push(r.m); p = r.p;
+      const count = rdU(u8, p); p += 4;
+      for (let i = 0; i < count; i++) p = qbclNode(u8, p, sink, depth + 1);
+      return p;
+    }
+    throw new Error('unknown QBCL node type ' + type);
+  }
+
+  /** RLE lines: x outer, z inner, y increasing inside a line */
+  async function qbclVoxels(m, data) {
+    const out = new Vox(Math.max(1, m.sx), Math.max(1, m.sz), Math.max(1, m.sy));
+    const lines = m.sx * m.sz;
+    let p = 0;
+    for (let index = 0; index < lines; index++) {
+      const x = Math.floor(index / m.sz), z = index % m.sz;
+      if (p + 2 > data.length) break;
+      const entries = data[p] | (data[p + 1] << 8); p += 2;
+      let y = 0;
+      for (let i = 0; i < entries; i++) {
+        const r = data[p], g = data[p + 1], b = data[p + 2], mk = data[p + 3];
+        p += 4;
+        if (mk === QBCL_RLE_FLAG) {
+          const run = r;
+          const r2 = data[p], g2 = data[p + 1], b2 = data[p + 2], a2 = data[p + 3];
+          p += 4; i++;
+          /* the line's index runs up the model, so it becomes d-1 - y here */
+          if (a2 !== 0) for (let k = 0; k < run; k++) { if (y < m.sy) out.set(m.sx - 1 - x, z, m.sy - 1 - y, rgb(r2, g2, b2)); y++; }
+          else y += run;
+        } else if (mk === 0) {
+          y++;
+        } else {
+          if (y < m.sy) out.set(m.sx - 1 - x, z, m.sy - 1 - y, rgb(r, g, b));
+          y++;
+        }
+      }
+    }
+    return out;
+  }
+
+  async function readQBCL(u8, ctx) {
+    if (String.fromCharCode(u8[0], u8[1], u8[2], u8[3]) !== 'QBCL') throw new Error('not a Qubicle Project file');
+    let p = 4;
+    p += 4;                                    // program version
+    const fileVersion = rdU(u8, p); p += 4;
+    if (fileVersion !== 2) throw new Error('unsupported QBCL version ' + fileVersion);
+    const thumbW = rdU(u8, p), thumbH = rdU(u8, p + 4); p += 8;
+    if (thumbW > 65535 || thumbH > 65535 || p + thumbW * thumbH * 4 > u8.length) throw new Error('QBCL: truncated thumbnail');
+    p += thumbW * thumbH * 4;                  // preview thumbnail
+    for (let i = 0; i < 7; i++) {
+      const len = rdU(u8, p);
+      if (p + 4 + len > u8.length) throw new Error('QBCL: truncated');
+      p += 4 + len;
+    }
+    p += 16;                                   // timestamps
+    const mats = [];
+    if (p + 4 > u8.length) throw new Error('QBCL: truncated');
+    while (p + 4 <= u8.length) {
+      const before = p;
+      p = qbclNode(u8, p, mats);
+      if (p <= before) break;
+    }
+    if (!mats.length) {
+      if (p >= u8.length) throw new Error('QBCL: truncated');
+      throw new Error('QBCL file has no matrices');
+    }
+    for (const m of mats) {
+      try { m.vox = await inflate(m.data); }
+      catch (e) { throw new Error('QBCL: truncated'); }
+    }
+    const parts = [];
+    for (const m of mats) parts.push({ vox: await qbclVoxels(m, m.vox), px: m.px, py: m.py, pz: m.pz });
+    const out = assemble(parts);
+    const bb = out.bbox();
+    if (mats.length > 1) ctx.note(mats.length + ' matrices merged into one volume.');
+    return bb ? out.crop(bb) : out;
+  }
+
+  function writeQBCL(vox, ctx) {
+    const b = vox.bbox();
+    const v = b ? vox.crop(b) : vox;
+    /* RLE encode: x outer, z inner, y increasing inside a line */
+    const rle = new BW(v.w * v.h * v.d * 2 + 1024);
+    for (let x = 0; x < v.w; x++) {
+      for (let z = 0; z < v.h; z++) {
+        const start = rle.n;
+        rle.u16(0);
+        let entries = 0;
+        let runColour = v.get(v.w - 1 - x, z, v.d - 1 - 0);
+        let run = 0;
+        const flush = () => {
+          if (run === 0) return;
+          const c = runColour;
+          if (run === 1) {
+            rle.u8((c >>> 16) & 255); rle.u8((c >>> 8) & 255); rle.u8(c & 255); rle.u8(c ? 255 : 0);
+            entries += 1;
+          } else if (run === 2) {
+            for (let k = 0; k < 2; k++) {
+              rle.u8((c >>> 16) & 255); rle.u8((c >>> 8) & 255); rle.u8(c & 255); rle.u8(c ? 255 : 0);
+            }
+            entries += 2;
+          } else {
+            rle.u8(run); rle.u8(0); rle.u8(0); rle.u8(QBCL_RLE_FLAG);
+            rle.u8((c >>> 16) & 255); rle.u8((c >>> 8) & 255); rle.u8(c & 255); rle.u8(c ? 255 : 0);
+            entries += 2;
+          }
+          run = 0;
+        };
+        for (let y = 0; y < v.d; y++) {
+          const c = v.get(v.w - 1 - x, z, v.d - 1 - y);
+          if (c !== runColour || run === 255) { flush(); runColour = c; }
+          run++;
+        }
+        flush();
+        rle.b[start] = entries & 255; rle.b[start + 1] = (entries >> 8) & 255;
+      }
+    }
+    const bits = zlibCompress(rle.out());
+
+    const body = new BW(bits.length + 128);
+    body.u32(1);                                  // unknown
+    const name = 'matrix';
+    body.u32(name.length);
+    for (let i = 0; i < name.length; i++) body.u8(name.charCodeAt(i));
+    body.u8(1); body.u8(1); body.u8(0);           // visible, unknown, locked
+    body.u32(v.w); body.u32(v.d); body.u32(v.h);
+    body.i32(0); body.i32(0); body.i32(0);
+    f32(body, v.w / 2); f32(body, v.d / 2); f32(body, v.h / 2);
+    body.u32(bits.length);
+    body.raw(bits);
+    const mBody = body.out();
+
+    const out = new BW(mBody.length + 512);
+    for (let i = 0; i < 4; i++) out.u8('QBCL'.charCodeAt(i));
+    out.u32(131331);                              // program version
+    out.u32(2);                                   // file version
+    out.u32(0); out.u32(0);                       // no thumbnail
+    for (let i = 0; i < 7; i++) out.u32(0);       // title..copyright, all empty
+    out.u32(0); out.u32(0); out.u32(0); out.u32(0); // timestamps
+    /* model node holding one matrix */
+    out.u32(1);
+    out.u32(1);                                   // unknown
+    const rootName = 'model';
+    out.u32(rootName.length);
+    for (let i = 0; i < rootName.length; i++) out.u8(rootName.charCodeAt(i));
+    out.u8(1); out.u8(1); out.u8(0);
+    for (let i = 0; i < 9; i++) f32(out, i % 4 === 0 ? 1 : 0);   // identity rotation
+    out.u32(1);                                   // child count
+    out.u32(0);                                   // type: matrix
+    out.raw(mBody);
+    return out.out();
+  }
+
+  /* ==================================================================== Goxel */
+  const GOX_TILE = 16;
+
+  function goxChunk(out, type, payload) {
+    for (let i = 0; i < 4; i++) out.u8(type.charCodeAt(i));
+    out.u32(payload.length);
+    out.raw(payload);
+    out.u32(0);                                   // crc, Goxel itself writes 0
+  }
+
+  async function readGOX(u8, ctx) {
+    if (String.fromCharCode(u8[0], u8[1], u8[2], u8[3]) !== 'GOX ') throw new Error('not a Goxel file');
+    const version = rd(u8, 4);
+    if (version > 2) throw new Error('unsupported Goxel file version ' + version);
+    let p = 8;
+    const blocks = [];                            // in file order, indexed by LAYR
+    const placed = [];
+    while (p + 12 <= u8.length) {
+      const type = String.fromCharCode(u8[p], u8[p + 1], u8[p + 2], u8[p + 3]);
+      const length = rdU(u8, p + 4);
+      const d = p + 8;
+      if (d + length > u8.length) break;
+      if (type === 'BL16') {
+        blocks.push(await pngDecode(u8.subarray(d, d + length)));
+      } else if (type === 'LAYR') {
+        const count = rd(u8, d);
+        let q = d + 4;
+        for (let i = 0; i < count; i++) {
+          const index = rd(u8, q);
+          const bx = rd(u8, q + 4), by = rd(u8, q + 8), bz = rd(u8, q + 12);
+          q += 20;
+          placed.push({ index, bx, by, bz });
+        }
+      }
+      p = d + length + 4;
+    }
+    if (!placed.length) throw new Error('Goxel file has no layers');
+    /* Goxel blocks can sit at negative coordinates (its volume origin is free),
+       so take the scene's own corner as the origin. */
+    let minX = Infinity, minY = Infinity, minZ = Infinity;
+    let maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
+    for (const b of placed) {
+      minX = Math.min(minX, b.bx); minY = Math.min(minY, b.by); minZ = Math.min(minZ, b.bz);
+      maxX = Math.max(maxX, b.bx); maxY = Math.max(maxY, b.by); maxZ = Math.max(maxZ, b.bz);
+    }
+    const W = (maxX - minX) + GOX_TILE;
+    const H = (maxY - minY) + GOX_TILE;
+    const D = (maxZ - minZ) + GOX_TILE;
+    const out = new Vox(Math.max(1, W), Math.max(1, H), Math.max(1, D));
+    let used = 0;
+    for (const b of placed) {
+      const img = blocks[b.index];
+      if (!img) continue;
+      used++;
+      for (let lz = 0; lz < GOX_TILE; lz++) {
+        for (let ly = 0; ly < GOX_TILE; ly++) {
+          for (let lx = 0; lx < GOX_TILE; lx++) {
+            const i = (lz * GOX_TILE * GOX_TILE + ly * GOX_TILE + lx) * 4;
+            const a = img.rgba[i + 3];
+            if (a === 0) continue;
+            const gx = b.bx - minX + lx, gy = b.by - minY + ly, gz = b.bz - minZ + lz;
+            if (gx >= out.w || gy >= out.h || gz >= out.d) continue;
+            out.set(gx, gy, out.d - 1 - gz, rgb(img.rgba[i], img.rgba[i + 1], img.rgba[i + 2]));
+          }
+        }
+      }
+    }
+    const bb = out.bbox();
+    ctx.note(used + ' block' + (used === 1 ? '' : 's') + ' of 16\u00b3 read from the Goxel layers.');
+    return bb ? out.crop(bb) : out;
+  }
+
+  function writeGOX(vox, ctx) {
+    const b = vox.bbox();
+    const v = b ? vox.crop(b) : vox;
+    const w = v.w, h = v.h, d = v.d;
+    /* Goxel is Z-up: gz = d-1 - cz */
+    const bxMax = Math.floor((w - 1) / GOX_TILE), byMax = Math.floor((h - 1) / GOX_TILE), bzMax = Math.floor((d - 1) / GOX_TILE);
+    const blocks = [];
+    for (let bz = 0; bz <= bzMax; bz++) {
+      for (let by = 0; by <= byMax; by++) {
+        for (let bx = 0; bx <= bxMax; bx++) {
+          const tile = new Uint8Array(GOX_TILE * GOX_TILE * GOX_TILE * 4);
+          let any = false;
+          for (let lz = 0; lz < GOX_TILE; lz++) {
+            const gz = bz * GOX_TILE + lz;
+            const cz = d - 1 - gz;
+            if (cz < 0 || cz >= d) continue;
+            for (let ly = 0; ly < GOX_TILE; ly++) {
+              const gy = by * GOX_TILE + ly;
+              if (gy >= h) break;
+              for (let lx = 0; lx < GOX_TILE; lx++) {
+                const gx = bx * GOX_TILE + lx;
+                if (gx >= w) break;
+                const c = v.get(gx, gy, cz);
+                if (!c) continue;
+                const i = (lz * GOX_TILE * GOX_TILE + ly * GOX_TILE + lx) * 4;
+                tile[i] = (c >>> 16) & 255; tile[i + 1] = (c >>> 8) & 255; tile[i + 2] = c & 255; tile[i + 3] = 255;
+                any = true;
+              }
+            }
+          }
+          if (any) blocks.push({ bx, by, bz, tile });
+        }
+      }
+    }
+    const out = new BW(1 << 16);
+    out.raw(new Uint8Array([0x47, 0x4f, 0x58, 0x20]));   // "GOX "
+    out.i32(2);
+    for (const blk of blocks) goxChunk(out, 'BL16', pngEncode(blk.tile, 64, 64));
+    const layer = new BW(1024);
+    layer.i32(blocks.length);
+    blocks.forEach((blk, i) => {
+      layer.i32(i);
+      layer.i32(blk.bx * GOX_TILE);
+      layer.i32(blk.by * GOX_TILE);
+      layer.i32(blk.bz * GOX_TILE);
+      layer.i32(0);
+    });
+    goxChunk(out, 'LAYR', layer.out());
+    if (ctx && ctx.note) ctx.note(blocks.length + ' block' + (blocks.length === 1 ? '' : 's') + ' of 16\u00b3 written, one layer.');
+    return out.out();
+  }
+
+  /* ------------------------------------------------------------ register */
+  const NEW_FORMATS = [
+    {
+      id: 'qbt', name: 'Qubicle Binary Tree', ext: 'qbt',
+      blurb: 'Qubicle scene tree with a shared colour map',
+      limit: '256 voxels per axis; colours go through a palette of up to 256 entries.',
+      sniff(u8) { return u8.length > 20 && rdU(u8, 0) === QBT_MAGIC ? 1 : 0; },
+      read: readQBT, write: writeQBT
+    },
+    {
+      id: 'qef', name: 'Qubicle Exchange', ext: 'qef',
+      blurb: 'Qubicle Exchange Format: plain text, one visible voxel per line',
+      limit: 'plain text, so it is large; only visible voxels are stored and colours go through a palette.',
+      sniff(u8) {
+        if (u8.length < 24) return 0;
+        const head = String.fromCharCode(u8[0], u8[1], u8[2], u8[3], u8[4], u8[5], u8[6], u8[7], u8[8], u8[9], u8[10]);
+        return head === 'Qubicle Exc' ? 1 : 0;
+      },
+      read: readQEF, write: writeQEF
+    },
+    {
+      id: 'qbcl', name: 'Qubicle Project', ext: 'qbcl',
+      blurb: 'Qubicle Construction Library: scene tree with RLE-compressed matrices',
+      limit: 'voxel lines are run-length encoded, so flat regions cost almost nothing.',
+      sniff(u8) { return u8.length > 16 && String.fromCharCode(u8[0], u8[1], u8[2], u8[3]) === 'QBCL' ? 1 : 0; },
+      read: readQBCL, write: writeQBCL
+    },
+    {
+      id: 'gox', name: 'Goxel', ext: 'gox',
+      blurb: 'Goxel scene: layers of 16\u00b3 blocks stored as small PNGs',
+      limit: 'written as a single layer; Goxel\u2019s own cameras, materials and layer names are not emitted.',
+      sniff(u8) { return u8.length > 12 && String.fromCharCode(u8[0], u8[1], u8[2], u8[3]) === 'GOX ' ? 1 : 0; },
+      read: readGOX, write: writeGOX
+    }
+  ];
+  for (const f of NEW_FORMATS) A.register(f);
+
+  A.deflateRaw = deflateRaw;
+  A.zlibCompress = zlibCompress;
+  A.pngEncode = pngEncode;
+  A.pngDecode = pngDecode;
+  A.crc32 = crc32;
+  A.adler32 = adler32;
+  A.assemble = assemble;
+})();
+
+
+/* ============================================================================
+   AOS Voxel Converter — engine (part 4: community formats)
+   Adds: .glb (glTF binary), .obj, .stl, .vox (SLAB6/Ken's raw), 
+         .schematic (MCEdit classic), .json, .ply
+   All registered via AOSC.register so detection + UI pick them up automatically.
+   ========================================================================== */
+'use strict';
+(function () {
+  const A = AOSC;
+  const { Vox, BW, rgb, rdU, rd, quantise, pal768, readPal768 } = A;
+
+  /* -------------------------------------------------------------- helpers */
+  function concatArrs(arrs) {
+    let len = 0; for (const a of arrs) len += a.length;
+    const out = new Uint8Array(len); let p=0;
+    for (const a of arrs) { out.set(a,p); p+=a.length; }
+    return out;
+  }
+  function u32le(v){ return new Uint8Array([v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255]); }
+  function u16le(v){ return new Uint8Array([v&255,(v>>8)&255]); }
+
+  /* ---------------------------- SLAB6 raw .vox (Ken Silverman) --------------- */
+  // Format: xsiz, ysiz, zsiz (int32 LE), then for each x,y: count (u8) + count*{z,u8 colIdx,u8 vis}
+  // then 768-byte palette (6-bit per channel, 0..63). Same palette code as KVX/KV6.
+  function slabRead(u8, ctx){
+    if (u8.length < 12+768) throw new Error('SLAB6 .vox too small');
+    const xs = rdU(u8,0), ys = rdU(u8,4), zs = rdU(u8,8);
+    if (xs<=0||xs>1024||ys<=0||ys>1024||zs<=0||zs>256) throw new Error('bad SLAB6 dimensions');
+    const palOff = u8.length - 768;
+    if (palOff < 12) throw new Error('SLAB6 .vox truncated (no palette)');
+    const pal = readPal768(u8, palOff);
+    const vox = new Vox(xs, ys, zs);
+    let p = 12;
+    for (let x=0;x<xs;x++) for (let y=0;y<ys;y++){
+      if (p>=palOff) break;
+      const cnt = u8[p++]; // voxels in this column
+      for (let i=0;i<cnt;i++){
+        if (p+2>=palOff) break;
+        let z = u8[p++], ci = u8[p++], vis = u8[p++]; // vis ignored
+        if (z>=zs) continue;
+        // SLAB6 stores z = 0 at bottom? We flip to make z=0 = sky like AoS: file z=0 bottom -> our d-1
+        // Many tools write z directly as height from bottom. Convert to our down axis: ourZ = zs-1 - fileZ
+        const ourZ = zs-1 - z;
+        if (ourZ<0||ourZ>=zs) continue;
+        const col = pal[ci] || 0;
+        if (col) vox.set(x,y,ourZ,col);
+      }
+    }
+    ctx.note('SLAB6 raw .vox: '+xs+'×'+ys+'×'+zs+' ('+vox.countSolid().toLocaleString()+' voxels)');
+    return vox;
+  }
+  function slabWrite(vox, ctx){
+    // quantise
+    const b = vox.bbox(); const v = b ? vox.crop(b) : vox;
+    const q = quantise(v, 255);
+    if (!q.exact) ctx.note('colours quantised to '+q.pal.length+' for SLAB6 palette.');
+    const xs=v.w, ys=v.h, zs=v.d;
+    const bw = new BW((xs*ys*4)+(v.countSolid()*3)+12+768);
+    bw.u32(xs); bw.u32(ys); bw.u32(zs);
+    // build column lists
+    for (let x=0;x<xs;x++) for (let y=0;y<ys;y++){
+      const col = [];
+      for (let z=0;z<zs;z++){
+        // our z = 0 sky -> file z = zs-1 - ourZ
+        const ourZ = z; // we iterate ourZ
+        const c = v.get(x,y,ourZ);
+        if (!c) continue;
+        const fileZ = zs-1 - ourZ;
+        const idx = q.index.get(c);
+        const ci = idx===undefined?0:idx;
+        // visibility: simple 6-bit mask same as KVX
+        let vis=0;
+        if (x===0||!v.get(x-1,y,ourZ)) vis|=1;
+        if (x===xs-1||!v.get(x+1,y,ourZ)) vis|=2;
+        if (y===0||!v.get(x,y-1,ourZ)) vis|=4;
+        if (y===ys-1||!v.get(x,y+1,ourZ)) vis|=8;
+        if (ourZ===0||!v.get(x,y,ourZ-1)) vis|=16; // above is -z in file? keep
+        if (ourZ===zs-1||!v.get(x,y,ourZ+1)) vis|=32;
+        col.push({fz:fileZ, ci, vis});
+      }
+      // sort by fileZ ascending (bottom to top)
+      col.sort((a,b)=>a.fz-b.fz);
+      if (col.length>255) {
+        // split? spec says byte count, so truncate - but we can clamp
+        col.length=255;
+        ctx.note('column ('+x+','+y+') truncated to 255 voxels (SLAB6 limit)');
+      }
+      bw.u8(col.length);
+      for (const e of col){ bw.u8(e.fz&255); bw.u8(e.ci&255); bw.u8(e.vis&255); }
+    }
+    bw.raw(pal768(q.pal));
+    return bw.out();
+  }
+
+  /* --------------------------------------------- JSON voxel list ------------- */
+  function jsonRead(u8, ctx){
+    const text = new TextDecoder().decode(u8);
+    const obj = JSON.parse(text);
+    const arr = obj.voxels || obj.data || obj;
+    if (!Array.isArray(arr)) throw new Error('JSON must contain a voxels array');
+    let maxX=0,maxY=0,maxZ=0;
+    for (const v of arr){
+      const x=v.x|0, y=v.y|0, z=v.z|0;
+      if (x<0||y<0||z<0||x>=4096||y>=4096||z>=4096) continue;
+      if (x>maxX) maxX=x; if (y>maxY) maxY=y; if (z>maxZ) maxZ=z;
+    }
+    const vox = new Vox(maxX+1, maxY+1, maxZ+1);
+    for (const e of arr){
+      const x=e.x|0, y=e.y|0, z=e.z|0;
+      if (x<0||y<0||z<0||x>=vox.w||y>=vox.h||z>=vox.d) continue;
+      const c = e.color||e.col||e.c;
+      let col=0;
+      if (typeof c==='number') col=(c|0xff000000)>>>0;
+      else if (typeof c==='string'){ // #rrggbb
+        const s=c.replace('#',''); if (s.length>=6){ col = (0xff000000 | parseInt(s.slice(0,6),16))>>>0; }
+      } else if (Array.isArray(c)){ col = rgb(c[0]|0,c[1]|0,c[2]|0); }
+      else if (e.r!==undefined){ col = rgb(e.r|0,e.g|0,e.b|0); }
+      if (col) vox.set(x,y,z,col);
+    }
+    return vox;
+  }
+  function jsonWrite(vox, ctx){
+    const out=[];
+    for (let z=0;z<vox.d;z++) for (let y=0;y<vox.h;y++) for (let x=0;x<vox.w;x++){
+      const c=vox.get(x,y,z); if (!c) continue;
+      out.push({x,y,z,color:'#'+('000000'+(c&0xffffff).toString(16)).slice(-6)});
+    }
+    const txt = JSON.stringify({width:vox.w,height:vox.h,depth:vox.d,voxels:out}, null, 2);
+    return new TextEncoder().encode(txt);
+  }
+
+  /* ------------------------------------------------- Wavefront OBJ ----------- */
+  function objWrite(vox, ctx){
+    // naive face-culling, vertex colors as extension (v x y z r g b)
+    const b = vox.bbox(); const v = b ? vox.crop(b) : vox;
+    // collect faces
+    let verts=[]; // {x,y,z,r,g,b}
+    let faces=[]; // [i1,i2,i3,i4] 1-based
+    const get = (x,y,z)=>v.get(x,y,z);
+    const pushQuad = (quad, col)=>{
+      const r=((col>>>16)&255)/255, g=((col>>>8)&255)/255, bl=(col&255)/255;
+      const base = verts.length+1;
+      for (const p of quad){ verts.push({x:p[0], y:v.d- p[2], z:p[1], r,g,b:bl}); }
+      // two tris: 0,1,2 and 0,2,3 but winding for Y-up: keep CCW
+      faces.push([base, base+1, base+2, col]);
+      faces.push([base, base+2, base+3, col]);
+    };
+    for (let z=0;z<v.d;z++) for (let y=0;y<v.h;y++) for (let x=0;x<v.w;x++){
+      const c = get(x,y,z); if (!c) continue;
+      if (!get(x-1,y,z)) pushQuad([[x,y,z],[x,y,z+1],[x,y+1,z+1],[x,y+1,z]], c);
+      if (!get(x+1,y,z)) pushQuad([[x+1,y+1,z],[x+1,y+1,z+1],[x+1,y,z+1],[x+1,y,z]], c);
+      if (!get(x,y-1,z)) pushQuad([[x+1,y,z],[x+1,y,z+1],[x,y,z+1],[x,y,z]], c);
+      if (!get(x,y+1,z)) pushQuad([[x,y+1,z],[x,y+1,z+1],[x+1,y+1,z+1],[x+1,y+1,z]], c);
+      if (!get(x,y,z-1)) pushQuad([[x,y,z],[x,y+1,z],[x+1,y+1,z],[x+1,y,z]], c);
+      if (!get(x,y,z+1)) pushQuad([[x,y+1,z+1],[x,y,z+1],[x+1,y,z+1],[x+1,y+1,z+1]], c);
+    }
+    // build text
+    let lines=[];
+    lines.push('# Ace of Spades converter — OBJ export');
+    lines.push('# voxels: '+v.countSolid());
+    lines.push('o voxel_model');
+    for (const vt of verts){
+      lines.push('v '+vt.x+' '+vt.y+' '+vt.z+' '+vt.r.toFixed(4)+' '+vt.g.toFixed(4)+' '+vt.b.toFixed(4));
+    }
+    for (const f of faces){
+      lines.push('f '+f[0]+' '+f[1]+' '+f[2]);
+    }
+    ctx.note(verts.length+' vertices, '+faces.length+' triangles');
+    return new TextEncoder().encode(lines.join('\n'));
+  }
+
+  /* ------------------------------------------------- STL binary ------------- */
+  function stlWrite(vox, ctx){
+    const b = vox.bbox(); const v = b ? vox.crop(b) : vox;
+    const tris=[];
+    const get=(x,y,z)=>v.get(x,y,z);
+    const addTri = (p0,p1,p2)=>{
+      // convert AoS (x,y,z down) to STL Y-up: gx=x, gy=d-z, gz=y
+      const cv = (p)=>[p[0], v.d - p[2], p[1]];
+      const a=cv(p0), b=cv(p1), c=cv(p2);
+      // normal
+      const ux=b[0]-a[0], uy=b[1]-a[1], uz=b[2]-a[2];
+      const vx=c[0]-a[0], vy=c[1]-a[1], vz=c[2]-a[2];
+      let nx=uy*vz-uz*vy, ny=uz*vx-ux*vz, nz=ux*vy-uy*vx;
+      const l=Math.hypot(nx,ny,nz)||1; nx/=l; ny/=l; nz/=l;
+      tris.push({n:[nx,ny,nz], v:[a,b,c]});
+    };
+    for (let z=0;z<v.d;z++) for (let y=0;y<v.h;y++) for (let x=0;x<v.w;x++){
+      if (!get(x,y,z)) continue;
+      if (!get(x-1,y,z)){ addTri([x,y,z],[x,y,z+1],[x,y+1,z+1]); addTri([x,y,z],[x,y+1,z+1],[x,y+1,z]); }
+      if (!get(x+1,y,z)){ addTri([x+1,y,z],[x+1,y+1,z],[x+1,y+1,z+1]); addTri([x+1,y,z],[x+1,y+1,z+1],[x+1,y,z+1]); }
+      if (!get(x,y-1,z)){ addTri([x,y,z],[x+1,y,z],[x+1,y,z+1]); addTri([x,y,z],[x+1,y,z+1],[x,y,z+1]); }
+      if (!get(x,y+1,z)){ addTri([x,y+1,z],[x,y+1,z+1],[x+1,y+1,z+1]); addTri([x,y+1,z],[x+1,y+1,z+1],[x+1,y+1,z]); }
+      if (!get(x,y,z-1)){ addTri([x,y,z],[x,y+1,z],[x+1,y+1,z]); addTri([x,y,z],[x+1,y+1,z],[x+1,y,z]); }
+      if (!get(x,y,z+1)){ addTri([x,y,z+1],[x+1,y,z+1],[x+1,y+1,z+1]); addTri([x,y,z+1],[x+1,y+1,z+1],[x,y+1,z+1]); }
+    }
+    const bw = new BW(84+tris.length*50);
+    for (let i=0;i<80;i++) bw.u8(0);
+    bw.u32(tris.length);
+    for (const t of tris){
+      // little endian floats
+      const f32le = (f)=>{ const d=new DataView(new ArrayBuffer(4)); d.setFloat32(0,f,true); bw.u32(d.getUint32(0,true)); };
+      f32le(t.n[0]); f32le(t.n[1]); f32le(t.n[2]);
+      for (const vv of t.v){ f32le(vv[0]); f32le(vv[1]); f32le(vv[2]); }
+      bw.u16(0);
+    }
+    ctx.note(tris.length+' triangles');
+    return bw.out();
+  }
+
+  /* ------------------------------------------------- glb (glTF binary) ------ */
+  function glbWrite(vox, ctx){
+    const b = vox.bbox(); const v = b ? vox.crop(b) : vox;
+    const get=(x,y,z)=>v.get(x,y,z);
+    const positions=[]; // float
+    const colors=[]; // float r g b a
+    const indices=[];
+
+    const addQuad = (p0,p1,p2,p3, col)=>{
+      const r=((col>>>16)&255)/255, g=((col>>>8)&255)/255, bl=(col&255)/255;
+      const cvt = (p)=>[p[0], v.d - p[2], p[1]]; // X, Y-up, Z
+      const base = positions.length/3;
+      for (const p of [p0,p1,p2,p3]){
+        const c=cvt(p);
+        positions.push(c[0],c[1],c[2]);
+        colors.push(r,g,bl,1.0);
+      }
+      indices.push(base, base+1, base+2, base, base+2, base+3);
+    };
+
+    for (let z=0;z<v.d;z++) for (let y=0;y<v.h;y++) for (let x=0;x<v.w;x++){
+      const c=get(x,y,z); if (!c) continue;
+      if (!get(x-1,y,z)) addQuad([x,y,z],[x,y,z+1],[x,y+1,z+1],[x,y+1,z], c);
+      if (!get(x+1,y,z)) addQuad([x+1,y+1,z],[x+1,y+1,z+1],[x+1,y,z+1],[x+1,y,z], c);
+      if (!get(x,y-1,z)) addQuad([x+1,y,z],[x+1,y,z+1],[x,y,z+1],[x,y,z], c);
+      if (!get(x,y+1,z)) addQuad([x,y+1,z],[x,y+1,z+1],[x+1,y+1,z+1],[x+1,y+1,z], c);
+      if (!get(x,y,z-1)) addQuad([x,y,z],[x,y+1,z],[x+1,y+1,z],[x+1,y,z], c);
+      if (!get(x,y,z+1)) addQuad([x,y+1,z+1],[x,y,z+1],[x+1,y,z+1],[x+1,y+1,z+1], c);
+    }
+
+    const posBytes = new Uint8Array(positions.length*4);
+    const colBytes = new Uint8Array(colors.length*4);
+    const idxCount = indices.length;
+    const useU16 = (positions.length/3) < 65535;
+    const idxBytes = new Uint8Array(idxCount*(useU16?2:4));
+
+    const dvPos = new DataView(posBytes.buffer);
+    for (let i=0;i<positions.length;i++) dvPos.setFloat32(i*4, positions[i], true);
+    const dvCol = new DataView(colBytes.buffer);
+    for (let i=0;i<colors.length;i++) dvCol.setFloat32(i*4, colors[i], true);
+    const dvIdx = new DataView(idxBytes.buffer);
+    if (useU16) for (let i=0;i<idxCount;i++) dvIdx.setUint16(i*2, indices[i], true);
+    else for (let i=0;i<idxCount;i++) dvIdx.setUint32(i*4, indices[i], true);
+
+    // align to 4
+    const pad = (n)=> (4 - (n%4))%4;
+    const posPad = pad(posBytes.length), colPad = pad(colBytes.length), idxPad = pad(idxBytes.length);
+    const binLength = posBytes.length+posPad + colBytes.length+colPad + idxBytes.length+idxPad;
+
+    const json = {
+      asset:{version:"2.0", generator:"AoS voxel converter"},
+      scene:0,
+      scenes:[{nodes:[0]}],
+      nodes:[{mesh:0}],
+      meshes:[{primitives:[{attributes:{POSITION:0, COLOR_0:1}, indices:2, mode:4}]}],
+      accessors:[
+        {bufferView:0, componentType:5126, count:positions.length/3, type:"VEC3", max:[v.w, v.d, v.h], min:[0,0,0]},
+        {bufferView:1, componentType:5126, count:colors.length/4, type:"VEC4"},
+        {bufferView:2, componentType: useU16?5123:5125, count:idxCount, type:"SCALAR"}
+      ],
+      bufferViews:[
+        {buffer:0, byteOffset:0, byteLength:posBytes.length},
+        {buffer:0, byteOffset:posBytes.length+posPad, byteLength:colBytes.length},
+        {buffer:0, byteOffset:posBytes.length+posPad+colBytes.length+colPad, byteLength:idxBytes.length}
+      ],
+      buffers:[{byteLength:binLength}],
+      materials:[{pbrMetallicRoughness:{baseColorFactor:[1,1,1,1], metallicFactor:0, roughnessFactor:1}, doubleSided:true, vertexColors:true}]
+    };
+    // primitive material reference
+    json.meshes[0].primitives[0].material = 0;
+
+    const jsonText = JSON.stringify(json);
+    const jsonBytes = new TextEncoder().encode(jsonText);
+    const jsonPad = pad(jsonBytes.length);
+    const totalLen = 12 + 8 + jsonBytes.length+jsonPad + 8 + binLength;
+
+    const out = new BW(totalLen);
+    out.u32(0x46546C67); // 'glTF'
+    out.u32(2);
+    out.u32(totalLen);
+    // JSON chunk
+    out.u32(jsonBytes.length+jsonPad);
+    out.u32(0x4E4F534A);
+    out.raw(jsonBytes);
+    for (let i=0;i<jsonPad;i++) out.u8(0x20);
+    // BIN chunk
+    out.u32(binLength);
+    out.u32(0x004E4942);
+    out.raw(posBytes); for (let i=0;i<posPad;i++) out.u8(0);
+    out.raw(colBytes); for (let i=0;i<colPad;i++) out.u8(0);
+    out.raw(idxBytes); for (let i=0;i<idxPad;i++) out.u8(0);
+
+    ctx.note((positions.length/3)+' verts, '+idxCount/3+' tris — imports directly in Blender, Unity, Godot');
+    return out.out();
+  }
+
+  /* ------------------------------------------------- .ply (ascii) ------------ */
+  function plyWrite(vox, ctx){
+    const b = vox.bbox(); const v = b ? vox.crop(b) : vox;
+    const verts=[];
+    const get=(x,y,z)=>v.get(x,y,z);
+    const addQuad = (p0,p1,p2,p3)=>{
+      const cvt = (p)=>[p[0], v.d - p[2], p[1]];
+      const base = verts.length;
+      for (const p of [p0,p1,p2,p3]) verts.push(cvt(p));
+      return [base, base+1, base+2, base+3];
+    };
+    const faces=[]; // {idx:[], color}
+    for (let z=0;z<v.d;z++) for (let y=0;y<v.h;y++) for (let x=0;x<v.w;x++){
+      const c=v.get(x,y,z); if (!c) continue;
+      if (!get(x-1,y,z)){ const q=addQuad([x,y,z],[x,y,z+1],[x,y+1,z+1],[x,y+1,z]); faces.push({q:[q[0],q[1],q[2]], c}); faces.push({q:[q[0],q[2],q[3]], c}); }
+      if (!get(x+1,y,z)){ const q=addQuad([x+1,y+1,z],[x+1,y+1,z+1],[x+1,y,z+1],[x+1,y,z]); faces.push({q:[q[0],q[1],q[2]], c}); faces.push({q:[q[0],q[2],q[3]], c}); }
+      if (!get(x,y-1,z)){ const q=addQuad([x+1,y,z],[x+1,y,z+1],[x,y,z+1],[x,y,z]); faces.push({q:[q[0],q[1],q[2]], c}); faces.push({q:[q[0],q[2],q[3]], c}); }
+      if (!get(x,y+1,z)){ const q=addQuad([x,y+1,z],[x,y+1,z+1],[x+1,y+1,z+1],[x+1,y+1,z]); faces.push({q:[q[0],q[1],q[2]], c}); faces.push({q:[q[0],q[2],q[3]], c}); }
+      if (!get(x,y,z-1)){ const q=addQuad([x,y,z],[x,y+1,z],[x+1,y+1,z],[x+1,y,z]); faces.push({q:[q[0],q[1],q[2]], c}); faces.push({q:[q[0],q[2],q[3]], c}); }
+      if (!get(x,y,z+1)){ const q=addQuad([x,y+1,z+1],[x,y,z+1],[x+1,y,z+1],[x+1,y+1,z+1]); faces.push({q:[q[0],q[1],q[2]], c}); faces.push({q:[q[0],q[2],q[3]], c}); }
+    }
+    let header=[];
+    header.push('ply');
+    header.push('format ascii 1.0');
+    header.push('comment Ace of Spades converter');
+    header.push('element vertex '+verts.length);
+    header.push('property float x'); header.push('property float y'); header.push('property float z');
+    header.push('element face '+faces.length);
+    header.push('property list uchar int vertex_indices');
+    header.push('property uchar red'); header.push('property uchar green'); header.push('property uchar blue');
+    header.push('end_header');
+    let lines=header.slice();
+    for (const vt of verts) lines.push(vt[0]+' '+vt[1]+' '+vt[2]);
+    for (const f of faces){
+      const c=f.c; const r=(c>>>16)&255, g=(c>>>8)&255, b=c&255;
+      lines.push('3 '+f.q[0]+' '+f.q[1]+' '+f.q[2]+' '+r+' '+g+' '+b);
+    }
+    ctx.note(verts.length+' verts');
+    return new TextEncoder().encode(lines.join('\n'));
+  }
+
+  /* ------------------------------------------------- schematic (MCEdit) ----- */
+  const woolCols = [
+    {id:35,data:0, rgb:[221,221,221]}, {id:35,data:1, rgb:[219,125,62]}, {id:35,data:2, rgb:[179,80,188]},
+    {id:35,data:3, rgb:[107,138,201]}, {id:35,data:4, rgb:[177,166,39]}, {id:35,data:5, rgb:[65,174,56]},
+    {id:35,data:6, rgb:[208,132,153]}, {id:35,data:7, rgb:[64,64,64]}, {id:35,data:8, rgb:[154,161,161]},
+    {id:35,data:9, rgb:[46,110,137]}, {id:35,data:10, rgb:[126,61,181]}, {id:35,data:11, rgb:[46,56,141]},
+    {id:35,data:12, rgb:[79,50,31]}, {id:35,data:13, rgb:[53,70,27]}, {id:35,data:14, rgb:[150,52,48]},
+    {id:35,data:15, rgb:[25,22,22]}
+  ];
+  function nearestWool(col){
+    const r=(col>>>16)&255,g=(col>>>8)&255,b=col&255;
+    let best=0,bd=1e9;
+    for (let i=0;i<woolCols.length;i++){
+      const wc=woolCols[i].rgb;
+      const dr=r-wc[0], dg=g-wc[1], db=b-wc[2];
+      const d=dr*dr+dg*dg+db*db;
+      if (d<bd){bd=d; best=i;}
+    }
+    return woolCols[best];
+  }
+  function nbtString(s){
+    const eb=new TextEncoder().encode(s);
+    const out=new Uint8Array(2+eb.length);
+    out[0]=(eb.length>>8)&255; out[1]=eb.length&255; out.set(eb,2);
+    return out;
+  }
+  function nbtTag(type, name, payload){
+    const ns = nbtString(name);
+    const out = new BW(1+ns.length+payload.length);
+    out.u8(type); out.raw(ns); out.raw(payload);
+    return out.out();
+  }
+  function nbtCompound(name, childrenBytes){
+    const ns = nbtString(name);
+    const out = new BW(1+ns.length+childrenBytes.length+1);
+    out.u8(10); out.raw(ns); out.raw(childrenBytes); out.u8(0);
+    return out.out();
+  }
+  // gzip wrapper using raw deflate from A
+  function gzipWrap(raw){
+    const bw=new BW(10+raw.length+8+64);
+    bw.u8(0x1f); bw.u8(0x8b); bw.u8(8); bw.u8(0);
+    bw.u32(0); // mtime
+    bw.u8(0); bw.u8(255); // xfl, os
+    // raw deflate
+    const def = A.deflateRaw(raw);
+    bw.raw(def);
+    const crc = A.crc32(raw);
+    bw.u32(crc); // crc32 LE
+    bw.u32(raw.length); // isize LE
+    return bw.out();
+  }
+  function schemWrite(vox, ctx){
+    const b = vox.bbox(); const v = b ? vox.crop(b) : vox;
+    const W=v.w, H=v.d, L=v.h; // Height = our depth
+    const total = W*H*L;
+    if (total> 16e6) throw new Error('schematic too large ('+W+'×'+H+'×'+L+')');
+    const blocks = new Uint8Array(total);
+    const dataArr = new Uint8Array(total);
+    // order: (Y * L + Z)*W + X  where Y = height (0 bottom). Our z down: Y = H-1 - ourZ
+    for (let z=0; z<v.d; z++){
+      const Y = H-1 - z;
+      for (let y=0;y<v.h;y++){
+        const Z = y;
+        for (let x=0;x<v.w;x++){
+          const c=v.get(x,y,z); if (!c) continue;
+          const idx = (Y*L + Z)*W + x;
+          const wool = nearestWool(c);
+          blocks[idx]=wool.id;
+          dataArr[idx]=wool.data;
+        }
+      }
+    }
+    // build NBT compound
+    const bw = new BW(total*2+256);
+    const u32be = (v) => { bw.u8((v>>>24)&255); bw.u8((v>>>16)&255); bw.u8((v>>>8)&255); bw.u8(v&255); };
+    // Width short
+    bw.u8(2); let ns=nbtString('Width'); bw.raw(ns); bw.u8((W>>8)&255); bw.u8(W&255);
+    bw.u8(2); ns=nbtString('Height'); bw.raw(ns); bw.u8((H>>8)&255); bw.u8(H&255);
+    bw.u8(2); ns=nbtString('Length'); bw.raw(ns); bw.u8((L>>8)&255); bw.u8(L&255);
+    // Materials
+    bw.u8(8); ns=nbtString('Materials'); bw.raw(ns);
+    let ms=nbtString('Alpha'); bw.raw(ms);
+    // Blocks
+    bw.u8(7); ns=nbtString('Blocks'); bw.raw(ns);
+    u32be(total); bw.raw(blocks);
+    // Data
+    bw.u8(7); ns=nbtString('Data'); bw.raw(ns);
+    u32be(total); bw.raw(dataArr);
+    // Entities, TileEntities empty lists
+    bw.u8(9); ns=nbtString('Entities'); bw.raw(ns); bw.u8(10); u32be(0);
+    bw.u8(9); ns=nbtString('TileEntities'); bw.raw(ns); bw.u8(10); u32be(0);
+    bw.u8(0); // end root compound content
+
+    const rootName = nbtString('Schematic');
+    const outRoot = new BW(1+rootName.length+bw.n);
+    outRoot.u8(10); outRoot.raw(rootName); outRoot.raw(bw.out().subarray(0,bw.n));
+    // Actually our bw already includes tags inside compound without outer type? We built inner tags directly, so wrap:
+    // Simpler: create final raw NBT (compound named Schematic containing inner tags)
+    // Our bw is inner payload, already ended with 0. So root is 10 + name + inner + 0? But inner already ends with 0.
+    // To avoid double 0, we built correctly: root's payload = inner tags + END. We included END.
+    // So final file is root tag: type 10, name 'Schematic', payload = inner
+    // That is outRoot without extra 0 at end (inner already has its END).
+    // The outRoot we just built includes type+name+inner (which ends with 0). So we should return that as raw NBT then gzip.
+
+    const rawNBT = outRoot.out();
+    const gz = gzipWrap(rawNBT);
+    ctx.note('Mapped to wool (16 colours) — closest match per voxel. Size '+W+'×'+H+'×'+L);
+    return gz;
+  }
+
+  /* ------------------------------ register all new formats ------------------- */
+  const EXTRA = [
+    {
+      id:'vox_slab', name:'SLAB6 Vox', ext:'vox', blurb:'Ken Silverman SLAB6 raw .vox (xsiz/column palette)', limit:'256 colours, columns limited to 255 voxels (same as SLAB6). Shares .vox extension with MagicaVoxel — sniff decides.',
+      sniff(u8){
+        if (u8.length<12+768) return 0;
+        const xs=rdU(u8,0), ys=rdU(u8,4), zs=rdU(u8,8);
+        if (xs<=0||xs>1024||ys<=0||ys>1024||zs<=0||zs>256) return 0;
+        // quick sanity: remaining bytes after header minus palette should be plausible
+        const palOff = u8.length-768;
+        let p=12, cols=xs*ys, ok=0;
+        for (let i=0;i<cols && p<palOff;i++){
+          if (p>=palOff) break;
+          const cnt=u8[p++]; if (cnt>0 && p+cnt*3<=palOff){ p+=cnt*3; ok++; } else break;
+        }
+        return ok>0? (p===palOff?1.0:0.8):0;
+      },
+      read:slabRead, write:slabWrite
+    },
+    {
+      id:'glb', name:'glTF Binary', ext:'glb', blurb:'glTF 2.0 binary — imports in Blender, Unity, Godot, Three.js with vertex colours',
+      limit:'face-culled mesh with vertex colours, Y-up (model stands upright).',
+      sniff(u8){ return u8.length>12 && u8[0]===0x67 && u8[1]===0x6C && u8[2]===0x54 && u8[3]===0x46 ? 1:0; },
+      read(u8, ctx){ throw new Error('glb import not yet implemented — export only. Use .obj/.vox as bridge.'); },
+      write:glbWrite
+    },
+    {
+      id:'obj', name:'Wavefront OBJ', ext:'obj', blurb:'Wavefront .obj with vertex colours (Blender, Maya, etc.)',
+      limit:'face-culled, Y-up, one object; colours in vertex colour extension.',
+      sniff(u8){
+        const t = new TextDecoder().decode(u8.subarray(0, Math.min(u8.length, 512)));
+        return /^\s*v\s+-?\d/.test(t) && /f\s+\d/.test(t) ? 0.7:0;
+      },
+      read(u8, ctx){ throw new Error('OBJ import not implemented yet — use .vox/.qb/.kv6 as source.'); },
+      write:objWrite
+    },
+    {
+      id:'stl', name:'STL binary', ext:'stl', blurb:'Binary STL for 3D printing / slicing',
+      limit:'no colours, face-culled triangles, Y-up.',
+      sniff(u8){
+        if (u8.length<84) return 0;
+        // binary STL: header 80, then count
+        const n = rdU(u8,80);
+        return (u8.length===84+n*50)?0.9:0;
+      },
+      read(u8,ctx){ throw new Error('STL import not implemented — export only.'); },
+      write:stlWrite
+    },
+    {
+      id:'ply', name:'Stanford PLY', ext:'ply', blurb:'PLY ascii with per-face colours',
+      limit:'ascii PLY, Y-up.',
+      sniff(u8){
+        const h = String.fromCharCode(...u8.subarray(0, Math.min(40,u8.length)));
+        return h.startsWith('ply')?1:0;
+      },
+      read(u8,ctx){ throw new Error('PLY import not yet implemented.'); },
+      write:plyWrite
+    },
+    {
+      id:'schematic', name:'Minecraft Schematic', ext:'schematic', blurb:'MCEdit .schematic (classic) — maps voxels to wool',
+      limit:'gzipped NBT, wool palette (16 colours), air for empty.',
+      sniff(u8){
+        // gzip magic + NBT root tag 0x0A + name 'Schematic'
+        if (u8.length<10) return 0;
+        if (u8[0]===0x1f && u8[1]===0x8b) return 0.6; // need inflate to be sure, treat as possible
+        return 0;
+      },
+      read: async function(u8, ctx){
+        // try gunzip then parse minimal NBT to extract blocks if possible — for now error with hint
+        throw new Error('Schematic import needs NBT parser — export only for now. Build in MCEdit then convert via .vox.');
+      },
+      write:schemWrite
+    },
+    {
+      id:'json', name:'Voxel JSON', ext:'json', blurb:'Simple JSON list [{x,y,z,color}] — for piqueserver scripts & tools',
+      limit:'plain text, full colour.',
+      sniff(u8){
+        if (u8.length<2) return 0;
+        const t = new TextDecoder().decode(u8.subarray(0, Math.min(u8.length, 200))).trim();
+        return t.startsWith('{') && t.includes('voxels') ? 0.9 : (t.startsWith('[') ? 0.4 : 0);
+      },
+      read:jsonRead, write:jsonWrite
+    }
+  ];
+
+  for (const f of EXTRA) A.register(f);
+
+  // expose for debugging
+  A.EXTRA_FORMATS = EXTRA;
+})();
+
+/* ---------------------------------------------------------------------------
+   Faces of the converter: background, drag & drop, preview, conversion flow.
+   Everything is inline so the page is a single file with no dependencies.
+   --------------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const el = {};
+
+  /* ---------------------------------------------------------------- state */
+  const state = { file: null, format: null, vox: null, result: null, job: 0, preview: null };
+
+  /* ------------------------------------------------------- the background ---
+     Everything below is the background effect: a full screen fragment shader
+     (Perlin noise "waves" that the pointer pushes around) followed by an 8x8
+     ordered-dither pass that prints the halftone grid.  It is the effect the
+     reference page runs on Three.js, rewritten here as plain WebGL so the file
+     stays dependency free.  If WebGL is missing or the shader will not build,
+     a small canvas dot field takes over instead. */
+  const VERT = [
+    'attribute vec2 aPos;',
+    'void main() { gl_Position = vec4(aPos, 0.0, 1.0); }'
+  ].join('\n');
+
+  const FRAG = [
+    'precision highp float;',
+    'uniform vec2 resolution;',
+    'uniform float time;',
+    'uniform vec2 mousePos;',
+    'uniform float mouseRadius;',
+    'uniform vec3 colorA;',
+    'uniform vec3 colorB;',
+    'uniform sampler2D bayer;',
+    'const int OCTAVES = 4;',
+    'const float WAVE_SPEED = 0.05;',
+    'const float WAVE_FREQ = 3.0;',
+    'const float WAVE_AMP = 0.3;',
+    'const float PIXEL_SIZE = 2.0;',
+    'const float COLOR_NUM = 4.0;',
+    '',
+    'vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }',
+    'vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }',
+    'vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }',
+    'vec2 fade2(vec2 t) { return t * t * t * (t * (t * 6.0 - 15.0) + 10.0); }',
+    '',
+    'float cnoise(vec2 P) {',
+    '  vec4 Pi = floor(P.xyxy) + vec4(0.0, 0.0, 1.0, 1.0);',
+    '  vec4 Pf = fract(P.xyxy) - vec4(0.0, 0.0, 1.0, 1.0);',
+    '  Pi = mod289(Pi);',
+    '  vec4 ix = Pi.xzxz;',
+    '  vec4 iy = Pi.yyww;',
+    '  vec4 fx = Pf.xzxz;',
+    '  vec4 fy = Pf.yyww;',
+    '  vec4 i = permute(permute(ix) + iy);',
+    '  vec4 gx = fract(i * (1.0 / 41.0)) * 2.0 - 1.0;',
+    '  vec4 gy = abs(gx) - 0.5;',
+    '  vec4 tx = floor(gx + 0.5);',
+    '  gx = gx - tx;',
+    '  vec2 g00 = vec2(gx.x, gy.x);',
+    '  vec2 g10 = vec2(gx.y, gy.y);',
+    '  vec2 g01 = vec2(gx.z, gy.z);',
+    '  vec2 g11 = vec2(gx.w, gy.w);',
+    '  vec4 norm = taylorInvSqrt(vec4(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));',
+    '  g00 *= norm.x; g01 *= norm.y; g10 *= norm.z; g11 *= norm.w;',
+    '  float n00 = dot(g00, vec2(fx.x, fy.x));',
+    '  float n10 = dot(g10, vec2(fx.y, fy.y));',
+    '  float n01 = dot(g01, vec2(fx.z, fy.z));',
+    '  float n11 = dot(g11, vec2(fx.w, fy.w));',
+    '  vec2 fade_xy = fade2(Pf.xy);',
+    '  vec2 n_x = mix(vec2(n00, n01), vec2(n10, n11), fade_xy.x);',
+    '  return 2.3 * mix(n_x.x, n_x.y, fade_xy.y);',
+    '}',
+    '',
+    'float fbm(vec2 p) {',
+    '  float value = 0.0;',
+    '  float amp = 1.0;',
+    '  for (int i = 0; i < OCTAVES; i++) {',
+    '    value += amp * abs(cnoise(p));',
+    '    p *= WAVE_FREQ;',
+    '    amp *= WAVE_AMP;',
+    '  }',
+    '  return value;',
+    '}',
+    '',
+    'float pattern(vec2 p) {',
+    '  vec2 p2 = p - time * WAVE_SPEED;',
+    '  return fbm(p + fbm(p2));',
+    '}',
+    '',
+    'vec3 toSRGB(vec3 c) {',                       // the renderer encodes the finished frame
+    '  vec3 lo = c * 12.92;',
+    '  vec3 hi = 1.055 * pow(max(c, vec3(0.0)), vec3(1.0 / 2.4)) - 0.055;',
+    '  return mix(lo, hi, step(vec3(0.0031308), c));',
+    '}',
+    '',
+    'void main() {',
+    '  vec2 frag = gl_FragCoord.xy;',
+    '  vec2 uv = frag / resolution.xy;',
+    '  uv -= 0.5;',
+    '  uv.x *= resolution.x / resolution.y;',
+    '  float f = pattern(uv);',
+    '  vec2 mouseNDC = (mousePos / resolution - 0.5) * vec2(1.0, -1.0);',
+    '  mouseNDC.x *= resolution.x / resolution.y;',
+    '  vec2 d = uv - mouseNDC;',
+    '  float distSq = dot(d, d);',
+    '  float effect = exp(-distSq / (mouseRadius * mouseRadius * 0.5));',
+    '  f -= 2.5 * effect;',
+    // two inks, as in the logo: a second, slower noise decides which of the pair each
+    // region is printed in, so the field stays genuinely two tone (green blocks, red
+    // lettering) instead of one averaged colour.  The wave field then sets how bright
+    // that ink is, so both tones fall to black in the voids.
+    '  vec2 pq = uv + vec2(11.3 + time * 0.010, -4.7 - time * 0.008);',
+    '  float plate = fbm(pq * 1.5);',
+    '  vec3 hue = plate > 0.5 ? colorB : colorA;',
+    '  vec3 col = hue * pow(clamp(f * 1.15, 0.0, 1.0), 1.55);',
+    // the reference dithers in a post pass: bayer 8x8, 4 levels, 2 px blocks
+    '  vec2 coord = floor(frag / PIXEL_SIZE);',
+    '  float threshold = texture2D(bayer, (mod(coord, 8.0) + 0.5) / 8.0).r - 0.25;',
+    '  float steps = 1.0 / (COLOR_NUM - 1.0);',
+    '  col = clamp(col + threshold * steps - 0.2, 0.0, 1.0);',
+    '  col = floor(col * (COLOR_NUM - 1.0) + 0.5) / (COLOR_NUM - 1.0);',
+    '  gl_FragColor = vec4(toSRGB(col), 1.0);',
+    '}'
+  ].join('\n');
+
+  const BAYER8 = [0, 48, 12, 60, 3, 51, 15, 63, 32, 16, 44, 28, 35, 19, 47, 31, 8, 56, 4, 52, 11, 59, 7, 55,
+    40, 24, 36, 20, 43, 27, 39, 23, 2, 50, 14, 62, 1, 49, 13, 61, 34, 18, 46, 30, 33, 17, 45, 29,
+    10, 58, 6, 54, 9, 57, 5, 53, 42, 26, 38, 22, 41, 25, 37, 21];
+
+  /* the two colours of the Ace of Spades logo, read straight off the artwork:
+     #82a600 green and #f03505 red */
+  const COLOR_A = [130 / 255, 166 / 255, 0];
+  const COLOR_B = [240 / 255, 53 / 255, 5 / 255];
+  const MOUSE_RADIUS = 0.175;              // 70% of the reference 0.25, so the dark blob is smaller
+
+  function background() {
+    const c = $('bg');
+    let gl = null;
+    try {
+      gl = c.getContext('webgl', { antialias: false, alpha: false, depth: false, stencil: false }) ||
+           c.getContext('experimental-webgl');
+    } catch (e) { gl = null; }
+    if (gl && paintGL(gl, c)) return;
+    fallbackField(c);                       // no WebGL (or a driver that refuses): use canvas 2d
+  }
+
+  function paintGL(gl, c) {
+    const shader = (type, src) => {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+        if (window.console) console.warn('shader: ' + gl.getShaderInfoLog(s));
+        return null;
+      }
+      return s;
+    };
+    const vs = shader(gl.VERTEX_SHADER, VERT), fs = shader(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return false;
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      if (window.console) console.warn('program: ' + gl.getProgramInfoLog(prog));
+      return false;
+    }
+    gl.useProgram(prog);
+    const quad = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, quad);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'aPos');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const tex = gl.createTexture();                        // the 8x8 bayer table
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, 8, 8, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, new Uint8Array(BAYER8));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+    const u = {
+      resolution: gl.getUniformLocation(prog, 'resolution'),
+      time: gl.getUniformLocation(prog, 'time'),
+      mousePos: gl.getUniformLocation(prog, 'mousePos'),
+      mouseRadius: gl.getUniformLocation(prog, 'mouseRadius'),
+      colorA: gl.getUniformLocation(prog, 'colorA'),
+      colorB: gl.getUniformLocation(prog, 'colorB'),
+      bayer: gl.getUniformLocation(prog, 'bayer')
+    };
+    gl.uniform1f(u.mouseRadius, MOUSE_RADIUS);
+    gl.uniform3f(u.colorA, COLOR_A[0], COLOR_A[1], COLOR_A[2]);
+    gl.uniform3f(u.colorB, COLOR_B[0], COLOR_B[1], COLOR_B[2]);
+    gl.uniform1i(u.bayer, 0);
+
+    const mouse = { x: -1e4, y: -1e4, tx: -1e4, ty: -1e4 };   // smoothed, in device pixels
+    let dpr = 1;
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.max(1, Math.round(c.clientWidth * dpr));
+      const h = Math.max(1, Math.round(c.clientHeight * dpr));
+      if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
+      gl.viewport(0, 0, w, h);
+    }
+    window.addEventListener('pointermove', (e) => {
+      const r = c.getBoundingClientRect();
+      mouse.tx = (e.clientX - r.left) * dpr;
+      mouse.ty = (e.clientY - r.top) * dpr;
+      if (mouse.x < -1e3) { mouse.x = mouse.tx; mouse.y = mouse.ty; }   // no jump on the first move
+    }, { passive: true });
+    window.addEventListener('pointerleave', () => { mouse.tx = -1e4; mouse.ty = -1e4; });
+
+    const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const start = (window.performance && performance.now()) || Date.now();
+    const now = () => ((window.performance && performance.now()) || Date.now()) - start;
+    function frame() {
+      resize();
+      const t = still ? 12 : now() / 1000;
+      mouse.x += (mouse.tx - mouse.x) * 0.12;                          // a little inertia
+      mouse.y += (mouse.ty - mouse.y) * 0.12;
+      gl.uniform2f(u.resolution, c.width, c.height);
+      gl.uniform1f(u.time, t);
+      gl.uniform2f(u.mousePos, mouse.x, mouse.y);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      if (still) return;
+      requestAnimationFrame(frame);
+    }
+    window.addEventListener('resize', resize);
+    frame();
+    return true;
+  }
+
+  /* a small isometric dot field, used only when WebGL cannot run */
+  function fallbackField(c) {
+    const ctx = c.getContext('2d');
+    let W = 0, H = 0, dpr = 1, tile = null, size = 260;
+    const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+    function build() {
+      const s = 34, rowH = s * Math.sin(Math.PI / 3), h = rowH * 0.5, w = s * 0.5;
+      tile = document.createElement('canvas'); tile.width = tile.height = size;
+      const g = tile.getContext('2d');
+      g.fillStyle = 'rgba(130,166,0,0.30)';
+      for (let y = 0; y < size + rowH; y += rowH) for (let x = 0; x < size + s; x += s) {
+        const off = (Math.round(y / rowH) % 2) ? w : 0;
+        g.beginPath(); g.arc(x + off, y, 1.1, 0, Math.PI * 2); g.fill();
+      }
+    }
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = c.clientWidth; H = c.clientHeight;
+      c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build();
+    }
+    let t0 = (window.performance && performance.now()) || 0;
+    function frame(nowMs) {
+      const t = ((nowMs || 0) - t0) / 1000;
+      mouse.x += (mouse.tx - mouse.x) * 0.05; mouse.y += (mouse.ty - mouse.y) * 0.05;
+      ctx.clearRect(0, 0, W, H);
+      const pat = ctx.createPattern(tile, 'repeat');
+      ctx.save();
+      ctx.globalAlpha = 0.6;
+      ctx.translate(-(size / 2) + mouse.x * 16 + t * 6, -(size / 2) + mouse.y * 16 + t * 3);
+      ctx.fillStyle = pat;
+      ctx.fillRect(-size * 2, -size * 2, W + size * 4, H + size * 4);
+      ctx.restore();
+      requestAnimationFrame(frame);
+    }
+    window.addEventListener('pointermove', (e) => {
+      mouse.tx = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouse.ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+    window.addEventListener('resize', resize);
+    resize();
+    requestAnimationFrame(frame);
+  }
+
+  /* --------------------------------------------------------- voxel preview */
+  function preview(canvas, vox) {
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const box = canvas.parentElement.getBoundingClientRect();
+    const W = Math.max(180, Math.min(620, Math.round(box.width - 2)));
+    const H = Math.max(190, Math.min(440, Math.round(W * 0.78)));
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    let v = vox;
+    const box0 = v.bbox();
+    if (!box0) return { cancel() {} };
+    v = v.crop(box0);
+    /* big volumes are thinned until they are quick to draw, never dumped */
+    for (let guard = 0; guard < 6 && v.countSolid() > 200000; guard++) {
+      v = v.resample(Math.max(1, v.w >> 1), Math.max(1, v.h >> 1), Math.max(1, v.d >> 1));
+    }
+    const { w, h, d, cells } = v;
+    const solid = (x, y, z) => x >= 0 && y >= 0 && z >= 0 && x < w && y < h && z < d && !!cells[x + w * (y + h * z)];
+
+    /* --------------------------------------------------------------- framing
+       A voxel covers a hexagon of 2s by 2s, so a model of w by h by d covers
+       exactly (w+h)s across and ((w+h)/2 + d)s down. Sizing and centring by
+       those two numbers keeps any shape — tall, flat or long — in the middle
+       of the canvas and wholly inside it. */
+    const s = Math.max(0.05, Math.min((W - 20) / (w + h), (H - 20) / ((w + h) * 0.5 + d)));
+    const ox = W / 2 + (h - w) * s * 0.5;
+    const oy = H / 2 - ((w + h) * 0.25 + d * 0.5) * s;
+    const PX = (x, y) => ox + (x - y) * s;                 /* screen x of a grid corner */
+    const PY = (x, y, z) => oy + ((x + y) * 0.5 + z) * s;  /* screen y of a grid corner */
+
+    /* Draw order. The camera looks along (1,1,-1), so a voxel's distance from
+       the eye is x+y-z, and painting far to near is exact: voxels that share a
+       distance are never closer than touching, and anything nearer covers what
+       is behind it. The old code sorted by x+y+z, which put the wrong voxel in
+       front whenever a model ran diagonally — thin shapes came out shredded. */
+    const order = [];
+    for (let z = 0; z < d; z++) for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      if (!solid(x, y, z)) continue;
+      order.push(x, y, z, x + y - z);
+    }
+    const seq = [];
+    for (let n = 0; n < order.length; n += 4) seq.push(n);
+    seq.sort((a, b) => order[a + 3] - order[b + 3] || (order[a + 2] - order[b + 2]));
+
+    const rgb = (c, k) => 'rgb(' + (((c >>> 16) & 255) * k | 0) + ',' + (((c >>> 8) & 255) * k | 0) + ',' + ((c & 255) * k | 0) + ')';
+    const rhombus = (x0, y0, x1, y1, x2, y2, x3, y3) => {
+      ctx.beginPath();
+      ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.lineTo(x2, y2); ctx.lineTo(x3, y3);
+      ctx.closePath(); ctx.fill();
+    };
+    ctx.lineWidth = 0.7;
+    ctx.strokeStyle = 'rgba(0,0,0,0.16)';
+
+    for (const n of seq) {
+      const x = order[n], y = order[n + 1], z = order[n + 2], c = cells[x + w * (y + h * z)];
+      const X = PX(x, y), Y = PY(x, y, z);
+      if (!solid(x, y, z - 1)) {                           /* roof */
+        ctx.fillStyle = rgb(c, 1);
+        rhombus(X, Y, X + s, Y + s * 0.5, X, Y + s, X - s, Y + s * 0.5);
+        ctx.stroke();
+      }
+      if (!solid(x + 1, y, z)) {                           /* wall facing east */
+        ctx.fillStyle = rgb(c, 0.72);
+        rhombus(X + s, Y + s * 0.5, X + s, Y + s * 1.5, X, Y + s * 2, X, Y + s);
+        ctx.stroke();
+      }
+      if (!solid(x, y + 1, z)) {                           /* wall facing south */
+        ctx.fillStyle = rgb(c, 0.5);
+        rhombus(X - s, Y + s * 0.5, X, Y + s, X, Y + s * 2, X - s, Y + s * 1.5);
+        ctx.stroke();
+      }
+    }
+  }
+  const css = (c) => 'rgb(' + ((c >>> 16) & 255) + ',' + ((c >>> 8) & 255) + ',' + (c & 255) + ')';
+
+  /* ------------------------------------------------------------ file input */
+  function bindDrop() {
+    const zone = $('drop');
+    const open = () => $('file').click();
+    zone.addEventListener('click', open);
+    zone.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    $('file').addEventListener('change', (e) => { if (e.target.files[0]) accept(e.target.files[0]); e.target.value = ''; });
+    let depth = 0;
+    const over = (on) => {
+      document.body.classList.toggle('dragging', on);
+      zone.classList.toggle('over', on);
+    };
+    window.addEventListener('dragenter', (e) => { e.preventDefault(); depth++; over(true); });
+    window.addEventListener('dragover', (e) => { e.preventDefault(); });
+    window.addEventListener('dragleave', (e) => { e.preventDefault(); if (--depth <= 0) { depth = 0; over(false); } });
+    window.addEventListener('drop', (e) => {
+      e.preventDefault(); depth = 0; over(false);
+      const f = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (f) accept(f);
+    });
+  }
+
+  async function accept(file) {
+    const job = ++state.job;
+    el.status.textContent = 'reading ' + file.name + '…';
+    el.status.classList.remove('error');
+    try {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const res = await AOSC.readBytes(bytes);
+      if (job !== state.job) return;
+      state.file = file; state.vox = res.vox; state.format = res.format; state.result = null;
+      el.status.textContent = '';
+      show(res, file);
+    } catch (e) {
+      if (job !== state.job) return;
+      fail(e.message || String(e));
+    }
+  }
+
+  function fail(msg) {
+    el.status.textContent = msg;
+    el.status.classList.add('error');
+  }
+
+  function show(res, file) {
+    const v = res.vox;
+    el.panel.hidden = false;
+    el.name.textContent = file.name;
+    el.stats.innerHTML = stat('size', v.w + ' × ' + v.h + ' × ' + v.d) + stat('voxels', v.countSolid().toLocaleString()) +
+      stat('colours', v.colors().length.toLocaleString());
+    el.notes.innerHTML = (res.notes || []).map((n) => '<li>' + esc(n) + '</li>').join('');
+    el.notes.hidden = !(res.notes && res.notes.length);
+    el.mapScale.hidden = true;
+    el.mapScaleLabel.hidden = true;
+    // target list: everything except the format we read, with the lossy hint in the label
+    el.target.innerHTML = AOSC.FORMATS.slice().sort((a, b) => a.id === state.format.id ? 1 : b.id === state.format.id ? -1 : 0)
+      .map((f) => '<option value="' + f.id + '">.' + f.ext + '</option>').join('');
+    el.target.value = 'kv6';
+    updateTarget();
+    el.panel.classList.remove('pop'); void el.panel.offsetWidth; el.panel.classList.add('pop');
+    if (state.preview) state.preview.cancel();
+    state.preview = raf(() => preview(el.canvas, v));
+    requestAnimationFrame(() => el.panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' }));
+  }
+  const stat = (k, v) => '<div class="stat"><span>' + k + '</span><b>' + esc(String(v)) + '</b></div>';
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const raf = (fn) => { const id = requestAnimationFrame(fn); return { cancel: () => cancelAnimationFrame(id) }; };
+
+  function updateTarget() {
+    el.mapScale.hidden = true;
+    el.mapScaleLabel.hidden = true;
+    el.convert.disabled = false;
+    el.download.hidden = true;
+    const fmt = AOSC.FORMATS.find((f) => f.id === el.target.value);
+    const hint = fmt ? (fmt.limit || '') : '';
+    el.warn.textContent = hint;
+    el.warn.hidden = !hint;
+  }
+
+  async function convert() {
+    if (!state.vox) return;
+    const job = ++state.job;
+    el.convert.classList.add('busy');
+    el.convert.disabled = true;
+    el.status.classList.remove('error');
+    el.status.textContent = 'converting…';
+    await new Promise((r) => setTimeout(r, 16));           // let the button paint
+    try {
+      const target = el.target.value;
+      const opts = target === 'vxl' ? { scale: 'fit' } : {};
+      const out = await AOSC.writeBytes(state.vox, target, opts);
+      if (job !== state.job) return;
+      state.result = out;
+      const base = (state.file.name || 'model').replace(/\.[^.]+$/, '');
+      const size = out.bytes.length < 1024 ? out.bytes.length + ' B' :
+        out.bytes.length < 1048576 ? (out.bytes.length / 1024).toFixed(1) + ' KB' :
+        (out.bytes.length / 1048576).toFixed(2) + ' MB';
+      el.status.textContent = '';
+      el.result.innerHTML = stat('result', size) + stat('format', '.' + out.ext);
+      el.result.hidden = false;
+      el.download.hidden = false;
+      el.download.textContent = 'Download .' + out.ext;
+      el.download.dataset.name = base + '.' + out.ext;
+      el.onotes.innerHTML = (out.notes || []).map((n) => '<li>' + esc(n) + '</li>').join('');
+      el.onotes.hidden = !(out.notes && out.notes.length);
+      el.convert.classList.remove('busy');
+      el.convert.disabled = false;
+    } catch (e) {
+      if (job !== state.job) return;
+      el.convert.classList.remove('busy');
+      el.convert.disabled = false;
+      el.result.hidden = true;
+      fail(e.message || String(e));
+    }
+  }
+
+  function download() {
+    if (!state.result) return;
+    const blob = new Blob([state.result.bytes], { type: 'application/octet-stream' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = el.download.dataset.name;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+  }
+
+  /* ------------------------------------------------------------------- init */
+  function init() {
+    for (const id of ['bg', 'drop', 'file', 'panel', 'name', 'stats', 'notes', 'canvas',
+                      'target', 'mapScale', 'mapScaleLabel', 'convert', 'download', 'status', 'result', 'onotes', 'warn']) el[id] = $(id);
+    background();
+    bindDrop();
+    el.convert.addEventListener('click', convert);
+    el.target.addEventListener('change', updateTarget);
+    el.download.addEventListener('click', download);
+    el.panel.hidden = true;
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !el.panel.hidden && document.activeElement === el.target) convert();
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+</script>
+</body>
+</html>
